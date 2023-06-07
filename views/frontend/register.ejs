@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('common/head.ejs')-%>
+  <title>Register</title>
+</head>
+<body>
+    <%- include('common/header.ejs')-%>
+  <h1>Register</h1>
+  <form method="POST" action="/register">
+    <div>
+      <label for="username">Email</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <option value="admin">Admin</option>
+        <option value="faculty">Faculty</option>
+        <option value="staff">Staff</option>
+      </select>
+    </div>
+    <button type="submit">Register</button>
+    <h6>Already have an acccount?</h6>
+    <button type="submit"> <a href="/login" >Login</a></button>
+  </form>
+  <%- include('common/footer.ejs')-%>
+</body>
+</html>

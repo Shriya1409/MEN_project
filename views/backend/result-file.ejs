@@ -1,0 +1,92 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Pages</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your contente -->
+
+               <h1>All Pages</h1>
+            
+               
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Photo</th>
+                        <th>Page URL</th>
+                        <th>Navigation</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Keyword</th>
+                        <th>Page Heading</th>
+                        <th>Page Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%x.forEach((y)=>{%>
+                     <tr>
+                        <td>
+                          <% if(y.pagePhotoo){ %>
+                              <img src="/backend/results/<%= y.pagePhotoo%>" width="100">
+                          <% } else { %>
+                              <img src="/backend/results/no_image.jpg" width="100">
+                          <% } %>
+                          </td>
+                        <td><%= y.pageUrll%></td>
+                        <td><%=y.pageNavTextt%></td>
+                        <td><%=y.pageTitlee%></td>
+                        <td> <%=y.pageMetaDescriptionn%></td>
+                        <td> <%=y.pageMetaKeywordd%></td>
+                        <td> <%=y.pageHeadingg%></td>
+                        <td> <%=y.pageDetailss.slice(0, 10)%></td>
+                        
+                        <td>  <a class="btn btn-primary" href="/result/edit-result/<%= y.pageUrll%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/result/delete-result/<%= y.pageUrll%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                           </form>
+                        </td>
+                     </tr>
+                     <%x})%>
+                    
+                  </tbody>
+               </table>
+                 
+
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-page/">Add More Pages</a> </center>
+       
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      

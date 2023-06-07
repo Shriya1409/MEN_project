@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+
+    <title><%=x.pageTitle%></title>
+    <meta name="description" content="<%=x.pageMetaDescription%>" />
+    <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
+  </head>
+  <body>
+    
+    <%- include('common/header.ejs')-%>
+
+    <%if(x.pagePhoto){ %>
+    <img src="/backend/images/<%=x.pagePhoto%>" width="100%" height="400px">
+  <%} %>
+      <div class="container">
+    <h1><%=x.pageHeading-%></h1>
+    <%-x.pageDetails%>
+    </div>
+
+    <%- include('common/footer.ejs')-%>
+
+  </body>
+</html>

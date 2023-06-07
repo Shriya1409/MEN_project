@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Form Data</title>
+</head>
+<body>
+  <h1>Form Data</h1>
+
+  <% formData.forEach(form => { %>
+    <div>
+      <h2>Entry <%= form._id %></h2>
+      <p>Editor Data: <%= form.page_Details %></p>
+      <!-- <p>Input Field: <%= form.inputField %></p>
+      <p>Textarea Field: <%= form.textareaField %></p> -->
+    </div>
+  <% }); %>
+</body>
+</html>

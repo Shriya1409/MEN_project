@@ -1,0 +1,58 @@
+<script src="/backend/js/bootstrap.bundle.min.js"></script>
+<script src="/backend/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/backend/js/datatables.min.css"/>
+<script type="text/javascript" src="/backend/js/datatables.min.js"></script>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+       $('#dataTable').DataTable();
+        rowReorder: true
+     });
+   </script>
+
+<script src="/backend/ckeditor/ckeditor.js"></script>
+<!-- <script src="/backend/ckeditor/ckfinder/ckfinder.js"></script> -->
+<!-- <script src="/backend/ckfinder/ckfinder.js"></script> -->
+
+
+<script type="text/javascript">
+CKEDITOR.replace( 'editor',
+  {
+   extraPlugins : 'slideshow',
+   extraPlugins: 'powrformbuilder',
+   extraPlugins: 'powrmultislider',
+   filebrowserBrowseUrl:'/backend/ckfinder/ckfinder.html',//upload location
+   filebrowserUploadMethod:'form',
+   filebrowserUploadUrl:'/upload'//route
+  
+   
+  });
+  
+  CKEDITOR.plugins.addExternal('powrmultislider', "https://cdn.jsdelivr.net/gh/superpowr/powr_for_ckeditor4/powrmultislider/", 'plugin.js');
+  CKEDITOR.plugins.addExternal('powrformbuilder', "https://cdn.jsdelivr.net/gh/superpowr/powr_for_ckeditor4/powrformbuilder/", 'plugin.js');
+   // CKFinder.setupCKEditor( editorr );
+</script>
+
+<script type="text/javascript">
+   // Assuming you have a button with id "submitBtn" for form submission
+
+</script>
+
+</body>
+</html>
+<!-- config.filebrowserBrowseUrl: './ckeditor/ckfinder/ckfinder.html',
+   config. filebrowserImageBrowseUrl: './ckeditor/ckfinder/ckfinder.html?type=Images',
+    config.filebrowserFlashBrowseUrl: './ckeditor/ckfinder/ckfinder.html?type=Flash',
+    config.filebrowserUploadUrl: './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    config.filebrowserImageUploadUrl: './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    config.filebrowserFlashUploadUrl: './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash' -->
+ <!-- <script>
+	CKEDITOR.replace( 'editor', {
+		extraPlugins: 'codesnippet',
+		codeSnippet_theme: 'monokai_sublime',
+		height: 400
+	})
+   </script> -->
+
+	
+
