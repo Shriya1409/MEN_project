@@ -1,0 +1,119 @@
+
+
+/* .herocurve {
+    background-color: var(--overlay);
+    color: white;
+    height: 200px;
+    width: 100%;
+    position: relative;
+} */
+
+.herocurve {
+    height: 29rem;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* background-image: url("/public/backend/images/HomeImg5.png") no-repeat top/cover; */
+     /* z-index: -1; */
+}
+
+.flex{
+    display: flex;
+    height: 80px;
+}
+.flex-top{
+    display: flex;
+}
+.justify-content-space-between{
+    justify-content: space-between;
+}
+.hr{
+    background-color: darkslateblue;
+}
+.bg-navbar{
+      /* background-color: darkslateblue;   */
+     position: absolute;
+     height: 13rem;
+    width: 100%;
+    left:0;
+    right: 0;
+    /* z-index: 2;  */
+    transition: .3s ease-in;
+    /* overflow: hidden; */
+    /* background: transparent;  */
+}
+.nav-bg {
+     background-color: rgba(5,9,34,255); 
+}
+.plr-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ptb-20{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.plr-2{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.ptb-3{
+    padding-top: 0px;
+    padding-bottom: 3px;
+}
+.pl-5{
+    padding-left: 30px;
+    padding-top: 40px;
+    padding-right: 30px;
+    font-size: 19px;
+}
+.pl-2{
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    font-size: 19px;
+}
+.pl-email{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+.pl-phone{
+    padding-left: 400px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+.nav-links {
+    cursor: pointer;
+}
+.nav-links:hover {
+    color: burlywood;
+}
+.link {
+    text-decoration: none;
+    color:white;
+}
+.link:hover {
+    color: burlywood;
+}
+.dropdown-menuu {
+     padding-left: 20px; 
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.icons {
+    color: white;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-left:10px;
+  }
