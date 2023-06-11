@@ -1,54 +1,109 @@
-<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand " style=" color:black;" href="/">GEC</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <div class="d-flex">
-          <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link" style=" color:black;" href="/">Home
-                </a>
-              </li></ul>
-     </div>
-        <ul class="navbar-nav me-auto">
-         
-           <% navdata.forEach((y) => { %>
-                <li class="nav-item"><a style=" color:black;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
-           <% }) %>
-          
+  
+  <div class=' bg-navbar' style=" background-image: url('/backend/images/HomeImg5.png'); padding-bottom: 1rem; padding-top: 0.5rem;">
 
-           
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li> -->
-        </ul>
+    <div class='flex-top' style="flex: 1; flex-direction: row; display: flex;">
+      
 
-        <div class="d-flex">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link" style=" color:black;" href="/login">Login
-                  </a>
-                </li></ul>
-       </div>
+      <div class='pl-phone nav-links' style="color: white; margin-left: 35rem;">
+        <a>
+        
+          91-832-2336301/401/303/302
+        </a>
+      </div>
+      <div class='pl-email nav-links'  style="color: white; margin-left: 2rem;">
+        <a>
+        
+          acad@gec.ac.in
+        </a> 
+      </div>
+
+    </div>
+
+
+
+
+    <hr
+      style=" border-color: white;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 1rem; "
+    />
+
+
+    <div class='flex justify-content-space-between   plr-10 ptb-20'>
+      <div class="GEClogo" style=" flex: 1; flex-direction: row; display: flex; ">
+        <div
+          style=" 
+          background-image: url('/backend/image/GecLogo.png');
+            background-size: cover;
+            height: 7rem;
+            width: 8rem;
+            top: 0;
+            color: #000000;
+            object-fit: contain;"
+        >
+        </div>
+
+        <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; " >
+          <p style="color: white; font-size: 1rem; margin-bottom: 0;" >
+            Government of Goa
+          </p>
+          <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px; margin-top: 10px;">Goa College of Engineering</h3>
+          <p style="color: white; font-size: 1rem; margin-bottom: 0;">
+            Farmagudi, Goa
+          </p>
+        </div>
+
+        <div
+        style=" 
+          background-image: url('/backend/image/GoaLogo.png');
+            background-size: cover;
+            height: 7rem;
+            width: 7rem;
+            top: 0;
+            color: #000000;
+            object-fit: contain;"
+          >
+        </div>
+     
+
+
+      
+
+      <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; display: flex; " >
+        <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.2rem; text-decoration: none;" class="nav-link" href="/">Home</a></li>
+        <% navdata.forEach((y) => { %>
+          <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.2rem; text-decoration: none;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
+          <% }) %> 
+          </div>
+      
+        </div>
+
+
 
       </div>
+
     </div>
-  </nav>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

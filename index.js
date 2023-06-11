@@ -63,7 +63,7 @@ let Form = require('./model/formModel')
 //   res.sendFile(__dirname + '/index.html');
 // });
 
-
+let plcmtModel=require('./model/plcmtModel');
 
 let pageModel = require('./model/pageModel')
 
@@ -73,11 +73,16 @@ let pageroute = require('./route/backend/page')
 let resultroute = require('./route/backend/result')
 let addpageroute = require('./route/backend/add-page')
 let addresultroute = require('./route/backend/add-result')
+let plcmtroute= require('./route/backend/placement')
+let  addplcmtroute= require('./route/backend/add-placement')
+
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
 app.use('/result', resultroute)
 app.use('/add-page', addpageroute)
 app.use('/add-result', addresultroute)
+app.use('/placement', plcmtroute)
+app.use('/add-placement', addplcmtroute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)
