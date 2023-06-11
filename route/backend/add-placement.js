@@ -1,4 +1,4 @@
-let express = require('express');
+let express = require('express')
 let multer = require('multer')
 const plcmtModel = require('../../model/plcmtModel');
 let router = express();
