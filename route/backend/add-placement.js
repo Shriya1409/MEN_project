@@ -40,7 +40,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('page_Photo'), (req,res) => {
-    plcmtModel.findOne({pageUrl: req.body.page_Url})
+    plcmtModel.findOne({plcmtUrl: req.body.page_Url})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
@@ -51,14 +51,14 @@ router.post('/', upload.single('page_Photo'), (req,res) => {
             if(!req.file) {
 
                 plcmtModel.create({
-                    pageUrl: req.body.page_Url,
-                    pageNavText: req.body.page_Nav_Text,
-                    pageTitle: req.body.page_Title,
-                    pageMetaDescription: req.body.page_Meta_Description,
-                    pageMetaKeyword: req.body.page_Meta_Keyword,
-                    pageHeading: req.body.page_Heading,
+                    plcmtUrl: req.body.page_Url,
+                    plcmtNavText: req.body.page_Nav_Text,
+                    plcmtTitle: req.body.page_Title,
+                    plcmtMetaDescription: req.body.page_Meta_Description,
+                    plcmtMetaKeyword: req.body.page_Meta_Keyword,
+                    plcmtHeading: req.body.page_Heading,
                   //  pagePhoto: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    plcmtDetails: req.body.page_Details
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -68,14 +68,14 @@ router.post('/', upload.single('page_Photo'), (req,res) => {
             } else {
         
                 plcmtModel.create({
-                    pageUrl: req.body.page_Url,
-                    pageNavText: req.body.page_Nav_Text,
-                    pageTitle: req.body.page_Title,
-                    pageMetaDescription: req.body.page_Meta_Description,
-                    pageMetaKeyword: req.body.page_Meta_Keyword,
-                    pageHeading: req.body.page_Heading,
-                    pagePhoto: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    plcmtUrl: req.body.page_Url,
+                    plcmtNavText: req.body.page_Nav_Text,
+                    plcmtTitle: req.body.page_Title,
+                    plcmtMetaDescription: req.body.page_Meta_Description,
+                    plcmtMetaKeyword: req.body.page_Meta_Keyword,
+                    plcmtHeading: req.body.page_Heading,
+                    plcmtPhoto: req.file.filename,
+                    plcmtDetails: req.body.page_Details
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')

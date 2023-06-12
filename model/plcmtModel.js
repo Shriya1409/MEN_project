@@ -1,35 +1,35 @@
 let mongoose = require("mongoose");
 
 let plcmtModelSchema = mongoose.Schema({
-    pageUrl :{
+    plcmtUrl :{
         type:String,
         required:true
     },
-    pageNavText : {
+    plcmtNavText : {
         type:String,
         required:false
     },
-    pageTitle :{
+    plcmtTitle :{
         type:String,
         required:true
     },
-    pageMetaDescription : {
+    plcmtMetaDescription : {
         type:String,
         required:false
     },
-    pageMetaKeyword : {
+    plcmtMetaKeyword : {
         type:String,
         required:false
     },
-    pageHeading : {
+    plcmtHeading : {
         type:String,
         required:false
     },
-    pagePhoto : {
+    plcmtPhoto : {
         type:String,
         
     },
-    pageDetails : {
+    plcmtDetails : {
         type:String,
         required: false
     },
