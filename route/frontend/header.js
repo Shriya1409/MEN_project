@@ -1,6 +1,27 @@
 let express =  require('express')
 let pageModel = require('../../model/pageModel')
+let deptModel = require('../../model/deptModel')
 let router = express()
+
+deptModel.find({})
+    .then((p)=> {
+        router.locals.deptdata = p;
+    })
+    .catch((q) => {
+        console.log(q)
+    })
+
+router.use((req, res, next) => {
+    deptModel.find({})
+        .then((p) => {
+            res.locals.deptdata = p; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((q) => {
+            console.log(q)
+        })
+    next()
+})
 
 pageModel.find({})
     .then((x)=> {
@@ -21,6 +42,7 @@ router.use((req, res, next) => {
         })
     next()
 })
+
 
 router.get('/', (req,res) => {
     pageModel.find({})
@@ -64,6 +86,52 @@ router.get('/', (req,res) => {
     })
     .catch((y) => {
         console.log(y)
+    })
+
+ })
+
+
+
+//  router.get('/:id', (req,res) => {
+    //         pageModel.findOne({pageUrl: req.params.id})
+    //         .then((x) => {
+    //            if(x){
+    //             res.render('../views/frontend/dynamic-page',{x})
+    //            }
+    //            else{
+    //             res.redirect('/')
+    //            }
+    //         })
+        
+    //         .catch((y) => { 
+    //             console.log(y)
+    //         })
+    //     })
+
+
+
+ router.get('/department/:dept', (req,res) => {
+    deptModel.findOne({deptUrl: req.params.dept})
+    .then((p) => {
+       if(p){
+
+        //  const extractValue = p.deptUrl;
+        //  if(extractValue) {
+        // if(extractValue === 'result.ejs') {
+        //   res.render('../views/frontend/dynamic-page',{p})
+        // } else if(extractValue === 'register') {
+        //     res.render('../views/frontend/register',{p})
+        // } else {
+        //   res.render('../views/frontend/register',{p})
+        // }
+        res.render('../views/frontend/dynamic-dept',{p}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((q) => {
+        console.log(q)
     })
 
  })

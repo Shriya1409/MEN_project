@@ -1,11 +1,11 @@
 let express = require('express');
 let multer = require('multer')
-let resultModel = require('../../model/resultModel')
+let deptModel = require('../../model/deptModel')
 let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/results/',
+    destination:'public/backend/departments/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -26,9 +26,9 @@ let upload = multer({
 })
 
 router.get('/', (req,res) => {
-    resultModel.find({})
+    deptModel.find({})
     .then((x) => {
-        res.render('../views/backend/result-file', {x})
+        res.render('../views/backend/dept-file', {x})
         // console.log(x)
     })
     .catch((y) => {
@@ -87,66 +87,57 @@ router.get('/', (req,res) => {
 
 //         }
 //     })
-
-
-
-
-    
-
 // })
 
-router.get('/edit-result/:id', (req,res) => {
-    resultModel.findOne({ pageUrll: req.params.id })
+
+router.get('/edit-department/:id', (req,res) => {
+    deptModel.findOne({ deptUrl: req.params.id })
     .then((x) => {
-        res.render('../views/backend/edit-result-file', {x})
+        res.render('../views/backend/edit-dept-file', {x})
     })
     .catch((y) => {
         console.log(y)
     })
 })
 
-router.put('/edit-result/:id', upload.single('page_Photoo'), (req,res) => {
+router.put('/edit-department/:id', upload.single('dept_Photo'), (req,res) => {
     if(req.file){
-        resultModel.updateOne({ pageUrll: req.params.id }, {$set:{
-            pageUrll: req.body.page_Urll,
-            pageNavTextt: req.body.page_Nav_Textt,
-            pageTitlee: req.body.page_Titlee,
-            pageMetaDescriptionn: req.body.page_Meta_Descriptionn,
-            pageMetaKeywordd: req.body.page_Meta_Keywordd,
-            pageHeadingg: req.body.page_Headingg,
-            pagePhotoo: req.file.filename,
-            pageDetailss: req.body.page_Detailss,
+        deptModel.updateOne({ deptUrl: req.params.id }, {$set:{
+            deptUrl: req.body.dept_Url,
+            deptNavText: req.body.dept_Nav_Text,
+            deptTitle: req.body.dept_Title,
+            deptHeading: req.body.dept_Heading,
+            deptPhoto: req.file.filename,
+            deptDetails: req.body.dept_Details
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
-        res.redirect('/result')
+        res.redirect('/department')
        })
 
     }else {
 
-        resultModel.updateOne({ pageUrll: req.params.id }, {$set:{
-            pageUrll: req.body.page_Urll,
-            pageNavTextt: req.body.page_Nav_Textt,
-            pageTitlee: req.body.page_Titlee,
-            pageMetaDescriptionn: req.body.page_Meta_Descriptionn,
-            pageMetaKeywordd: req.body.page_Meta_Keywordd,
-            pageHeadingg: req.body.page_Headingg,
-            // pagePhoto: req.file.filename,
-            pageDetailss: req.body.page_Detailss,
+        deptModel.updateOne({ deptUrl: req.params.id }, {$set:{
+            deptUrl: req.body.dept_Url,
+            deptNavText: req.body.dept_Nav_Text,
+            deptTitle: req.body.dept_Title,
+            deptHeading: req.body.dept_Heading,
+            //deptPhoto: req.file.filename,
+            deptDetails: req.body.dept_Details
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
-        res.redirect('/result')
+        res.redirect('/department')
        })
 
     }
 })
 
-router.delete('/delete-result/:id',(req,res) => {
-    resultModel.deleteOne({pageUrll:req.params.id})
+router.delete('/delete-department/:id',(req,res) => {
+    deptModel.deleteOne({deptUrl:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
-        res.redirect('/result')
+        res.redirect('/department')
     })
 })
 

@@ -1,11 +1,11 @@
 let express = require('express');
 let multer = require('multer')
-let resultModel = require('../../model/resultModel')
+let deptModel = require('../../model/deptModel')
 let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/results/',
+    destination:'public/backend/departments/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -24,6 +24,7 @@ let upload = multer({
         }
     }
 })
+
 // router.get('/:id', (req,res) => {
 //     pageModel.find({})
 //     .then((x) => {
@@ -35,61 +36,52 @@ let upload = multer({
 //     })
 // })
 router.get('/', (req,res) => {
-        res.render('../views/backend/add-result-file')
+        res.render('../views/backend/add-dept-file')
     })
 
 router.post('/', upload.single('page_Photoo') , (req,res) => {
-    resultModel.findOne({pageUrll: req.body.page_Urll})
+    deptModel.findOne({deptUrl: req.body.deptUrl})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
-            res.redirect('/result/')
+            res.redirect('/department/')
             // console.log('Url already exists, Please try with another url!!')
         } else {
 
             if(!req.file) {
 
-                resultModel.create({
-                    pageUrll: req.body.page_Urll,
-                    pageNavTextt: req.body.page_Nav_Textt,
-                    pageTitlee: req.body.page_Titlee,
-                    pageMetaDescriptionn: req.body.page_Meta_Descriptionn,
-                    pageMetaKeywordd: req.body.page_Meta_Keywordd,
-                    pageHeadingg: req.body.page_Headingg,
+                deptModel.create({
+                    deptUrl: req.body.dept_Url,
+                    deptNavText: req.body.dept_Nav_Text,
+                    deptTitle: req.body.dept_Title,
+                    deptHeading: req.body.dept_Heading,
                     // pagePhoto: req.file.filename,
-                    pageDetailss: req.body.page_Detailss
+                    deptDetails: req.body.dept_Details
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
-                     res.redirect('/result/')
+                     res.redirect('/department/')
                 })
         
             } else {
         
-                resultModel.create({
-                    pageUrll: req.body.page_Urll,
-                    pageNavTextt: req.body.page_Nav_Textt,
-                    pageTitlee: req.body.page_Titlee,
-                    pageMetaDescriptionn: req.body.page_Meta_Descriptionn,
-                    pageMetaKeywordd: req.body.page_Meta_Keywordd,
-                    pageHeadingg: req.body.page_Headingg,
-                    pagePhotoo: req.file.filename,
-                    pageDetailss: req.body.page_Detailss
+                deptModel.create({
+                    deptUrl: req.body.dept_Url,
+                    deptNavText: req.body.dept_Nav_Text,
+                    deptTitle: req.body.dept_Title,
+                    deptHeading: req.body.dept_Heading,
+                    deptPhoto: req.file.filename,
+                    deptDetails: req.body.dept_Details
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
-                     res.redirect('/result/')
+                     res.redirect('/department/')
                 })
         
             }
 
         }
     })
-
-
-
-
-    
 
 })
 
