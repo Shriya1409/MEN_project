@@ -25,6 +25,10 @@ let plcmtModelSchema = mongoose.Schema({
         type:String,
         required:false
     },
+    pagePhoto : {
+        type:String,
+        
+    },
     pageDetails : {
         type:String,
         required: false

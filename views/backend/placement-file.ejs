@@ -61,12 +61,12 @@
                         <td> <%=y.pageMetaDescription%></td>
                         <td> <%=y.pageMetaKeyword%></td>
                         <td> <%=y.pageHeading%></td>
-                        <td> <%=y.pageDetails.slice(0, 10)%></td>
+                        <td> <%=y.pageDetails%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/placement/edit-placement/<%= y.pageUrl%>">Edit</a>    </td>                  
+                        <td>  <a class="btn btn-primary" href="/placement/edit-department/<%= y.pageUrl%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/placement/delete-placement/<%= y.pageUrl%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
-                           </form>
+                        </form>
                         </td>
                      </tr>
                      <%x})%>
@@ -75,7 +75,7 @@
                </table>
                  
 
-                 <center> <br> <a class="btn btn-success btn-md" href="/add-placement">Add More Pages</a> </center>
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-placement/">Add More Pages</a> </center>
        
 
               <!-- end your content here -->
