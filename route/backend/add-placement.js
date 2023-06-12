@@ -23,7 +23,7 @@ let storage = multer.diskStorage({
 //     })
 // })
 router.get('/', (req,res) => {
-        res.render('../views/backend/add-placement-file')
+        res.render('../views/backend/add-plcmt-file')
     })
 
 router.post('/', (req,res) => {
