@@ -40,6 +40,8 @@ app.use(session({
 
 app.use(flash())
 
+let pageModel = require('./model/pageModel')
+
 app.use((req, res, next) => {
     res.locals.success = req.flash('success')
     res.locals.err = req.flash('err')
@@ -57,30 +59,30 @@ app.use((req, res, next) => {
 // Create a form schema and model
 
 //const Form = mongoose.model('Form', FormSchema);
-let Form = require('./model/formModel')
+// let Form = require('./model/formModel')
 
 // app.get('/', (req, res) => {
 //   res.sendFile(__dirname + '/index.html');
 // });
+// let plcmtModel=require('./model/plcmtModel');
 
-let plcmtModel=require('./model/plcmtModel');
 
-let pageModel = require('./model/pageModel')
 
 //backend route
 let adminroute = require('./route/backend/admin')
 let pageroute = require('./route/backend/page')
-let resultroute = require('./route/backend/result')
+let deptroute = require('./route/backend/dept')
 let addpageroute = require('./route/backend/add-page')
-let addresultroute = require('./route/backend/add-result')
+let adddeptroute = require('./route/backend/add-dept')
 let plcmtroute= require('./route/backend/placement')
 let  addplcmtroute= require('./route/backend/add-placement')
 
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
-app.use('/result', resultroute)
+app.use('/department', deptroute)
+
 app.use('/add-page', addpageroute)
-app.use('/add-result', addresultroute)
+app.use('/add-department', adddeptroute)
 app.use('/placement', plcmtroute)
 app.use('/add-placement', addplcmtroute)
 
