@@ -63,8 +63,8 @@
                         <td> <%=y.plcmtHeading%></td>
                         <td> <%=y.plcmtDetails%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/placement/edit-placement/<%= y.plcmtUrl%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/placement/delete-placement/<%= y.plcmtUrl%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/placement/edit-placement/<%= y.pageUrl%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/placement/delete-placement/<%= y.pageUrl%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                         </form>
                         </td>

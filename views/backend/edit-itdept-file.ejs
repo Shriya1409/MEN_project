@@ -1,0 +1,71 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Edit Page</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+
+
+
+                 <!-- put your contente -->
+                 <h1 class="mb-2 mt-2">Edit Page</h1>
+    
+                 <form method="post" action="/itdepartment/edit-itdepartment/<%=x.itdeptUrl%>?_method=put" enctype="multipart/form-data">
+             
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Page URL</label></div>
+                     <div class="col"><input type="text" name ="itdept_Url" class="form-control" value="<%=x.itdeptUrl%>" placeholder="Your Page Url" required></div>
+                   </div>
+
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                      <div class="col"><input type="text" name ="itdept_Nav_Text" class="form-control" value="<%=x.itdeptNavText%>" placeholder="Navigation Display Text" required></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">Department Title</label></div>
+                      <div class="col"><input type="text" name ="itdept_Title" class="form-control" value="<%=x.itdeptTitle%>" placeholder="Your Page Title" required></div>
+                    </div>
+                   
+                   <div class="mb-3 mt-3 row g-9 align-items-center">
+                     <div class="col col-lg-2"><label class="form-label">h1</label></div>
+                     <div class="col"><input type="text" name ="itdept_Heading" class="form-control" value="<%=x.itdeptHeading%>" placeholder="Heading" ></div>
+                   </div>
+                   
+                   <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                     <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+                     <div class="col"><input type="file" name="itdept_Photo" class="form-control" ></div>
+                   </div>
+                   
+                   <div class="mb-3 mt-3 row g-9 align-items-center">
+                     <div class="col col-lg-2"><label class="form-label">Department Details</label></div>
+                     <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="itdept_Details" placeholder="Page Details"><%=x.itdeptDetails%></textarea></div>
+                   </div>
+             
+                   <div class="mb-5 mt-3 align-items-center text-center"> 
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                   </div>
+               </form>
+
+            <!-- end your content here -->
+
+
+
+
+             </div>
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
