@@ -82,6 +82,8 @@ let addresultroute = require('./route/backend/add-result')
 
 let plcmtroute= require('./route/backend/placement')
 let  addplcmtroute= require('./route/backend/add-placement')
+let addplcmtrecordroute=require('./route/backend/add-placement-records')
+let plcmtrecordroute=require('./route/backend/placement-records')
 
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
@@ -95,6 +97,8 @@ app.use('/add-result', addresultroute)
 
 app.use('/placement', plcmtroute)
 app.use('/add-placement', addplcmtroute)
+app.use('/placement-records', plcmtrecordroute)
+app.use('/add-placement-records', addplcmtrecordroute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)
