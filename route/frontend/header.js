@@ -83,7 +83,10 @@ router.get('/', (req,res) => {
           res.render('../views/frontend/dynamic-page',{x})
         } else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
-        } else {
+         }  else if(extractValue === 'placement.ejs') {
+            res.render('../views/frontend/dynamic-plcmt',{x})
+        } 
+        else {
           res.render('../views/frontend/dynamic-page',{x})
         }
        }
