@@ -51,21 +51,6 @@ router.get('/', (req,res) => {
     })
 })
 
-// router.get('/:id', (req,res) => {
-//         pageModel.findOne({pageUrl: req.params.id})
-//         .then((x) => {
-//            if(x){
-//             res.render('../views/frontend/dynamic-page',{x})
-//            }
-//            else{
-//             res.redirect('/')
-//            }
-//         })
-    
-//         .catch((y) => { 
-//             console.log(y)
-//         })
-//     })
 
  router.get('/:id', (req,res) => {
     pageModel.findOne({pageUrl: req.params.id})

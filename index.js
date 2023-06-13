@@ -72,8 +72,14 @@ app.use((req, res, next) => {
 let adminroute = require('./route/backend/admin')
 let pageroute = require('./route/backend/page')
 let deptroute = require('./route/backend/dept')
+
+
 let addpageroute = require('./route/backend/add-page')
 let adddeptroute = require('./route/backend/add-dept')
+
+let resultroute = require('./route/backend/result')
+let addresultroute = require('./route/backend/add-result')
+
 let plcmtroute= require('./route/backend/placement')
 let  addplcmtroute= require('./route/backend/add-placement')
 
@@ -83,6 +89,10 @@ app.use('/department', deptroute)
 
 app.use('/add-page', addpageroute)
 app.use('/add-department', adddeptroute)
+
+app.use('/result', resultroute)
+app.use('/add-result', addresultroute)
+
 app.use('/placement', plcmtroute)
 app.use('/add-placement', addplcmtroute)
 
