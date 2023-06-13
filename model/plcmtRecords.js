@@ -1,37 +1,37 @@
 let mongoose = require("mongoose");
 
 let plcmtRecordsSchema = mongoose.Schema({
-    StudentName :{
+    student_name :{
         type:String,
         required:true
     },
-    RollNo : {
+    rollno : {
         type:String,
         required:true
     },
-    Dept:
+    department:
     {
         type:String,
         required: true
 
     },
-    BatchYr :{
+    batchyr :{
         type:String,
         required:true
     },
-    Cgpa : {
+    cgpa : {
         type:String,
         required:false
     },
-    Company : {
+    company : {
         type:String,
         required:true
     },
-    SemNo : {
+    semno : {
         type:String,
         required:true
     },
-    Package: {
+    package: {
         type: String,
         required: true
     }
