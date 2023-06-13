@@ -2,7 +2,6 @@ let express =  require('express')
 let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
-let plcmtModel=require('../../model/plcmtModel')
 let router = express()
 
 deptModel.find({})
@@ -84,11 +83,8 @@ router.get('/', (req,res) => {
           res.render('../views/frontend/dynamic-page',{x})
         } else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
+
         } 
-        // else if(extractValue==='placement.ejs', {x})
-        // {
-        //     res.render('../views/frontend/dynamic-plcmt', {x})
-        // }
         else {
           res.render('../views/frontend/dynamic-page',{x})
         }
@@ -103,25 +99,6 @@ router.get('/', (req,res) => {
 
  })
 
- router.get('/placement/:plcmt', (req,res) => {
-    plcmtModel.findOne({plcmtUrl: req.params.id})
-    .then((x) => {
-       if(x){
-        const extractValue = x.plcmtUrl;
-        if(extractValue === 'placement.ejs') {
-          res.render('../views/frontend/dynamic-plcmt',{x})
-        } 
-        
-       else {
-        res.redirect('/')
-       }
-    }
-    })
-    .catch((y) => {
-        console.log(y)
-    })
-    
- })
 
 //  router.get('/:id', (req,res) => {
     //         pageModel.findOne({pageUrl: req.params.id})
