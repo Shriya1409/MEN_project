@@ -48,17 +48,17 @@ router.post('/',  (req,res) => {
             // console.log('Url already exists, Please try with another url!!')
         } else {
 
-            if(!req.file) {
+            if(!req.body) {
 
                 plcmtRecords.create({
-                    StudentName: req.body.student_name,
-                    RollNo: req.body.rollno,
-                    Dept: req.body.department,
-                    BatchYr: req.body.batchyr,
-                    Cgpa: req.body.cgpa,
-                    Company: req.body.company,
-                    SemNo: req.body.semno,
-                    Package: req.body.package
+                    student_name: req.body.student_name,
+                     rollno: req.body.rollno,
+                     department: req.body.department,
+                     batchyr: req.body.batchyr,
+                     cgpa: req.body.cgpa,
+                     company: req.body.company,
+                     semno: req.body.semno,
+                     package: req.body.package
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -69,14 +69,14 @@ router.post('/',  (req,res) => {
          else {
         
                  plcmtRecords.create({
-                     StudentName: req.body.student_name,
-                     RollNo: req.body.rollno,
-                     Dept: req.body.department,
-                     BatchYr: req.body.batchyr,
-                     Cgpa: req.body.cgpa,
-                     Company: req.body.company,
-                     SemNo: req.body.semno,
-                     Package: req.body.package
+                    student_name: req.body.student_name,
+                     rollno: req.body.rollno,
+                     department: req.body.department,
+                     batchyr: req.body.batchyr,
+                     cgpa: req.body.cgpa,
+                     company: req.body.company,
+                     semno: req.body.semno,
+                     package: req.body.package
                  })
                  .then((x) => {
                      req.flash('success', 'Your data has been added successfully')
