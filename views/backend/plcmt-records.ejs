@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Pages</title>
+   <title>Admin Panel - Records</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -26,21 +26,21 @@
 
                  <!-- put your content -->
 
-               <h1>All Pages</h1>
+               <h1>All Records</h1>
             
                
                
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Photo</th>
-                        <th>Page URL</th>
-                        <th>Navigation</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Keyword</th>
-                        <th>Page Heading</th>
-                        <th>Page Details</th>
+                        <th>Student Name</th>
+                        <th>Roll No</th>
+                        <th>Department</th>
+                        <th>Batch Year</th>
+                        <th>CGPA</th>
+                        <th>Company</th>
+                        <th>Sem Num</th>
+                        <th>Package</th>
                         <th>Edit</th>
                         <th>Delete</th>
                      </tr>
@@ -55,16 +55,17 @@
                               <img src="/backend/placements/no_image.jpg" width="100">
                           <% } %>
                           </td>
-                        <td><%= y.plcmtUrl%></td>
-                        <td><%=y.plcmtNavText%></td>
-                        <td><%=y.plcmtTitle%></td>
-                        <td> <%=y.plcmtMetaDescription%></td>
-                        <td> <%=y.plcmtMetaKeyword%></td>
-                        <td> <%=y.plcmtHeading%></td>
-                        <td> <%=y.plcmtDetails%></td>
+                        <td><%= y.StudentName%></td>
+                        <td><%=y.RollNo%></td>
+                        <td><%=y.Dept%></td>
+                        <td> <%=y.BatchYr%></td>
+                        <td> <%=y.Cgpa%></td>
+                        <td> <%=y.Company%></td>
+                        <td> <%=y.SemNo%></td>
+                        <td> <%=y.Package%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/placement/edit-placement/<%= y.plcmtUrl%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/placement/delete-placement/<%= y.plcmtUrl%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/placement-records/edit-placement-records/<%= y.RollNo%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/placement-records/delete-placement-records/<%= y.RollNo%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                         </form>
                         </td>
@@ -75,7 +76,7 @@
                </table>
                  
 
-                 <center> <br> <a class="btn btn-success btn-md" href="/add-placement/">Add More Pages</a> </center>
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-placement-records/">Add More Records</a> </center>
        
 
               <!-- end your content here -->
