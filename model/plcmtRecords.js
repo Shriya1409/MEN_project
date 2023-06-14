@@ -21,7 +21,7 @@ let plcmtRecordsSchema = mongoose.Schema({
     },
     cgpa : {
         type:String,
-        required:false
+       
     },
     company : {
         type:String,
@@ -34,6 +34,10 @@ let plcmtRecordsSchema = mongoose.Schema({
     package: {
         type: String,
         required: true
+    },
+    recordPhoto:{
+        type: String,
+
     }
 })
 

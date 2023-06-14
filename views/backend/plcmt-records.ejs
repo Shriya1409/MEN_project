@@ -33,6 +33,7 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
+                        <th>Photo</th>
                         <th>Student Name</th>
                         <th>Roll No</th>
                         <th>Department</th>
@@ -48,24 +49,24 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <!-- <td>
-                          <% if(y.plcmtPhoto){ %>
-                              <img src="/backend/placements/<%= y.plcmtPhoto%>" width="100">
+                         <td>
+                          <% if(y.recordPhoto){ %>
+                              <img src="/backend/placements/<%= y.recordPhoto%>" width="100">
                           <% } else { %>
                               <img src="/backend/placements/no_image.jpg" width="100">
                           <% } %>
-                          </td> -->
-                        <td><%= y.StudentName%></td>
-                        <td><%=y.RollNo%></td>
-                        <td><%=y.Dept%></td>
-                        <td> <%=y.BatchYr%></td>
-                        <td> <%=y.Cgpa%></td>
-                        <td> <%=y.Company%></td>
-                        <td> <%=y.SemNo%></td>
-                        <td> <%=y.package%></td>
+                          </td>
+                        <td><%=y.student_name%> </td>
+                        <td><%=y.rollno%> </td>
+                        <td><%=y.department%> </td>
+                        <td> <%=y.batchyr%> </td>
+                        <td> <%=y.cgpa%> </td>
+                        <td> <%=y.company%> </td>
+                        <td> <%=y.semno%> </td>
+                        <td> <%=y.package%> </td>
                         
-                        <td>  <a class="btn btn-primary" href="/placement-records/edit-placement-records/<%= y.RollNo%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/placement-records/delete-placement-records/<%= y.RollNo%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/placement-records/edit-placement-records/<%= y.rollno%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/placement-records/delete-placement-records/<%= y.rollno%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                         </form>
                         </td>
@@ -73,7 +74,7 @@
                      <%x})%>
                     
                   </tbody>
-               </table>
+              </table>
                  
 
                  <center> <br> <a class="btn btn-success btn-md" href="/add-placement-records/">Add More Records</a> </center>
