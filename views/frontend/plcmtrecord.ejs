@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+
+    <title><%=x.rollno%></title>
+    
+  </head>
+    <body>
+    
+    <%- include('common/header.ejs')-%>
+
+    <h1>Placement Records</h1>
+            
+               
+    <div class="dashboard-content-area">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+       <thead>
+          <tr>
+             <th>Photo</th>
+             <th>Student Name</th>
+             <th>Department</th>
+             <th>Batch Year</th>
+             <th>CGPA</th>
+             <th>Company</th>
+             <th>Sem Num</th>
+             <th>Package</th>
+          </tr>
+       </thead>
+       <tbody>
+          <%x.forEach((y)=>{%>
+          <tr>
+              <td>
+               <% if(y.recordPhoto){ %>
+                   <img src="/backend/placements/<%= y.recordPhoto%>" width="100">
+               <% } else { %>
+                   <img src="/backend/placements/no_image.jpg" width="100">
+               <% } %>
+               </td>
+             <td><%=y.student_name%> </td>
+             <td><%=y.department%> </td>
+             <td> <%=y.batchyr%> </td>
+             <td> <%=y.cgpa%> </td>
+             <td> <%=y.company%> </td>
+             <td> <%=y.semno%> </td>
+             <td> <%=y.package%> </td>
+         </tr>
+         <%x})%>
+        </tbody>
+    </table>    
+</div>
+    <%- include('common/footer.ejs')-%>
+
+  </body>
+</html>

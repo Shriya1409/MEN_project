@@ -100,12 +100,32 @@ router.get('/', (req,res) => {
  })
 
  router.get('/placement/:plcmt', (req,res) => {
-    plcmtModel.findOne({plcmtUrl: req.params.id})
+    plcmtModel.findOne({plcmtUrl: req.params.plcmt})
     .then((x) => {
        if(x){
         const extractValue = x.plcmtUrl;
         if(extractValue === 'placement.ejs') {
           res.render('../views/frontend/dynamic-plcmt',{x})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    }
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+    
+ })
+
+ router.get('/placement-records/:plcmt', (req,res) => {
+    plcmtRecords.findOne({rollno: req.params.plcmt})
+    .then((x) => {
+       if(x){
+        const extractValue = x.rollno;
+        if(extractValue === 'plcmt-records.ejs') {
+          res.render('../views/frontend/plcmtrecord',{x})
         } 
         
        else {
