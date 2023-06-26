@@ -103,12 +103,12 @@ router.get('/', (req,res) => {
        if(x){
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
-          res.render('../views/frontend/result.ejs',{x})
+          res.render('../views/backend/result.ejs',{x})
         } else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
         } 
         else {
-          res.render('../views/frontend/result.ejs',{x})
+          res.render('../views/frontend/dynamic-page',{x})
         }
        }
        else {
