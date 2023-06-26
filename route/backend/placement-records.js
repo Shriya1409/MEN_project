@@ -29,12 +29,12 @@ let storage = multer.diskStorage({
 
 router.get('/', (req,res) => {
     plcmtRecords.find({})
-    .then((x) => {
-        res.render('../views/backend/plcmt-records', {x})
+    .then((a) => {
+        res.render('../views/backend/plcmt-records', {a})
         // console.log(x)
     })
-    .catch((y) => {
-        console.log(y)
+    .catch((b) => {
+        console.log(b)
     })
 })
 
@@ -98,11 +98,11 @@ router.get('/', (req,res) => {
 
  router.get('/edit-placement-records/:id', (req,res) => {
     plcmtRecords.findOne({ rollno: req.params.id })
-     .then((x) => {
-         res.render('../views/backend/edit-plcmt-records', {x})
+     .then((a) => {
+         res.render('../views/backend/edit-plcmt-records', {a})
      })
-     .catch((y) => {
-         console.log(y)
+     .catch((b) => {
+         console.log(b)
      })
  })
 
@@ -119,7 +119,7 @@ router.get('/', (req,res) => {
             package: req.body.package,
             recordPhoto: req.body.recordPhoto
          }})
-        .then((x) => {
+        .then((a) => {
                      req.flash('success', 'Your data has been updated successfully')
          res.redirect('/placement-records')
         })
@@ -137,7 +137,7 @@ router.get('/', (req,res) => {
              semno: req.body.semno,
              package: req.body.package
          }})
-                 .then((x) => {
+                 .then((a) => {
          req.flash('success', 'Your data has been updated successfully')
          res.redirect('/placement-records')
         })
@@ -147,7 +147,7 @@ router.get('/', (req,res) => {
 
 router.delete('/delete-placement-records/:id',(req,res) => {
     plcmtRecords.deleteOne({rollno:req.params.id})
-    .then((x) => {
+    .then((a) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/placement-records')
     })

@@ -47,31 +47,31 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%x.forEach((y)=>{%>
+                     <%a.forEach((b)=>{%>
                      <tr>
                          <td>
-                          <% if(y.recordPhoto){ %>
-                              <img src="/backend/placements/<%= y.recordPhoto%>" width="100">
+                          <% if(b.recordPhoto){ %>
+                              <img src="/backend/placements/<%= b.recordPhoto%>" width="100">
                           <% } else { %>
                               <img src="/backend/placements/no_image.jpg" width="100">
                           <% } %>
                           </td>
-                        <td><%=y.student_name%> </td>
-                        <td><%=y.rollno%> </td>
-                        <td><%=y.department%> </td>
-                        <td> <%=y.batchyr%> </td>
-                        <td> <%=y.cgpa%> </td>
-                        <td> <%=y.company%> </td>
-                        <td> <%=y.semno%> </td>
-                        <td> <%=y.package%> </td>
+                        <td><%=b.student_name%> </td>
+                        <td><%=b.rollno%> </td>
+                        <td><%=b.department%> </td>
+                        <td> <%=b.batchyr%> </td>
+                        <td> <%=b.cgpa%> </td>
+                        <td> <%=b.company%> </td>
+                        <td> <%=b.semno%> </td>
+                        <td> <%=b.package%> </td>
                         
-                        <td>  <a class="btn btn-primary" href="/placement-records/edit-placement-records/<%= y.rollno%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/placement-records/delete-placement-records/<%= y.rollno%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/placement-records/edit-placement-records/<%= b.rollno%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/placement-records/delete-placement-records/<%= b.rollno%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                         </form>
                         </td>
                      </tr>
-                     <%x})%>
+                     <%a})%>
                     
                   </tbody>
               </table>

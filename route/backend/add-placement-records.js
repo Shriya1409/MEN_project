@@ -61,7 +61,7 @@ router.post('/', upload.single('recordPhoto'),  (req,res) => {
                      package: req.body.package,
                     //  recordPhoto: req.body.recordPhoto
                 })
-                .then((x) => {
+                .then((a) => {
                     req.flash('success', 'Your data has been added successfully')
                      res.redirect('/placement-records/')
                 })
@@ -80,7 +80,7 @@ router.post('/', upload.single('recordPhoto'),  (req,res) => {
                      package: req.body.package,
                      recordPhoto: req.body.recordPhoto
                  })
-                 .then((x) => {
+                 .then((a) => {
                      req.flash('success', 'Your data has been added successfully')
                       res.redirect('/placement-records/')
                  })
