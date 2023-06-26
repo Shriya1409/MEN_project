@@ -220,8 +220,8 @@ router.get('/', (req,res) => {
     })
 
  })
- router.get('/placementrecords/:plc', (req,res) => {
-    plcmtRecords.findOne({student_name: req.params.plc})
+ router.get('/placementrecords/plcmtrecord', (req,res) => {
+    plcmtRecords.find()
     .then((a) => {
        if(a){
 
