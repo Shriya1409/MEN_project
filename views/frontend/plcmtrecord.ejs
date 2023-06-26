@@ -3,21 +3,20 @@
   <head>
     <%- include('common/head.ejs')-%>
 
-    <title><%=x.rollno%></title>
+    <title>Placement Records</title>
     
   </head>
     <body>
     
     <%- include('common/header.ejs')-%>
 
-    <h1>Placement Records</h1>
+    <h3 style="text-align: center; margin: 50px 0 30px 0;">Placement Records</h3>
             
                
-    <div class="dashboard-content-area">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div class="dashboard-content-area" style="margin:15px;">
+    <table class="table table-bordered" style="padding:10px " id="dataTable" width="100%" cellspacing="0">
        <thead>
           <tr>
-             <th>Photo</th>
              <th>Student Name</th>
              <th>Department</th>
              <th>Batch Year</th>
@@ -28,24 +27,17 @@
           </tr>
        </thead>
        <tbody>
-          <%x.forEach((y)=>{%>
+          <%plcrec.forEach((b)=>{%>
           <tr>
-              <td>
-               <% if(y.recordPhoto){ %>
-                   <img src="/backend/placements/<%= y.recordPhoto%>" width="100">
-               <% } else { %>
-                   <img src="/backend/placements/no_image.jpg" width="100">
-               <% } %>
-               </td>
-             <td><%=y.student_name%> </td>
-             <td><%=y.department%> </td>
-             <td> <%=y.batchyr%> </td>
-             <td> <%=y.cgpa%> </td>
-             <td> <%=y.company%> </td>
-             <td> <%=y.semno%> </td>
-             <td> <%=y.package%> </td>
+             <td><%=b.student_name%> </td>
+             <td><%=b.department%> </td>
+             <td> <%=b.batchyr%> </td>
+             <td> <%=b.cgpa%> </td>
+             <td> <%=b.company%> </td>
+             <td> <%=b.semno%> </td>
+             <td> <%=b.package%> </td>
          </tr>
-         <%x})%>
+         <%plcrec})%>
         </tbody>
     </table>    
 </div>
