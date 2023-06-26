@@ -3,7 +3,11 @@ let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
 let plcmtModel=require('../../model/plcmtModel')
+
 let plcmtRecords=require('../../model/plcmtRecords')
+
+let resultModel=require('../../model/resultModel')
+
 let router = express()
 
 deptModel.find({})
@@ -26,6 +30,7 @@ router.use((req, res, next) => {
     next()
 })
 
+
 plcmtModel.find({})
     .then((x)=> {
         router.locals.plcmtdata = x;
@@ -33,6 +38,27 @@ plcmtModel.find({})
     .catch((y) => {
         console.log(y)
     })
+
+resultModel.find({})
+    .then((s)=> {
+        router.locals.resultdata = s;
+    })
+    .catch((t) => {
+        console.log(t)
+    })
+
+router.use((req, res, next) => {
+   resultModel.find({})
+        .then((s) => {
+            res.locals.resultdata = s; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((t) => {
+            console.log(t)
+        })
+    next()
+})
+
 
 router.use((req, res, next) => {
     plcmtModel.find({})
@@ -119,12 +145,12 @@ router.get('/', (req,res) => {
        if(x){
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
-          res.render('../views/frontend/dynamic-page',{x})
+          res.render('../views/frontend/result.ejs',{x})
         } else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
         } 
         else {
-          res.render('../views/frontend/dynamic-page',{x})
+          res.render('../views/frontend/result.ejs',{x})
         }
        }
        else {
