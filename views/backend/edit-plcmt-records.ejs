@@ -16,48 +16,51 @@
               <div class="dashboard-content-area">
 
                    <!-- put your contente -->
-                   <h1 class="mb-2 mt-2">Add Record</h1>
+                   <h1 class="mb-2 mt-2">Edit Record</h1>
     
-                   <form method="post" action="/placement-records/edit-placement-records/<%= x.RollNo%>?_method=put" enctype="multipart/form-data">
+                   <form method="post" action="/placement-records/edit-placement-records/<%= x.rollno%>?_method=put" enctype="multipart/form-data">
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                        <div class="col col-lg-2"><label class="form-label">Student Name</label></div>
-                       <div class="col"><input type="text" name ="student_name" class="form-control" placeholder="Student Name" required></div>
+                       <div class="col"><input type="text" name ="student_name" class="form-control" value="<%=x.student_name%>" placeholder="Student Name" required></div>
                      </div>
 
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                         <div class="col col-lg-2"><label class="form-label">Roll No</label></div>
-                        <div class="col"><input type="text" name ="rollno" class="form-control" placeholder="Roll No" required></div>
+                        <div class="col"><input type="text" name ="rollno" class="form-control" value="<%=x.rollno%>" placeholder="Roll No" required></div>
                       </div>
 
                       <div class="mb-3 mt-3 row g-9 align-items-center">  
                         <div class="col col-lg-2"><label class="form-label"> Department</label></div>
-                        <div class="col"><input type="text" name ="department" class="form-control" placeholder="Department" required></div>
+                        <div class="col"><input type="text" name ="department" class="form-control" value="<%=x.department%>" placeholder="Department" required></div>
                       </div>
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">
                        <div class="col col-lg-2"><label class="form-label">Batch Year</label></div>
-                       <div class="col"><input type="text" name ="batchyr" class="form-control" placeholder="Batch Year" required></div>
+                       <div class="col"><input type="text" name ="batchyr" class="form-control" value="<%=x.batchyr%>" placeholder="Batch Year" required></div>
                      </div>
                      
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">CGPA</label></div>
-                       <div class="col"><input type="text" name="cgpa" class="form-control" placeholder="7.5"></div>
+                       <div class="col"><input type="text" name="cgpa" class="form-control" value="<%=x.cgpa%>" placeholder="7.5"></div>
                      </div>
                      
                      <div class="mb-3 mt-3 row g-9 align-items-center">
                        <div class="col col-lg-2"><label class="form-label">Company</label></div>
-                       <div class="col"><input type="text" name="company" class="form-control" placeholder=" Infosys" required></div>
+                       <div class="col"><input type="text" name="company" class="form-control" value="<%=x.company%>" placeholder=" Infosys" required></div>
                      </div>
                      <div class="mb-3 mt-3 row g-9 align-items-center">
                       <div class="col col-lg-2"><label class="form-label">SemNo</label></div>
-                      <div class="col"><input type="text" name="semno" class="form-control" placeholder="VI" required></div>
+                      <div class="col"><input type="text" name="semno" class="form-control" value="<%=x.semno%>" placeholder="VI" required></div>
 
                     <div class="mb-3 mt-3 row g-9 align-items-center">
                       <div class="col col-lg-2"><label class="form-label">Package</label></div>
-                      <div class="col"><input type="text" name="package" class="form-control" placeholder="5lpa" required></div>
+                      <div class="col"><input type="text" name="package" class="form-control" value="<%=x.package%>" placeholder="5lpa" required></div>
                     </div>
-              
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+                      <div class="col"><input type="file" name="recordPhoto" value="<%=x.recordPhoto%>" class="form-control" ></div>
+                    </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>
                      </div>
@@ -73,4 +76,5 @@
             </div>
          </div>
       </div>
-<%- include('common/footer.ejs')-%></body>
+      </body>
+<%- include('common/footer.ejs')-%>

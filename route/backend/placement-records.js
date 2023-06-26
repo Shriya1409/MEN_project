@@ -97,7 +97,7 @@ router.get('/', (req,res) => {
 
 
  router.get('/edit-placement-records/:id', (req,res) => {
-    plcmtRecords.findOne({ RollNo: req.params.id })
+    plcmtRecords.findOne({ rollno: req.params.id })
      .then((x) => {
          res.render('../views/backend/edit-plcmt-records', {x})
      })
@@ -106,17 +106,18 @@ router.get('/', (req,res) => {
      })
  })
 
- router.put('/edit-placement-records/:id', (req,res) => {
+ router.put('/edit-placement-records/:id', upload.single('recordPhoto'), (req,res) => {
      if(req.file){
-        plcmtRecords.updateOne({ RollNo: req.params.id }, {$set:{
-            StudentName: req.body.student_name,
-            RollNo: req.body.rollno,
-            Dept: req.body.department,
-            BatchYr: req.body.batchyr,
-            Cgpa: req.body.cgpa,
-            Company: req.body.company,
-            SemNo: req.body.semno,
-            Package: req.body.package
+        plcmtRecords.updateOne({ rollno: req.params.id }, {$set:{
+            student_name: req.body.student_name,
+            rollno: req.body.rollno,
+            department: req.body.department,
+            batchyr: req.body.batchyr,
+            cgpa: req.body.cgpa,
+            company: req.body.company,
+            semno: req.body.semno,
+            package: req.body.package,
+            recordPhoto: req.body.recordPhoto
          }})
         .then((x) => {
                      req.flash('success', 'Your data has been updated successfully')
@@ -126,15 +127,15 @@ router.get('/', (req,res) => {
     }
      else {
 
-    plcmtRecords.updateOne({ RollNo: req.params.id }, {$set:{
-        StudentName: req.body.student_name,
-             RollNo: req.body.rollno,
-             Dept: req.body.department,
-             BatchYr: req.body.batchyr,
-             Cgpa: req.body.cgpa,
-             Company: req.body.company,
-             SemNo: req.body.semno,
-             Package: req.body.package
+    plcmtRecords.updateOne({ rollno: req.params.id }, {$set:{
+        student_name: req.body.student_name,
+             rollno: req.body.rollno,
+             department: req.body.department,
+             batchyr: req.body.batchyr,
+             cgpa: req.body.cgpa,
+             company: req.body.company,
+             semno: req.body.semno,
+             package: req.body.package
          }})
                  .then((x) => {
          req.flash('success', 'Your data has been updated successfully')
@@ -144,8 +145,8 @@ router.get('/', (req,res) => {
       }
  })
 
-router.delete('/delete-placement-record/:id',(req,res) => {
-    plcmtRecords.deleteOne({RollNo:req.params.id})
+router.delete('/delete-placement-records/:id',(req,res) => {
+    plcmtRecords.deleteOne({rollno:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/placement-records')
