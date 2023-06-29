@@ -8,6 +8,7 @@ let plcmtRecords=require('../../model/plcmtRecords')
 let studRecords=require('../../model/studRecords')
 
 let resultModel=require('../../model/resultModel')
+let syllabusModel=require('../../model/syllabusModel')
 
 let router = express()
 
@@ -56,6 +57,26 @@ router.use((req, res, next) => {
         })
         .catch((t) => {
             console.log(t)
+        })
+    next()
+})
+
+syllabusModel.find({})
+    .then((g)=> {
+        router.locals.syllabusdata = g;
+    })
+    .catch((h) => {
+        console.log(h)
+    })
+
+router.use((req, res, next) => {
+   syllabusModel.find({})
+        .then((g) => {
+            res.locals.syllabusdata = g; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((h) => {
+            console.log(h)
         })
     next()
 })
@@ -168,7 +189,11 @@ router.get('/', (req,res) => {
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
           res.render('../views/backend/result.ejs',{x})
-        } else if(extractValue === 'register') {
+        } 
+        else if(extractValue === 'syllabus.ejs') {
+            res.render('../views/frontend/syllabus.ejs',{x})
+          } 
+        else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
         } 
         else {
@@ -184,6 +209,7 @@ router.get('/', (req,res) => {
     })
 
  })
+
 
  router.get('/placement/:plcmt', (req,res) => {
     plcmtModel.findOne({plcmtUrl: req.params.plcmt})
@@ -268,22 +294,7 @@ router.get('/', (req,res) => {
 
  })
 
- router.get('/student-records/studrecord', (req,res) => {
-    studRecords.find()
-    .then((o) => {
-       if(o){
-        res.render('../views/frontend/studrecord',{o}) 
-       }
-       else {
-        res.redirect('/')
-       }
-    })
-    .catch((u) => {
-        console.log(u)
-    })
-
- })
-
+ 
 //  router.get('/placement/placement-records/:plc', (req,res) => {
 //     plcmtRecords.findOne({rollno: req.params.plc})
 //     .then((p) => {

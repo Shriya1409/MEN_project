@@ -1,0 +1,79 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Syllabus</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your contente -->
+
+               <h1>All Syllabus</h1>
+            
+               
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Syllabus Title</th>
+                        <th>Department</th>
+                        <th>Rc</th>
+                        <th>Syllabus Pdf</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%g.forEach((h)=>{%>
+                     <tr>
+                      
+                        <td><%= h.syllabus_title%></td>
+                        <td><%=h.department%></td>
+                        <td><%=h.rc%></td>  
+                        <td> <%=h.syllabuspdf%></td>
+                        
+                        <td>  <a class="btn btn-primary" href="/syllabus/edit-syllabus/<%= h.syllabus_title%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/syllabus/delete-syllabus/<%= h.syllabus_title%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                           </form>
+                        </td>
+                     </tr>
+                     <%g})%>
+                    
+                  </tbody>
+               </table>
+                 
+
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-syllabus/">Add More Syllabus</a> </center>
+       
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+
+    <title>Department Syllabus</title>
+    <meta name="description" content="<%=x.pageMetaDescription%>" />
+    <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
+  </head>
+  <body>
+    
+    <%- include('common/header.ejs')-%>
+
+           
+    <div class="dashboard-content-area" style="margin:15px;">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+           <tr>
+              <th>Title</th>
+              <th>Department</th>
+              <th>Rc</th>
+              <th>Syllabus Pdf</th>
+           </tr>
+        </thead>
+        <tbody>
+           <%syllabusdata.forEach((h)=>{%>
+              <tr>
+               
+                 <td><%= h.syllabus_title%></td>
+                 <td><%=h.department%></td>
+                 <td><%=h.rc%></td>
+                 
+                 <td>
+                    <% if(h.syllabuspdf){ %>
+                        <a href="/backend/syllabus/<%= h.syllabuspdf%>" style="text-decoration: none; color:rgb(69, 202, 196);">Open</a>
+                    <% } else { %>
+                       <a href="/backend/syllabus/move.pdf>" >idk</a>
+                    <% } %>
+                    </td>
+                    </form>
+                 </td>
+              </tr>
+              <%syllabusdata})%>
+          
+        </tbody>
+     </table>
+    
+    <%- include('common/footer.ejs')-%>
+
+  </body>
+</html>
+
+
+

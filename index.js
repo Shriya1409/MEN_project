@@ -82,6 +82,9 @@ let additdeptroute = require('./route/backend/add-itdept')
 let resultroute = require('./route/backend/result')
 let addresultroute = require('./route/backend/add-result')
 
+let syllabusroute = require('./route/backend/syllabus')
+let addsyllabusroute = require('./route/backend/add-syllabus')
+
 let plcmtroute= require('./route/backend/placement')
 let  addplcmtroute= require('./route/backend/add-placement')
 let addplcmtrecordroute=require('./route/backend/add-placement-records')
@@ -101,6 +104,9 @@ app.use('/add-itdepartment', additdeptroute)
 
 app.use('/result', resultroute)
 app.use('/add-result', addresultroute)
+
+app.use('/syllabus', syllabusroute)
+app.use('/add-syllabus', addsyllabusroute)
 
 app.use('/placement', plcmtroute)
 app.use('/add-placement', addplcmtroute)
