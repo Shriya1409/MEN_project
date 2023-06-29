@@ -1,0 +1,80 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Edit student Record</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+              <div class="dashboard-content-area">
+
+                   <!-- put your contente -->
+                   <h1 class="mb-2 mt-2">Edit Record</h1>
+    
+                   <form method="post" action="/student-records/edit-student-records/<%= o.rollno%>?_method=put" enctype="multipart/form-data">
+               
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Student Name</label></div>
+                       <div class="col"><input type="text" name ="stud_name" class="form-control" value="<%=o.stud_name%>" placeholder="Student Name" required></div>
+                     </div>
+
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                        <div class="col col-lg-2"><label class="form-label">Roll No</label></div>
+                        <div class="col"><input type="text" name ="rollnoo" class="form-control" value="<%=o.rollnoo%>" placeholder="Roll No" required></div>
+                      </div>
+
+                      <div class="mb-3 mt-3 row g-9 align-items-center">  
+                        <div class="col col-lg-2"><label class="form-label"> Department</label></div>
+                        <div class="col"><input type="text" name ="depart" class="form-control" value="<%=o.depart%>" placeholder="Department" required></div>
+                      </div>
+               
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                       <div class="col col-lg-2"><label class="form-label">Batch Year</label></div>
+                       <div class="col"><input type="text" name ="yr" class="form-control" value="<%=o.yr%>" placeholder="Batch Year" required></div>
+                     </div>
+                     
+                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                       <div class="col col-lg-2"><label class="form-label">CGPA</label></div>
+                       <div class="col"><input type="text" name="cgpa" class="form-control" value="<%=o.cgpa%>" placeholder="7.5"></div>
+                     </div>
+                     
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                       <div class="col col-lg-2"><label class="form-label">pr</label></div>
+                       <div class="col"><input type="text" name="pr" class="form-control" value="<%=o.pr%>" placeholder=" university number" required></div>
+                     </div>
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">SemNo</label></div>
+                      <div class="col"><input type="text" name="sem" class="form-control" value="<%=o.sem%>" placeholder="VI" required></div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">backlog</label></div>
+                      <div class="col"><input type="text" name="backlog" class="form-control" value="<%=o.backlog%>" placeholder="no" required></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+                      <div class="col"><input type="file" name="recPhoto" value="<%=o.recPhoto%>" class="form-control" ></div>
+                    </div>
+                     <div class="mb-5 mt-3 align-items-center text-center"> 
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                     </div>
+                 </form>
+
+            
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+      </body>
+<%- include('common/footer.ejs')-%>

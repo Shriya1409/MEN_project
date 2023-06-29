@@ -5,6 +5,7 @@ let ITdeptModel = require('../../model/itdeptModel')
 let plcmtModel=require('../../model/plcmtModel')
 
 let plcmtRecords=require('../../model/plcmtRecords')
+let studRecords=require('../../model/studRecords')
 
 let resultModel=require('../../model/resultModel')
 
@@ -109,6 +110,27 @@ router.use((req, res, next) => {
         })
     next()
 })
+
+studRecords.find({})
+    .then((o)=> {
+        router.locals.studrec = o;
+    })
+    .catch((u) => {
+        console.log(u)
+    })
+
+router.use((req, res, next) => {
+    studRecords.find({})
+        .then((o) => {
+            res.locals.studrec = o; //here set local variable  and then value
+        })
+        .catch((u) => {
+            console.log(u)
+        })
+    next()
+})
+
+
 
 pageModel.find({})
     .then((x)=> {
@@ -242,6 +264,22 @@ router.get('/', (req,res) => {
     })
     .catch((b) => {
         console.log(b)
+    })
+
+ })
+
+ router.get('/student-records/studrecord', (req,res) => {
+    studRecords.find()
+    .then((o) => {
+       if(o){
+        res.render('../views/frontend/studrecord',{o}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((u) => {
+        console.log(u)
     })
 
  })

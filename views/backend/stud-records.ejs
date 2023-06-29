@@ -1,0 +1,94 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Records</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your content -->
+
+               <h1>All Records</h1>
+            
+               
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Photo</th>
+                        <th>Student Name</th>
+                        <th>Roll No</th>
+                        <th>Department</th>
+                        <th>Batch Year</th>
+                        <th>CGPA</th>
+                        <th>PR</th>
+                        <th>Sem Num</th>
+                        <th>Backlog</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%o.forEach((u)=>{%>
+                     <tr>
+                         <td>
+                          <% if(u.recPhoto){ %>
+                              <img src="/backend/studentR/<%= u.recPhoto%>" width="100">
+                          <% } else { %>
+                              <img src="/backend/studentR/no_image.jpg" width="100">
+                          <% } %>
+                          </td>
+                        <td><%=u.stud_name%> </td>
+                        <td><%=u.rollnoo%> </td>
+                        <td><%=u.depart%> </td>
+                        <td> <%=u.yr%> </td>
+                        <td> <%=u.cgpa%> </td>
+                        <td> <%=u.pr%> </td>
+                        <td> <%=u.sem%> </td>
+                        <td> <%=u.backlog%> </td>
+                        
+                        <td>  <a class="btn btn-primary" href="/student-records/edit-student-records/<%= u.rollnoo%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/student-records/delete-students-records/<%= u.rollnoo%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                        </form>
+                        </td>
+                     </tr>
+                     <%o})%>
+                    
+                  </tbody>
+              </table>
+                 
+
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-student-records/">Add More Records</a> </center>
+       
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
