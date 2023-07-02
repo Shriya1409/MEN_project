@@ -66,7 +66,7 @@ router.post('/', upload.single('facultyPhoto'),  (req,res) => {
                  })
                  .then((a) => {
                      req.flash('success', 'Your data has been added successfully')
-                      res.redirect('/faculty/')
+                      res.redirect('/admin/')
                  })
         
              }

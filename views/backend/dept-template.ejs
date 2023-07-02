@@ -1,0 +1,90 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Create A WebPage</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+              <div class="dashboard-content-area">
+
+                   <!-- put your contente -->
+                   <h1 class="mb-2 mt-2">Department Page</h1>
+    
+                   <form method="post" action="/dept-temp" enctype="multipart/form-data">
+               
+                     
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                        <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                        <div class="col"><input type="text" name ="page_Url" class="form-control" placeholder="Page Url" required></div>
+                    </div>
+ 
+                       <div class="mb-3 mt-3 row g-9 align-items-center">  
+                         <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                         <div class="col"><input type="text" name ="page_Title" class="form-control" placeholder="Page Title" required></div>
+                       </div>
+                      
+                      <div class="mb-3 mt-3 row g-9 align-items-center">
+                        <div class="col col-lg-2"><label class="form-label">h1</label></div>
+                        <div class="col"><input type="text" name ="page_Heading" class="form-control" placeholder="Page Heading" ></div>
+                      </div>
+                      
+                      <!-- <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                        <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+                        <div class="col"><input type="file" name="page_Photo" class="form-control" ></div>
+                      </div> -->
+                      <div class="mb-3 mt-3 row g-9 align-items-center">
+                        <div class="col col-lg-2"><label class="form-label">Photo Slider</label></div>
+                        <div class="col"><textarea rows="15" class="editor form-control photoslider" id="editor-slider" name="photo_slider" placeholder="photo_slider"></textarea></div>
+                      </div>
+                      <button type="button" onclick="document.getElementById('photo_slider')">
+                            Add Photo Slider
+                      </button>
+                        <div class="photo_slider"><textarea rows="15" class="editor form-control photoslider" id="editor-slider" name="photo_slider" placeholder="add photos"></textarea></div>
+                      <div>Options</div>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary" onclick="document.getElementsByClassName('basic_carousel')">Basic Carousel</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementsByClassName('picture_cards')"></button>>Picture Cards</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementsByClassName('link_carousel')"></button>>Link Carousel</button>
+                          </div>
+
+                    <div class="basic_carousel">
+                            <div class="col"><textarea rows="15" class="editor form-control basic_carousel" id="editor" name="basic_carousel" placeholder="basic_carousel"></textarea></div>
+                    </div>
+                    <div class="picture_cards">
+                        <div class="col"><textarea rows="15" class="editor form-control picture_cards" id="editor" name="picture_cards" placeholder="picture_cards"></textarea></div>
+                    </div>
+                    <div class="link_carousel">
+                        <div class="col"><textarea rows="15" class="editor form-control link_carousel" id="editor" name="link_carousel" placeholder="link_carousel"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                        <div class="col col-lg-2"><label class="form-label">Text Section</label></div>
+                        <div class="col"><textarea rows="15" class="editor form-control text-section" id="editor" name="text_section" placeholder="text-section"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                        <div class="col col-lg-2"><label class="form-label">Add An Image</label></div>
+                        <div class="col"><textarea rows="15" class="editor form-control image" id="editor" name="image" placeholder="add a half-page image"></textarea></div>
+                    </div>
+                      <div class="mb-5 mt-3 align-items-center text-center"> 
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                 </form>
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%></body>

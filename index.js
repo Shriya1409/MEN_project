@@ -92,6 +92,7 @@ let studrecroute=require('./route/backend/student-records')
 
 let syllabusroute = require('./route/backend/syllabus')
 let addsyllabusroute = require('./route/backend/add-syllabus')
+let adddepttemproute=require('./route/backend/dept-temp')
 
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
@@ -116,6 +117,7 @@ app.use('/add-placement-records', addplcmtrecordroute)
 app.use('/student-records', studrecroute)
 app.use('/add-student-records', addstudrecroute)
 app.use('/add-faculty', addfacultyroute)
+app.use('/dept-temp', adddepttemproute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)
