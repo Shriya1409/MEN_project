@@ -31,8 +31,8 @@ router.get('/', (req,res) => {
 
 router.post('/', upload.single('facultyPhoto'),  (req,res) => {
     facultyModel.findOne({faculty_name: req.body.faculty_name})
-    .then((a) => {
-        if(a) {
+    .then((i) => {
+        if(i) {
             req.flash('err', 'Url already exists, Please try with another url!!')
             res.redirect('/faculty/')
             // console.log('Url already exists, Please try with another url!!')
@@ -48,7 +48,7 @@ router.post('/', upload.single('facultyPhoto'),  (req,res) => {
                   emailid:req.body.emailid
                     //  facultyPhoto: req.body.facultyPhoto
                 })
-                .then((a) => {
+                .then((i) => {
                     req.flash('success', 'Your data has been added successfully')
                      res.redirect('/faculty/')
                 })
@@ -64,9 +64,9 @@ router.post('/', upload.single('facultyPhoto'),  (req,res) => {
                     emailid:req.body.emailid,
                     facultyPhoto: req.body.facultyPhoto
                  })
-                 .then((a) => {
+                 .then((i) => {
                      req.flash('success', 'Your data has been added successfully')
-                      res.redirect('/admin/')
+                      res.redirect('/faculty/')
                  })
         
              }

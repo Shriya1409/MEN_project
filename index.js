@@ -73,6 +73,8 @@ let adminroute = require('./route/backend/admin')
 let pageroute = require('./route/backend/page')
 let deptroute = require('./route/backend/dept')
 let itdeptroute = require('./route/backend/itdept')
+
+let facultyroute = require('./route/backend/faculty')
 let addfacultyroute=require('./route/backend/add-faculty')
 
 let addpageroute = require('./route/backend/add-page')
@@ -116,6 +118,7 @@ app.use('/add-placement-records', addplcmtrecordroute)
 
 app.use('/student-records', studrecroute)
 app.use('/add-student-records', addstudrecroute)
+app.use('/faculty', facultyroute)
 app.use('/add-faculty', addfacultyroute)
 app.use('/dept-temp', adddepttemproute)
 
@@ -260,10 +263,7 @@ const requirePermission = (permission) => (req, res, next) => {
 // });
 
 
-//   // Example route that requires faculty permission
-// app.get('/admin/faculty', requireAuth, requirePermission('faculty'), (req, res) => {
-//   res.render('faculty-file', { user: req.session.user });
-// });
+
 
 //   // Example route that requires placement permission
 // app.get('/admin/placement', requireAuth, requirePermission('placement'), (req, res) => {

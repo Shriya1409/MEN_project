@@ -6,6 +6,7 @@ let plcmtModel=require('../../model/plcmtModel')
 
 let plcmtRecords=require('../../model/plcmtRecords')
 let studRecords=require('../../model/studRecords')
+let facultyModel=require('../../model/facultyModel')
 
 let resultModel=require('../../model/resultModel')
 let syllabusModel=require('../../model/syllabusModel')
@@ -151,6 +152,25 @@ router.use((req, res, next) => {
     next()
 })
 
+facultyModel.find({})
+    .then((i)=> {
+        router.locals.facultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    facultyModel.find({})
+        .then((i) => {
+            res.locals.facultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
 
 
 pageModel.find({})
@@ -192,6 +212,9 @@ router.get('/', (req,res) => {
         } 
         else if(extractValue === 'syllabus.ejs') {
             res.render('../views/frontend/syllabus.ejs',{x})
+          } 
+          else if(extractValue === 'faculty.ejs') {
+            res.render('../views/frontend/faculty.ejs',{x})
           } 
         else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})

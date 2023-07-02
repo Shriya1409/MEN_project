@@ -23,8 +23,8 @@ let facultyModelSchema = mongoose.Schema({
         required:true
     },
     facultyPhoto : {
-        type:String,
-        required: true
+        type:String
+        
     },
 })
 
