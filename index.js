@@ -73,7 +73,7 @@ let adminroute = require('./route/backend/admin')
 let pageroute = require('./route/backend/page')
 let deptroute = require('./route/backend/dept')
 let itdeptroute = require('./route/backend/itdept')
-
+let addfacultyroute=require('./route/backend/add-faculty')
 
 let addpageroute = require('./route/backend/add-page')
 let adddeptroute = require('./route/backend/add-dept')
