@@ -20,8 +20,7 @@ let studRecordsSchema = mongoose.Schema({
         required:true
     },
     cgpa : {
-        type:String,
-       
+        type:String,    
     },
     pr : {
         type:String,
