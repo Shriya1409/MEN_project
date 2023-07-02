@@ -90,6 +90,9 @@ let plcmtrecordroute=require('./route/backend/placement-records')
 let addstudrecroute=require('./route/backend/add-student-records')
 let studrecroute=require('./route/backend/student-records')
 
+let syllabusroute = require('./route/backend/syllabus')
+let addsyllabusroute = require('./route/backend/add-syllabus')
+
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
 app.use('/department', deptroute)
