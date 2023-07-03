@@ -59,7 +59,7 @@
                         <td> <%=i.joining_year%> </td>
                         <td> <%=i.emailid%> </td>
                         
-                        <td>  <a class="btn btn-primary" href="/faculty/edit-faculty-file/<%= i.faculty_name%>">Edit</a>    </td>                  
+                        <td>  <a class="btn btn-primary" href="/faculty/edit-faculty/<%= i.faculty_name%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/faculty/delete-faculty/<%= i.faculty_name%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                         </form>
