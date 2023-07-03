@@ -30,7 +30,7 @@ let storage = multer.diskStorage({
 router.get('/', (req,res) => {
     facultyModel.find({})
     .then((i) => {
-        res.render('../views/backend/add-faculty-file', {i})
+        res.render('../views/backend/faculty-file', {i})
         // console.log(x)
     })
     .catch((j) => {

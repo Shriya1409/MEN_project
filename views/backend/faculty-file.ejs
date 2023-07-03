@@ -44,20 +44,20 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%i.forEach((j)=>{%>
+                     <%i.forEach((i)=>{%>
                      <tr>
                          <td>
-                          <% if(j.facultyPhoto){ %>
-                              <img src="/backend/faculty/<%= j.facultyPhoto%>" width="100">
+                          <% if(i.facultyPhoto){ %>
+                              <img src="/backend/faculty/<%= i.facultyPhoto%>" width="100">
                           <% } else { %>
                               <img src="/backend/faculty/no_image.jpg" width="100">
                           <% } %>
                           </td>
-                        <td><%=u.faculty_name%> </td>
-                        <td><%=u.qualification%> </td>
-                        <td><%=u.department%> </td>
-                        <td> <%=u.joining_year%> </td>
-                        <td> <%=u.emailid%> </td>
+                        <td><%=i.faculty_name%> </td>
+                        <td><%=i.qualification%> </td>
+                        <td><%=i.department%> </td>
+                        <td> <%=i.joining_year%> </td>
+                        <td> <%=i.emailid%> </td>
                         
                         <td>  <a class="btn btn-primary" href="/faculty/edit-faculty-file/<%= i.faculty_name%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/faculty/delete-faculty/<%= i.faculty_name%>?_method=DELETE" method="POST">
