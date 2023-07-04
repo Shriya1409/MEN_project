@@ -2,6 +2,15 @@ let express =  require('express')
 let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
+let plcmtModel=require('../../model/plcmtModel')
+
+let plcmtRecords=require('../../model/plcmtRecords')
+let studRecords=require('../../model/studRecords')
+let facultyModel=require('../../model/facultyModel')
+
+let resultModel=require('../../model/resultModel')
+let syllabusModel=require('../../model/syllabusModel')
+
 let router = express()
 
 deptModel.find({})
@@ -25,6 +34,66 @@ router.use((req, res, next) => {
 })
 
 
+plcmtModel.find({})
+    .then((x)=> {
+        router.locals.plcmtdata = x;
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+
+resultModel.find({})
+    .then((s)=> {
+        router.locals.resultdata = s;
+    })
+    .catch((t) => {
+        console.log(t)
+    })
+
+router.use((req, res, next) => {
+   resultModel.find({})
+        .then((s) => {
+            res.locals.resultdata = s; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((t) => {
+            console.log(t)
+        })
+    next()
+})
+
+syllabusModel.find({})
+    .then((g)=> {
+        router.locals.syllabusdata = g;
+    })
+    .catch((h) => {
+        console.log(h)
+    })
+
+router.use((req, res, next) => {
+   syllabusModel.find({})
+        .then((g) => {
+            res.locals.syllabusdata = g; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((h) => {
+            console.log(h)
+        })
+    next()
+})
+
+
+router.use((req, res, next) => {
+    plcmtModel.find({})
+        .then((x) => {
+            res.locals.plcmtdata = x; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((y) => {
+            console.log(y)
+        })
+    next()
+})
 ITdeptModel.find({})
     .then((p)=> {
         router.locals.itdeptdata = p;
@@ -44,6 +113,65 @@ router.use((req, res, next) => {
         })
     next()
 })
+plcmtRecords.find({})
+    .then((a)=> {
+        router.locals.plcrec = a;
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+
+router.use((req, res, next) => {
+    plcmtRecords.find({})
+        .then((a) => {
+            res.locals.plcrec = a; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((b) => {
+            console.log(b)
+        })
+    next()
+})
+
+studRecords.find({})
+    .then((o)=> {
+        router.locals.studrec = o;
+    })
+    .catch((u) => {
+        console.log(u)
+    })
+
+router.use((req, res, next) => {
+    studRecords.find({})
+        .then((o) => {
+            res.locals.studrec = o; //here set local variable  and then value
+        })
+        .catch((u) => {
+            console.log(u)
+        })
+    next()
+})
+
+facultyModel.find({})
+    .then((i)=> {
+        router.locals.facultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    facultyModel.find({})
+        .then((i) => {
+            res.locals.facultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
+
 
 pageModel.find({})
     .then((x)=> {
@@ -80,11 +208,16 @@ router.get('/', (req,res) => {
        if(x){
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
-          res.render('../views/frontend/dynamic-page',{x})
-        } else if(extractValue === 'register') {
+          res.render('../views/backend/result.ejs',{x})
+        } 
+        else if(extractValue === 'syllabus.ejs') {
+            res.render('../views/frontend/syllabus.ejs',{x})
+          } 
+          else if(extractValue === 'faculty.ejs') {
+            res.render('../views/frontend/faculty.ejs',{x})
+          } 
+        else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
-         }  else if(extractValue === 'placement.ejs') {
-            res.render('../views/frontend/dynamic-plcmt',{x})
         } 
         else {
           res.render('../views/frontend/dynamic-page',{x})
@@ -101,24 +234,37 @@ router.get('/', (req,res) => {
  })
 
 
-
-//  router.get('/:id', (req,res) => {
-    //         pageModel.findOne({pageUrl: req.params.id})
-    //         .then((x) => {
-    //            if(x){
-    //             res.render('../views/frontend/dynamic-page',{x})
-    //            }
-    //            else{
-    //             res.redirect('/')
-    //            }
-    //         })
+ router.get('/placement/:plcmt', (req,res) => {
+    plcmtModel.findOne({plcmtUrl: req.params.plcmt})
+    .then((x) => {
+       if(x){
+      
+       
+          res.render('../views/frontend/dynamic-plcmt',{x})
+        } 
         
-    //         .catch((y) => { 
-    //             console.log(y)
-    //         })
-    //     })
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+    
+ })
 
 
+//  router.get('/placementrecords', (req,res) => {
+//     plcmtRecords.find({})
+//     .then((x) => {
+//         res.render('../views/frontend/plcmtrecord', {x})
+//         // console.log(x)
+//     })
+//     .catch((y) => {
+//         console.log(y)
+//     })
+// })
 
  router.get('/department/:dept', (req,res) => {
     deptModel.findOne({deptUrl: req.params.dept})
@@ -145,7 +291,58 @@ router.get('/', (req,res) => {
     })
 
  })
+ router.get('/placementrecords/plcmtrecord', (req,res) => {
+    plcmtRecords.find()
+    .then((a) => {
+       if(a){
 
+        //  const extractValue = p.deptUrl;
+        //  if(extractValue) {
+        // if(extractValue === 'result.ejs') {
+        //   res.render('../views/frontend/dynamic-page',{p})
+        // } else if(extractValue === 'register') {
+        //     res.render('../views/frontend/register',{p})
+        // } else {
+        //   res.render('../views/frontend/register',{p})
+        // }
+        res.render('../views/frontend/plcmtrecord',{a}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+
+ })
+
+ 
+//  router.get('/placement/placement-records/:plc', (req,res) => {
+//     plcmtRecords.findOne({rollno: req.params.plc})
+//     .then((p) => {
+//        if(p){
+
+//         //  const extractValue = p.deptUrl;
+//         //  if(extractValue) {
+//         // if(extractValue === 'result.ejs') {
+//         //   res.render('../views/frontend/dynamic-page',{p})
+//         // } else if(extractValue === 'register') {
+//         //     res.render('../views/frontend/register',{p})
+//         // } else {
+//         //   res.render('../views/frontend/register',{p})
+//         // }
+//         res.render('../views/frontend/plcmtrecord',{p}) 
+//        }
+//        else {
+//         res.redirect('/')
+//        }
+//     })
+//     .catch((q) => {
+//         console.log(q)
+//     })
+
+//  })
 
 
 

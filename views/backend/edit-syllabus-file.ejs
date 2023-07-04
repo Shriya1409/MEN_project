@@ -1,0 +1,65 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Edit Syllabus</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+
+
+
+                 <!-- put your contente -->
+                 <h1 class="mb-2 mt-2">Edit Syllabus</h1>
+    
+                 <form method="post" action="/syllabus/edit-syllabus/<%=g.syllabus_title%>?_method=put" enctype="multipart/form-data">
+             
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Syllabus Title</label></div>
+                     <div class="col"><input type="text" name ="syllabus_title" class="form-control" value="<%=g.syllabus_title%>" placeholder="Course" required></div>
+                   </div>
+
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">Department</label></div>
+                      <div class="col"><input type="text" name ="department" class="form-control" value="<%=g.department%>" placeholder="Year"></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">RC</label></div>
+                      <div class="col"><input type="text" name ="rc" class="form-control" value="<%=g.rc%>" placeholder="RC " required></div>
+                    </div>
+             
+             
+                                     
+                   <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                     <div class="col col-lg-2"><label class="form-label">Syllabus Pdf</label></div>
+                     <div class="col"><input type="file" name="syllabuspdf" class="form-control" ></div>
+                   </div>
+                   
+            
+                   <div class="mb-5 mt-3 align-items-center text-center"> 
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                   </div>
+               </form>
+
+            <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      

@@ -1,5 +1,5 @@
-<aside style="height:700px; background-color: black; ">
-    <nav style="height:700px; background-color: black; " class="sidebar py-3 px-2  mb-4" >
+<aside style="height:100%; background-color: black; ">
+    <nav style="height:100%; background-color: black; " class="sidebar py-3 px-2  mb-4" >
        <ul class="nav flex-column" id="nav_accordion">                      
           <li class="nav-item">
              <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#"> Pages <i class="bi small bi-caret-down-fill"></i> </a>
@@ -11,18 +11,32 @@
           <li class="nav-item">
              <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> Results <i class="bi small bi-caret-down-fill"></i> </a>
              <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
-                <li><a class="nav-link" href="/result">Result Pages</a></li>
+                <li><a class="nav-link" href="/result">All Result </a></li>
                 <li><a class="nav-link" href="/add-result">Add Result </a></li>               
              </ul>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> Syllabus <i class="bi small bi-caret-down-fill"></i> </a>
+            <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
+               <li><a class="nav-link" href="/syllabus">All records</a></li>
+               <li><a class="nav-link" href="/add-syllabus">Add Syllabus </a></li>               
+            </ul>
+         </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> Student record <i class="bi small bi-caret-down-fill"></i> </a>
+            <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
+               <li><a class="nav-link" href="/student">All records</a></li>
+               <li><a class="nav-link" href="/add-student">Add student record </a></li>               
+            </ul>
+         </li>
+         
+          <li class="nav-item">
              <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item3" href="#"> Placement <i class="bi small bi-caret-down-fill"></i> </a>
              <ul id="menu_item3" class="submenu collapse" data-bs-parent="#nav_accordion">
                 <li><a class="nav-link" href="/placement">Placement</a></li>
-                <li><a class="nav-link" href="/add-placement">Add Placement Details </a></li> 
+                <li><a class="nav-link" href="/add-placement">Add Placement Pages </a></li> 
                 <li><a class="nav-link" href="/add-placement-records">Add Placement Records</a></li>
-                <li><a class="nav-link" href="/placement-records">All Records</a></li>
-                            
+                <li><a class="nav-link" href="/placement-records">All Records</a></li>                 
              </ul>
           </li>
           <li class="nav-item">
@@ -30,6 +44,7 @@
             <ul id="menu_item4" class="submenu collapse" data-bs-parent="#nav_accordion">
                <li><a class="nav-link" href="/department">Edit Departments </a></li>
                <li><a class="nav-link" href="/add-department">Add Department </a></li>  
+               <li><a class="nav-link" href="/dept-temp">Create Dept Template</a></li>
             </ul> </li>
             <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item5" href="#"> Departments <i class="bi small bi-caret-down-fill"></i> </a>
@@ -43,6 +58,13 @@
             </ul> 
          </li>  
 
+         <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> Faculty <i class="bi small bi-caret-down-fill"></i> </a>
+            <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
+               <li><a class="nav-link" href="/faculty">all records</a></li>
+               <li><a class="nav-link" href="/add-faculty">Add faculty </a></li>               
+            </ul>
+         </li>
 
 
                <!-- <li><a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item5" href="#" >Departments <i class="bi small bi-caret-down-fill"></i></a>

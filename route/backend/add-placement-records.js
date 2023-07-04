@@ -39,8 +39,8 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-plcmt-records')
     })
 
-router.post('/',  (req,res) => {
-    plcmtRecords.findOne({RollNo: req.body.rollno})
+router.post('/', upload.single('recordPhoto'),  (req,res) => {
+    plcmtRecords.findOne({rollno: req.body.rollno})
     .then((a) => {
         if(a) {
             req.flash('err', 'Url already exists, Please try with another url!!')
@@ -58,9 +58,10 @@ router.post('/',  (req,res) => {
                      cgpa: req.body.cgpa,
                      company: req.body.company,
                      semno: req.body.semno,
-                     package: req.body.package
+                     package: req.body.package,
+                    //  recordPhoto: req.body.recordPhoto
                 })
-                .then((x) => {
+                .then((a) => {
                     req.flash('success', 'Your data has been added successfully')
                      res.redirect('/placement-records/')
                 })
@@ -76,9 +77,10 @@ router.post('/',  (req,res) => {
                      cgpa: req.body.cgpa,
                      company: req.body.company,
                      semno: req.body.semno,
-                     package: req.body.package
+                     package: req.body.package,
+                     recordPhoto: req.body.recordPhoto
                  })
-                 .then((x) => {
+                 .then((a) => {
                      req.flash('success', 'Your data has been added successfully')
                       res.redirect('/placement-records/')
                  })

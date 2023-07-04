@@ -1,0 +1,88 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Records</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your content -->
+
+               <h1>All Records</h1>
+            
+               
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Photo</th>
+                        <th>Faculty Name</th>
+                        <th>Qualification</th>
+                        <th>Department</th>
+                        <th>Joining Year</th>
+                        <th>Email ID</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%i.forEach((i)=>{%>
+                     <tr>
+                         <td>
+                          <% if(i.facultyPhoto){ %>
+                              <img src="/backend/faculty/<%= i.facultyPhoto%>" width="100">
+                          <% } else { %>
+                              <img src="/backend/faculty/no_image.jpg" width="100">
+                          <% } %>
+                          </td>
+                        <td><%=i.faculty_name%> </td>
+                        <td><%=i.qualification%> </td>
+                        <td><%=i.department%> </td>
+                        <td> <%=i.joining_year%> </td>
+                        <td> <%=i.emailid%> </td>
+                        
+                        <td>  <a class="btn btn-primary" href="/faculty/edit-faculty/<%= i.faculty_name%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/faculty/delete-faculty/<%= i.faculty_name%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                        </form>
+                        </td>
+                     </tr>
+                     <%i})%>
+                    
+                  </tbody>
+              </table>
+                 
+
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-faculty/">Add More Faculty</a> </center>
+       
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      

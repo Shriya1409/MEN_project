@@ -106,7 +106,7 @@ router.get('/', (req,res) => {
      })
  })
 
- router.put('/edit-placement/:id', upload.single('page_Photo'), (req,res) => {
+ router.put('/edit-placement/:id', upload.single('plcmtPhoto'), (req,res) => {
      if(req.file){
         plcmtModel.updateOne({ plcmtUrl: req.params.id }, {$set:{
             plcmtUrl: req.body.page_Url,

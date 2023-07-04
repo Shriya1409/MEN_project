@@ -74,6 +74,8 @@ let pageroute = require('./route/backend/page')
 let deptroute = require('./route/backend/dept')
 let itdeptroute = require('./route/backend/itdept')
 
+let facultyroute = require('./route/backend/faculty')
+let addfacultyroute=require('./route/backend/add-faculty')
 
 let addpageroute = require('./route/backend/add-page')
 let adddeptroute = require('./route/backend/add-dept')
@@ -87,6 +89,13 @@ let  addplcmtroute= require('./route/backend/add-placement')
 let addplcmtrecordroute=require('./route/backend/add-placement-records')
 let plcmtrecordroute=require('./route/backend/placement-records')
 
+let addstudrecroute=require('./route/backend/add-student')
+let studrecroute=require('./route/backend/student')
+
+let syllabusroute = require('./route/backend/syllabus')
+let addsyllabusroute = require('./route/backend/add-syllabus')
+let adddepttemproute=require('./route/backend/dept-temp')
+
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
 app.use('/department', deptroute)
@@ -99,10 +108,20 @@ app.use('/add-itdepartment', additdeptroute)
 app.use('/result', resultroute)
 app.use('/add-result', addresultroute)
 
+app.use('/syllabus', syllabusroute)
+app.use('/add-syllabus', addsyllabusroute)
+
 app.use('/placement', plcmtroute)
 app.use('/add-placement', addplcmtroute)
 app.use('/placement-records', plcmtrecordroute)
 app.use('/add-placement-records', addplcmtrecordroute)
+
+app.use('/student', studrecroute)
+app.use('/add-student', addstudrecroute)
+
+app.use('/faculty', facultyroute)
+app.use('/add-faculty', addfacultyroute)
+app.use('/dept-temp', adddepttemproute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)
@@ -245,10 +264,7 @@ const requirePermission = (permission) => (req, res, next) => {
 // });
 
 
-//   // Example route that requires faculty permission
-// app.get('/admin/faculty', requireAuth, requirePermission('faculty'), (req, res) => {
-//   res.render('faculty-file', { user: req.session.user });
-// });
+
 
 //   // Example route that requires placement permission
 // app.get('/admin/placement', requireAuth, requirePermission('placement'), (req, res) => {

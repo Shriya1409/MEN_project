@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+
+    <title>Faculty</title>
+    <meta name="description" content="<%=x.pageMetaDescription%>" />
+    <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
+  </head>
+  <body>
+    
+    <%- include('common/header.ejs')-%>
+
+           
+    <div class="dashboard-content-area" style="margin:15px;">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+           <tr>
+              <th>Photo</th>
+              <th>Faculty Name</th>
+              <th>Department</th>
+              <th>Qualification</th>
+              <th>Joiing year</th>
+              <th>Email ID</th>
+           </tr>
+        </thead>
+        <tbody>
+           <%facultydata.forEach((i)=>{%>
+              <tr>
+                <td>
+                    <% if(i.facultyPhoto){ %>
+                        <img src="/backend/faculty/<%= i.facultyPhoto%>" width="100">
+                    <% } else { %>
+                        <img src="/backend/faculty/no_image.jpg" width="100">
+                    <% } %>
+                    </td>
+                 <td><%= i.faculty_name%></td>
+                 <td><%=i.department%></td>
+                 <td><%=i.qualification%></td>
+                 <td><%=i.joining_year%></td>
+                 <td><%=i.emailid%></td>
+
+
+                    </form>
+                 </td>
+              </tr>
+              <%facultydata})%>
+          
+        </tbody>
+     </table>
+    
+    <%- include('common/footer.ejs')-%>
+
+  </body>
+</html>
+
+
+
