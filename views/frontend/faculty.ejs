@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include('common/head.ejs')-%>
-   <link rel="stylesheet" type="text/css" href="faculty.css">
+   <!-- <link rel="stylesheet" type="text/css" href="css/faculty.css"> -->
     <title>Faculty</title>
     <meta name="description" content="<%=x.pageMetaDescription%>" />
     <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
@@ -24,13 +24,15 @@ border-color: grey;
 color:#fff;
 background-color: #af9a56;
 ">
+<table>
+   <tbody>
    <%facultydata.forEach((i)=>{%>
-      <div style=" margin: 20px 0px; z-index: 0;">
+      <tr>
+         <td>
       <div class="image-block"
-      style="
-      display:flex;
-      left:100px;
-      position:absolute;
+      style= "
+   float:left;
+   padding:10px 10px;
       "
       >
 
@@ -40,14 +42,14 @@ background-color: #af9a56;
          <img src="/backend/faculty/no_image.jpg" width="100">
       <% } %>
      </div>
+   </td>
+   <td>
      <div class="data-block"
-     style="
-       display:flex;
-       left:800px;
-      position:absolute;
-      "
-     
-   
+     style="float:right;
+   position:relative;
+     left:100px;
+     padding:20px 20px;
+     "
      >
       <div class="faculty-data">
          <div>Name: <%= i.faculty_name%></div>
@@ -57,54 +59,14 @@ background-color: #af9a56;
          <div>Email Id: <%= i.emailid%></div>
       </div>
      </div>
-   </div>
+     </td>
+   </tr>
       <%facultydata})%>
-
+        
+   </tbody>
+</table>
 </div>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
-    
-    
-    
-    <!-- </thead>
-        <tbody>
-           <%facultydata.forEach((i)=>{%>
-              <tr>
-                <td>
-                    <% if(i.facultyPhoto){ %>
-                        <img src="/backend/faculty/<%= i.facultyPhoto%>" width="100">
-                    <% } else { %>
-                        <img src="/backend/faculty/no_image.jpg" width="100">
-                    <% } %>
-                    </td>
-                 <td><%= i.faculty_name%></td>
-                 <td><%=i.department%></td>
-                 <td><%=i.qualification%></td>
-                 <td><%=i.joining_year%></td>
-                 <td><%=i.emailid%></td>
-
-
-                    </form>
-                 </td>
-              </tr>
-              <%facultydata})%>
-          
-        </tbody> -->
-  
-    
-    <%- include('common/footer.ejs')-%>
+  <%- include('common/footer.ejs')-%>
 
   </body>
 </html>
