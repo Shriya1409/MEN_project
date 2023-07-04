@@ -41,7 +41,7 @@ router.get('/', (req,res) => {
 router.get('/edit-syllabus/:id', (req,res) => {
     syllabusModel.findOne({ syllabus_title: req.params.id })
     .then((g) => {
-        res.render('../views/backend/edit-result-file', {g})
+        res.render('../views/backend/edit-syllabus-file', {g})
     })
     .catch((h) => {
         console.log(h)

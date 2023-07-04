@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include('common/head.ejs')-%>
-
+   <link rel="stylesheet" type="text/css" href="faculty.css">
     <title>Faculty</title>
     <meta name="description" content="<%=x.pageMetaDescription%>" />
     <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
@@ -10,20 +10,75 @@
   <body>
     
     <%- include('common/header.ejs')-%>
+<div class="record-block"
+style="
 
-           
-    <div class="dashboard-content-area" style="margin:15px;">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-           <tr>
-              <th>Photo</th>
-              <th>Faculty Name</th>
-              <th>Department</th>
-              <th>Qualification</th>
-              <th>Joiing year</th>
-              <th>Email ID</th>
-           </tr>
-        </thead>
+height:800px;
+align-items: center;
+border-style:solid;
+border-width: 1px;
+border-radius: 10px;
+margin:10px 20px;
+padding:10px;
+border-color: grey;
+color:#fff;
+background-color: #af9a56;
+">
+   <%facultydata.forEach((i)=>{%>
+      <div style=" margin: 20px 0px; z-index: 0;">
+      <div class="image-block"
+      style="
+      display:flex;
+      left:100px;
+      position:absolute;
+      "
+      >
+
+      <% if(i.facultyPhoto){ %>
+         <img src="/backend/faculty/<%= i.facultyPhoto%>" width="100">
+      <% } else { %>
+         <img src="/backend/faculty/no_image.jpg" width="100">
+      <% } %>
+     </div>
+     <div class="data-block"
+     style="
+       display:flex;
+       left:800px;
+      position:absolute;
+      "
+     
+   
+     >
+      <div class="faculty-data">
+         <div>Name: <%= i.faculty_name%></div>
+         <div>Department: <%= i.department%></div>
+         <div>Qualification: <%= i.qualification%></div>
+         <div>Joining Year: <%= i.joining_year%></div>
+         <div>Email Id: <%= i.emailid%></div>
+      </div>
+     </div>
+   </div>
+      <%facultydata})%>
+
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    
+    
+    <!-- </thead>
         <tbody>
            <%facultydata.forEach((i)=>{%>
               <tr>
@@ -46,8 +101,8 @@
               </tr>
               <%facultydata})%>
           
-        </tbody>
-     </table>
+        </tbody> -->
+  
     
     <%- include('common/footer.ejs')-%>
 
