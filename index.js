@@ -67,7 +67,6 @@ app.use((req, res, next) => {
 // let plcmtModel=require('./model/plcmtModel');
 
 
-
 //backend route
 let adminroute = require('./route/backend/admin')
 let pageroute = require('./route/backend/page')
