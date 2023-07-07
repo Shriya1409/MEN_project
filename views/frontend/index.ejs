@@ -1,16 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
+    
     <%- include('common/head.ejs')-%>
 
     <title>GCE - Goa College of Engineering</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+     <link rel="stylesheet" href="/backend/css/carousel-styles.css"> 
+     <script src="../backend/js/carousel-script.js" defer></script> 
   </head>
   <body>
     
     <%- include('common/header.ejs')-%>
 
     
-      <section>
+      <!-- <section>
         <div class="container">
 
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
@@ -51,10 +56,89 @@
           </div>
 
         </div>
-
-
+      </section> -->
+      <section aria-label="Newest Photos">
+        <div class="carousel-p" data-carousel>
+          <button class="carousel-button prev-p" data-carousel-button="prev">&#8656;</button>
+          <button class="carousel-button next-p" data-carousel-button="next">&#8658;</button>
+          <ul data-slides>
+            <li class="slide-p" data-active>
+            <img class="img-p" src="../backend/homepage-slider/home_welcome.jpg">
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_nss.jpg" >
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_fssai.jpg" >
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_nbaaccredation.jpg">
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_studentasso.jpg">
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_vigilanceawareness.jpg">
+            </li>
+            <li class="slide-p">
+              <img class="img-p" src="../backend/homepage-slider/home_welcome2.jpg">
+            </li>
+          </ul>
+        </div>
       </section>
-
+        <div class="text">
+          <div class="vision">
+          <h2>Vision</h2>
+          <p>
+            A TECHNICAL INSTITUTE WITH A FOCUS ON EXCELLENCE IN ACADEMICS, RESEARCH, INDUSTRY COLLABORATION AND NURTURING HUMAN VALUES IN STUDENTS.
+          </p>
+        </div>
+        <div class="mission">
+          <h3>Mission</h3>
+          
+            <ul style="list-style: none;">
+              <li>
+               1. Formulate & implement curriculum that ensures high academic standards.
+              </li>
+              <li>
+               2. Provide infrastructure that meets academic & advanced research requirements.
+              </li>
+              <li>
+                3. Collaborate with national, international institutions, laboratories and industries through student and faculty exchange programs and internships.
+               </li>
+               <li>
+                4. Undertake consultancy projects that are relevant to the state & nation.
+               </li>
+               <li>
+                5. Impart human values, awareness of environment and sustainable solutions in students and faculty.
+               </li>
+               <li>
+                6. Nurture innovation, entrepreneurship, leadership & resource management skills.
+               </li>
+            </ul>
+          
+        </div>
+        </div>
+      <section aria-label="Link Carousel">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+          <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+          <ul data-slides>
+            <li class="slide" data-active>
+             <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" > <img src="../backend/link-carousel/mis.png" > </a>
+             <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ><img src="../backend/link-carousel/online_certificate.png" > </a>
+             <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a> <img src="../backend/link-carousel/me_admission.png" ></a>
+             <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a><img src="../backend/link-carousel/online-sem-reg.png" ></a>
+             <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a><img src="../backend/link-carousel/aicte_free_course.png" ></a>
+            </li>
+            <li class="slide">
+              <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a> <img src="../backend/link-carousel/me_admission.png" ></a>
+              <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a><img src="../backend/link-carousel/online-sem-reg.png" ></a>
+              <a target="_blank" href="https://www.tutorialspoint.com/How-to-use-an-image-as-a-link-in-HTML" ></a><img src="../backend/link-carousel/aicte_free_course.png" ></a>
+            </li>
+          </ul>
+        </div>
+      </section>
     <%- include('common/footer.ejs')-%>
 
   </body>

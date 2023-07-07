@@ -5,6 +5,7 @@ let multer = require('multer')
 let facultyModel = require('../../model/facultyModel');
 let router = express();
 
+
 // storage & file name setting
 let storage = multer.diskStorage({
     destination:'public/backend/faculty/',
@@ -37,8 +38,6 @@ router.get('/', (req,res) => {
         console.log(j)
     })
 })
-
-
 
  router.get('/edit-faculty/:id', (req,res) => {
     facultyModel.findOne({ faculty_name: req.params.id })
