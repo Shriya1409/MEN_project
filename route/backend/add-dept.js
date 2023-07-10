@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-dept-file')
     })
 
-router.post('/', upload.single('page_Photoo') , (req,res) => {
+router.post('/', upload.array('dept_Photo',4) , (req,res) => {
     deptModel.findOne({deptUrl: req.body.deptUrl})
     .then((a) => {
         if(a) {
@@ -48,15 +48,27 @@ router.post('/', upload.single('page_Photoo') , (req,res) => {
             // console.log('Url already exists, Please try with another url!!')
         } else {
 
-            if(!req.file) {
+            if(!req.files && req.files.length > 0) {
 
                 deptModel.create({
                     deptUrl: req.body.dept_Url,
                     deptNavText: req.body.dept_Nav_Text,
                     deptTitle: req.body.dept_Title,
                     deptHeading: req.body.dept_Heading,
-                    // pagePhoto: req.file.filename,
-                    deptDetails: req.body.dept_Details
+                    //deptPhoto: deptPhotos,
+                    deptDetails: req.body.dept_Details,
+                    about1Details: req.body.about1_Details,
+                    about2Details: req.body.about2_Details,
+                    about3Details: req.body.about3_Details,
+                    //visionPhoto: req.file.filename,
+                    visionDetails: req.body.vision_Details,
+                    missionDetails: req.body.mission_Details,
+                    missionnDetails: req.body.missionn_Details,
+                    missionnnDetails: req.body.missionnn_Details,
+                    missionnnnDetails: req.body.missionnnn_Details,
+                   // missionPhoto: req.file.filename,
+                    
+                    
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -64,14 +76,29 @@ router.post('/', upload.single('page_Photoo') , (req,res) => {
                 })
         
             } else {
-        
+                const deptPhotos = req.files.map(file => file.filename);
+                
                 deptModel.create({
                     deptUrl: req.body.dept_Url,
                     deptNavText: req.body.dept_Nav_Text,
                     deptTitle: req.body.dept_Title,
                     deptHeading: req.body.dept_Heading,
-                    deptPhoto: req.file.filename,
-                    deptDetails: req.body.dept_Details
+                    deptPhoto: deptPhotos,
+                    deptDetails: req.body.dept_Details,
+                    about1Details: req.body.about1_Details,
+                    about2Details: req.body.about2_Details,
+                    about3Details: req.body.about3_Details,
+                    //visionPhoto: req.file.filename,
+                    visionDetails: req.body.vision_Details,
+                    missionDetails: req.body.mission_Details,
+                    missionnDetails: req.body.missionn_Details,
+                    missionnnDetails: req.body.missionnn_Details,
+                    missionnnnDetails: req.body.missionnnn_Details,
+                   // missionPhoto: req.file.filename,
+                    
+
+
+
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')

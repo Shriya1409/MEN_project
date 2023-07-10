@@ -1,0 +1,262 @@
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="/backend/slick/slick.css"/>
+ <link rel="stylesheet" type="text/css" href="/backend/common/NavBar.css"/>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!--  Add the new slick-theme.css if you want the default styling -->
+<link rel="stylesheet" type="text/css" href="/backend/slick/slick-theme.css"/>
+<link href="/backend/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/backend/css/bootstrap-icons.css">
+<link rel="stylesheet" href="/backend/css/admin-style.css">
+
+
+   <title>Faculty</title>
+   </head>
+   <body>
+      <div class=' bg-navbar' style=" background-image: url('/backend/images/HomeImg5.png'); background-repeat: no-repeat; background-size: cover; padding-bottom: 1rem; padding-top: 0.5rem;">
+
+         <div class='flex-top' style="flex: 1; flex-direction: row; display: flex;">
+           
+     
+           <div class='pl-phone nav-links' style="color: white; margin-left: 35rem;">
+             <a>
+             
+               91-832-2336301/401/303/302
+             </a>
+           </div>
+           <div class='pl-email nav-links'  style="color: white; margin-left: 2rem;">
+             <a>
+             
+               acad@gec.ac.in
+             </a> 
+           </div>
+     
+         </div>
+     
+     
+     
+     
+         <hr
+           style=" border-color: white;
+           height: 1px;
+           width: 100%;
+           margin-bottom: 1rem; "
+         />
+     
+     
+         <div class='flex justify-content-space-between   plr-10 ptb-20'>
+           <div class="GEClogo" style=" flex: 1; flex-direction: row; display: flex; ">
+             <div
+               style=" 
+               background-image: url('/backend/image/GecLogo.png');
+                 background-size: cover;
+                 height: 7rem;
+                 width: 8rem;
+                 top: 0;
+                 color: #000000;
+                 object-fit: contain;"
+             >
+             </div>
+     
+             <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; " >
+               <p style="color: white; font-size: 1rem; margin-bottom: 0;" >
+                 Government of Goa
+               </p>
+               <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px; margin-top: 10px;">Goa College of Engineering</h3>
+               <p style="color: white; font-size: 1rem; margin-bottom: 0;">
+                 Farmagudi, Goa
+               </p>
+             </div>
+     
+             <div
+             style=" 
+               background-image: url('/backend/image/GoaLogo.png');
+                 background-size: cover;
+                 height: 7rem;
+                 width: 7rem;
+                 top: 0;
+                 color: #000000;
+                 object-fit: contain;"
+               >
+             </div>
+          
+     
+     
+           
+             <ul style="list-style-type:none;">
+              <div style=" text-align: center; display: flex; margin-top: 30px; " >
+                <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
+                <% navdata.forEach((y) => { %>
+                  <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
+                  <% }) %> 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
+                    <div class="dropdown-menu">
+                      <% deptdata.forEach((q) => { %>
+                      <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
+                      <% }) %> 
+        
+                      
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Placement</a>
+                    <div class="dropdown-menu">
+                      <% plcmtdata.forEach((q) => { %>
+                      <a class="dropdown-item" style=" color: black;" href="/placement/<%=q.plcmtUrl%>"><%=q.plcmtNavText%></a>
+                      <% }) %> 
+                     
+                        <a class="dropdown-item" style=" color: black;" href="/placementrecords/plcmtrecord">Placement Records</a>
+                     
+                      <!-- <a class="nav-item" style= "text-decoration: none"  href="/placement/placementrecords">  Placement Records  </a> -->
+                      </div>
+                  </li>
+        
+        
+                </div>
+                </ul>
+   
+           </div>
+           </div>
+     
+         </div>
+       
+     
+     
+     
+        
+
+      
+<!-- faculty Cards -->
+
+<div class="container" style="padding-top: 50px; margin-bottom: 200px; width:1100px;">
+  <h4 style="padding-bottom: 50px; text-align: center;">Information Technology Department Faculty</h4>
+  <div class="row" >
+    <%facultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/faculty/<%= j.facultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.facultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%facultydata})%>
+  </div>
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">Computer Department Faculty</h4>
+  <div class="row" >
+    <%compfacultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/compfaculty/<%= j.compfacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.compfacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.compfacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.compfacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.compfacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.compfacultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%compfacultydata})%>
+  </div>
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">ETC Department Faculty</h4>
+  <div class="row" >
+    <%etcfacultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/etcfaculty/<%= j.etcfacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.etcfacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%etcfacultydata})%>
+  </div>
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">ENE Department Faculty</h4>
+  <div class="row" >
+    <%enefacultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/enefaculty/<%= j.enefacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.enefacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.enefacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.enefacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.enefacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.enefacultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%enefacultydata})%>
+  </div>
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">Mechanical Department Faculty</h4>
+  <div class="row" >
+    <%mechfacultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/mechfaculty/<%= j.mechfacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.mechfacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.mechfacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.mechfacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.mechfacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.mechfacultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%mechfacultydata})%>
+  </div>
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">Civil Department Faculty</h4>
+  <div class="row" >
+    <%civilfacultydata.forEach((j)=>{%>
+      <div class="col-md-4">
+        <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+          <img src="/backend/civilfaculty/<%= j.civilfacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <div class="card-body" >
+            <h6 class="card-title"><%= j.civilfacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.civilfacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.civilfacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.civilfacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.civilfacultyEmailId %></p>
+          </div>
+        </div>
+      </div>
+      <%civilfacultydata})%>
+  </div>
+</div>
+                
+       
+
+              <!-- end your content here -->
+
+
+
+
+           
+   
+<%- include('common/footer.ejs')-%>
+<footer>
+   <div class="container">
+       <hr ><center>Copyright 2023</center>
+   </div>
+</footer>
+
+
+      

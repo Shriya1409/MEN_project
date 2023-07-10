@@ -1,0 +1,67 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Add Civil Faculty</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+              <div class="dashboard-content-area">
+
+                   <!-- put your contente -->
+                   <h1 class="mb-2 mt-2">Add Civil Faculty Info</h1>
+    
+                   <form method="post" action="/add-civilfaculty" enctype="multipart/form-data">
+               
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Faculty Name</label></div>
+                       <div class="col"><input type="text" name ="civilfaculty_Name" class="form-control" placeholder="Faculty Name" required></div>
+                     </div>
+
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                        <div class="col col-lg-2"><label class="form-label">Qualification</label></div>
+                        <div class="col"><input type="text" name ="civilfaculty_Qualification" class="form-control" placeholder="Qualification" required></div>
+                      </div>
+
+                      <div class="mb-3 mt-3 row g-9 align-items-center">  
+                        <div class="col col-lg-2"><label class="form-label"> Department</label></div>
+                        <div class="col"><input type="text" name ="civilfaculty_Department" class="form-control" placeholder="Department" required></div>
+                      </div>
+               
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                       <div class="col col-lg-2"><label class="form-label">Joining Year</label></div>
+                       <div class="col"><input type="text" name ="civilfaculty_JoiningYear" class="form-control" placeholder="Joining Year" required></div>
+                     </div>
+                     
+                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                       <div class="col col-lg-2"><label class="form-label">Email Id</label></div>
+                       <div class="col"><input type="text" name="civilfaculty_EmailId" class="form-control" placeholder="123@gmail.com" required></div>
+                     </div>
+                   
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+                      <div class="col"><input type="file" name="civilfaculty_Photo" class="form-control" ></div>
+                    </div>
+                     <div class="mb-5 mt-3 align-items-center text-center"> 
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                     </div>
+                 </form>
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%></body>

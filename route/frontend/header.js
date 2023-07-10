@@ -2,11 +2,18 @@ let express =  require('express')
 let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
+let CompdeptModel = require('../../model/compdeptModel')
 let plcmtModel=require('../../model/plcmtModel')
 
 let plcmtRecords=require('../../model/plcmtRecords')
 let studRecords=require('../../model/studRecords')
+
 let facultyModel=require('../../model/facultyModel')
+let compfacultyModel=require('../../model/compfacultyModel')
+let etcfacultyModel=require('../../model/etcfacultyModel')
+let enefacultyModel=require('../../model/enefacultyModel')
+let mechfacultyModel=require('../../model/mechfacultyModel')
+let civilfacultyModel=require('../../model/civilfacultyModel')
 
 let resultModel=require('../../model/resultModel')
 let syllabusModel=require('../../model/syllabusModel')
@@ -113,6 +120,28 @@ router.use((req, res, next) => {
         })
     next()
 })
+
+CompdeptModel.find({})
+    .then((p)=> {
+        router.locals.compdeptdata = p;
+    })
+    .catch((q) => {
+        console.log(q)
+    })
+
+router.use((req, res, next) => {
+    CompdeptModel.find({})
+        .then((p) => {
+            res.locals.compdeptdata = p; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((q) => {
+            console.log(q)
+        })
+    next()
+})
+
+
 plcmtRecords.find({})
     .then((a)=> {
         router.locals.plcrec = a;
@@ -171,6 +200,101 @@ router.use((req, res, next) => {
     next()
 })
 
+compfacultyModel.find({})
+    .then((i)=> {
+        router.locals.compfacultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    compfacultyModel.find({})
+        .then((i) => {
+            res.locals.compfacultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
+etcfacultyModel.find({})
+    .then((i)=> {
+        router.locals.etcfacultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    etcfacultyModel.find({})
+        .then((i) => {
+            res.locals.etcfacultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
+enefacultyModel.find({})
+    .then((i)=> {
+        router.locals.enefacultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    enefacultyModel.find({})
+        .then((i) => {
+            res.locals.enefacultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
+mechfacultyModel.find({})
+    .then((i)=> {
+        router.locals.mechfacultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    mechfacultyModel.find({})
+        .then((i) => {
+            res.locals.mechfacultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
+civilfacultyModel.find({})
+    .then((i)=> {
+        router.locals.civilfacultydata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    civilfacultyModel.find({})
+        .then((i) => {
+            res.locals.civilfacultydata = i; //here set local variable  and then value
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+
 
 
 pageModel.find({})
@@ -214,7 +338,7 @@ router.get('/', (req,res) => {
             res.render('../views/frontend/syllabus.ejs',{x})
           } 
           else if(extractValue === 'faculty.ejs') {
-            res.render('../views/frontend/faculty.ejs',{x})
+            res.render('../views/backend/faculty.ejs',{x})
           } 
         else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
@@ -361,6 +485,24 @@ router.get('/', (req,res) => {
         //   res.render('../views/frontend/register',{p})
         // }
         res.render('../views/frontend/dynamic-itdept',{p}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((q) => {
+        console.log(q)
+    })
+
+ })
+
+
+
+ router.get('/department/comp/:compdept', (req,res) => {
+    CompdeptModel.findOne({compdeptUrl: req.params.compdept})
+    .then((p) => {
+       if(p){
+        res.render('../views/frontend/dynamic-compdept',{p}) 
        }
        else {
         res.redirect('/')

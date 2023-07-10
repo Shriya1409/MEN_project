@@ -7,7 +7,7 @@
 
       <div class="container-fluid bg-side-nav">
          <div class="row">
-            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+            <div class="col-lg-2 sidebaare" style="height:2000px;  background-color: black;">
 
                 <%- include('common/sidebar.ejs')-%>
 
@@ -37,18 +37,65 @@
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">
                        <div class="col col-lg-2"><label class="form-label">h1</label></div>
+                       
                        <div class="col"><input type="text" name ="dept_Heading" class="form-control" placeholder="Department Heading" ></div>
                      </div>
                      
-                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
-                       <div class="col col-lg-2"><label class="form-label">Photo</label></div>
-                       <div class="col"><input type="file" name="dept_Photo" class="form-control" ></div>
-                     </div>
                      
                      <div class="mb-3 mt-3 row g-9 align-items-center">
-                       <div class="col col-lg-2"><label class="form-label">Page Details</label></div>
-                       <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="dept_Details" placeholder="Department Details"></textarea></div>
+                       <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
+                       <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="dept_Details" placeholder="Navbar"></textarea></div>
                      </div>
+
+                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Carousel Images</label></div>
+                      <div class="col"><input type="file" name="dept_Photo" class="form-control" placeholder="select multiple images!!" multiple></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">About Us Container-1</label></div>
+                      <div class="col"><textarea rows="5" class="form-control"  name="about_Details" placeholder="Enter Details"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">About Us Container-2</label></div>
+                      <div class="col"><textarea rows="5" class="form-control"  name="aboutt_Details" placeholder="Enter Details"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">About Us Container-3</label></div>
+                      <div class="col"><textarea rows="5" class="form-control"  name="abouttt_Details" placeholder="Enter Details"></textarea></div>
+                    </div>
+
+                    <!-- <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Vision Image</label></div>
+                      <div class="col"><input type="file" name="vision_Photo" class="form-control" placeholder="select Vision Image" ></div>
+                    </div> -->
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Vision Text</label></div>
+                      <div class="col"><textarea rows="5" class="form-control"  name="vision_Details" placeholder="Enter Vision"></textarea></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Mission 1</label></div>
+                      <div class="col"><textarea rows="1" class="form-control"  name="mission_Details" placeholder="Enter Mission 1"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Mission 2</label></div>
+                      <div class="col"><textarea rows="1" class="form-control"  name="missionn_Details" placeholder="Enter Mission 2"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Mission 3</label></div>
+                      <div class="col"><textarea rows="1" class="form-control"  name="missionnn_Details" placeholder="Enter Mission 3"></textarea></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Mission 4</label></div>
+                      <div class="col"><textarea rows="1" class="form-control"  name="missionnnn_Details" placeholder="Enter Mission 4"></textarea></div>
+                    </div>
+
+                    <!-- <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Mission Image</label></div>
+                      <div class="col"><input type="file" name="mission_Photo" class="form-control" placeholder="select Mission Image" ></div>
+                    </div> -->
                
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>

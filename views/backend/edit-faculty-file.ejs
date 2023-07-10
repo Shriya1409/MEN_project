@@ -18,37 +18,37 @@
                    <!-- put your contente -->
                    <h1 class="mb-2 mt-2">Edit Record</h1>
     
-                   <form method="post" action="/faculty/edit-faculty/<%= i.faculty_name%>?_method=put" enctype="multipart/form-data">
+                   <form method="post" action="/faculty/edit-faculty/<%= x.facultyEmailId%>?_method=put" enctype="multipart/form-data">
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                        <div class="col col-lg-2"><label class="form-label">Faculty Name</label></div>
-                       <div class="col"><input type="text" name ="faculty_name" class="form-control" value="<%=i.faculty_name%>" placeholder="Faculty Name" required></div>
+                       <div class="col"><input type="text" name ="faculty_Name" class="form-control" value="<%=x.facultyName%>" placeholder="Faculty Name" required></div>
                      </div>
 
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                         <div class="col col-lg-2"><label class="form-label">Qualifications</label></div>
-                        <div class="col"><input type="text" name ="qualification" class="form-control" value="<%=i.qualification%>" placeholder="Qualification" required></div>
+                        <div class="col"><input type="text" name ="faculty_Qualification" class="form-control" value="<%=x.facultyQualification%>" placeholder="Qualification" required></div>
                       </div>
 
                       <div class="mb-3 mt-3 row g-9 align-items-center">  
                         <div class="col col-lg-2"><label class="form-label"> Department</label></div>
-                        <div class="col"><input type="text" name ="department" class="form-control" value="<%=i.department%>" placeholder="Department" required></div>
+                        <div class="col"><input type="text" name ="faculty_Department" class="form-control" value="<%=x.facultyDepartment%>" placeholder="Department" required></div>
                       </div>
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">
                        <div class="col col-lg-2"><label class="form-label">Joining Year</label></div>
-                       <div class="col"><input type="text" name ="joining_year" class="form-control" value="<%=i.joining_year%>" placeholder="Joining Year" required></div>
+                       <div class="col"><input type="text" name ="faculty_JoiningYear" class="form-control" value="<%=x.facultyJoiningYear%>" placeholder="Joining Year" required></div>
                      </div>
                      
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">Email ID</label></div>
-                       <div class="col"><input type="email" name="cgpa" class="form-control" value="<%=i.email%>" placeholder="abc@gmail.com"></div>
+                       <div class="col"><input type="email" name="faculty_EmailId" class="form-control" value="<%=x.facultyEmailId%>" placeholder="abc@gmail.com"></div>
                      </div>
                   
                     </div>
                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
                       <div class="col col-lg-2"><label class="form-label">Photo</label></div>
-                      <div class="col"><input type="file" name="facultyPhoto" value="<%=i.facultyPhoto%>" class="form-control" ></div>
+                      <div class="col"><input type="file" name="faculty_Photo" value="<%=x.facultyPhoto%>" class="form-control" ></div>
                     </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>
@@ -65,5 +65,5 @@
             </div>
          </div>
       </div>
-      </body>
+    
 <%- include('common/footer.ejs')-%>
