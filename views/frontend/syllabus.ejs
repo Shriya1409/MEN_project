@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <%- include('common/head.ejs')-%>
-
+    <link rel="stylesheet" href="/backend/css/syllabus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>Department Syllabus</title>
     <meta name="description" content="<%=x.pageMetaDescription%>" />
     <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
@@ -11,41 +13,78 @@
     
     <%- include('common/header.ejs')-%>
 
+    <center>
+      <h2>Scheme of Instruction</h2>
+       
+      <div class="container">
+          <div id="st-box">
+             <p id="rcorners1">RC(19-20) IT</p>
+             
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20-FirstYear_schema.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Scheme(2nd).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Scheme(3 N 4).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Scheme(3 N 4).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+
+         </div>
            
-    <div class="dashboard-content-area" style="margin:15px;">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-           <tr>
-              <th>Title</th>
-              <th>Department</th>
-              <th>Rc</th>
-              <th>Syllabus Pdf</th>
-           </tr>
-        </thead>
-        <tbody>
-           <%syllabusdata.forEach((h)=>{%>
-              <tr>
+          <div id="nd-box">
+              <p id="rcorners1">
+                  RC(19- 20) Computer
+              </p>
                
-                 <td><%= h.syllabus_title%></td>
-                 <td><%=h.department%></td>
-                 <td><%=h.rc%></td>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20-FirstYear_schema.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Scheme(2nd).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Scheme(3rd).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Scheme(4th).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+
+          </div>
+           
+          <div id="rd-box">
+             <p id="rcorners1"> RC(19-20) ETC</p>
+             <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20-FirstYear_schema.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Scheme(5-8).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Scheme(5-8).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+            <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Scheme(5-8).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+          </div>
+      </div>
+        
+      </center>
+ 
+      <center>
+         <div id="container1">
+             <h2>Syllabus</h2>
+             <div id="st-box1">
+               <p id="rcorners11">RC(19-20) IT</p>
+               
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_FirstYearSyllabus.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Syllabus(2nd).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Syllabus(3 n 4).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_IT_Syllabus(3 N 4).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+  
+           </div>
+             
+            <div id="nd-box1">
+                <p id="rcorners11">
+                    RC(19- 20) Computer
+                </p>
                  
-                 <td>
-                    <% if(h.syllabuspdf){ %>
-                        <a href="/backend/syllabus/<%= h.syllabuspdf%>" style="text-decoration: none; color:rgb(69, 202, 196);">Open</a>
-                    <% } else { %>
-                       <a href="/backend/syllabus/move.pdf>" >idk</a>
-                    <% } %>
-                    </td>
-                    </form>
-                 </td>
-              </tr>
-              <%syllabusdata})%>
-          
-        </tbody>
-     </table>
-    
-    <%- include('common/footer.ejs')-%>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_FirstYearSyllabus.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Syllabus(2nd).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Syllabus(3rd).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_CO_Syllabus(4th).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+  
+            </div>
+             
+            <div id="rd-box1">
+               <p id="rcorners11"> RC(19-20) ETC</p>
+               <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_FirstYearSyllabus.pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">First Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Syllabus(2nd).pdf" style="padding-left: 15%;text-decoration: none;color:#0a1e5f;">  Second Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Syllabus(3rd).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Third Year </a></i>
+              <i class="fa fa-download" style="font-size:23px;float: left;width: 80%;"><a href="/backend/syllabus/RC2019_20_ETC_Syllabus(4th).pdf" style="padding-left: 20%;text-decoration: none;color:#0a1e5f;">Final Year </a></i>
+            </div>
+
+         </div>
+      </center>
 
   </body>
 </html>
