@@ -57,7 +57,6 @@
 
         </div>
       </section> -->
-      
       <section aria-label="Newest Photos">
         <div class="carousel-p" data-carousel>
           <button class="carousel-button prev-p" data-carousel-button="prev">&#8656;</button>
@@ -140,6 +139,24 @@
           </ul>
         </div>
       </section>
+
+
+      <script>
+        // Get the carousel element
+        const carousel = document.querySelector('[data-carousel]');
+        
+        // Set the autoplay interval in milliseconds (e.g., 3000ms = 3 seconds)
+        const autoplayInterval = 3000;
+        
+        // Function to simulate a button click on the next button
+        function goToNextSlide() {
+          const nextButton = carousel.querySelector('.next-p');
+          nextButton.click();
+        }
+        
+        // Start the autoplay
+        setInterval(goToNextSlide, autoplayInterval);
+      </script>
     <%- include('common/footer.ejs')-%>
 
   </body>
