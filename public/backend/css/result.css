@@ -1,0 +1,40 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  thead {
+    background-color:  #0a1e5f;
+    color: #FFFFFF;
+  }
+  thead, td {
+    padding: 10px;
+    border: 1px solid black;
+    
+  }
+  tr:nth-child(even) {
+    background-color: #e4dede;
+  }
+
+  /* required css to make the rows rounded */
+  thead:first-child, td:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  thead:last-child, td:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  tr:first-child thead:first-child {
+    border-top-left-radius: 20px;
+  }
+  tr:first-child thead:last-child {
+    border-top-right-radius: 20px;
+  }
+  tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+  }
+  tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
