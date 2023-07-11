@@ -21,11 +21,11 @@
                  <!-- put your contente -->
                  <h1 class="mb-2 mt-2">Edit Result</h1>
     
-                 <form method="post" action="/result/edit-result/<%=x.course%>?_method=put" enctype="multipart/form-data">
+                 <form method="post" action="/result/edit-result/<%=x.title%>?_method=put" enctype="multipart/form-data">
              
                    <div class="mb-3 mt-3 row g-9 align-items-center">  
-                     <div class="col col-lg-2"><label class="form-label">Course</label></div>
-                     <div class="col"><input type="text" name ="course" class="form-control" value="<%=x.course%>" placeholder="Course" required></div>
+                     <div class="col col-lg-2"><label class="form-label">Title</label></div>
+                     <div class="col"><input type="text" name ="title" class="form-control" value="<%=x.title%>" placeholder="title" required></div>
                    </div>
 
                    <div class="mb-3 mt-3 row g-9 align-items-center">  
@@ -45,11 +45,17 @@
                      <div class="col"><input type="file" name="resultpdf" class="form-control" ></div>
                    </div>
                    
-                   <div class="mb-3 mt-3 row g-9 align-items-center">
-                     <div class="col col-lg-2"><label class="form-label">Page Details</label></div>
-                     <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="page_Details" placeholder="Page Details"><%=x.pageDetails%></textarea></div>
-                   </div>
-             
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Department</label></div>
+                    <div class="col"><input type="text" name ="department" class="form-control" value="<%=x.department%>" placeholder="department"></div>
+                  </div>
+           
+
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Reval</label></div>
+                    <div class="col"><input type="text" name ="reval" class="form-control" value="<%=x.reval%>" placeholder="reval"></div>
+                  </div>
+           
                    <div class="mb-5 mt-3 align-items-center text-center"> 
                         <button type="submit" class="btn btn-primary">Submit</button>
                    </div>

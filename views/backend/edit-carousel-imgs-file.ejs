@@ -1,7 +1,7 @@
 
 <%- include('common/head.ejs')-%>
 
-   <title>HomePage - Add Images and Links</title>
+   <title>HomePage - Add Images</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -17,17 +17,20 @@
               <div class="dashboard-content-area">
 
                    <!-- put your contente -->
-                   <h1 class="mb-2 mt-2">Add Images and Links</h1>
+                   <h1 class="mb-2 mt-2">Add Images</h1>
     
                    <form method="post" action="/carousel-imgs/edit-carousel-imgs?_method=put" enctype="multipart/form-data"></form>
-                    <!-- <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                   <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                    <div class="col col-lg-2"><label class="form-label">Photo Id</label></div>
+                    <div class="col"><input type="text" name="photo_Id" value="<%=x.photoId%>" class="form-control"></div>
+                  </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
                       <div class="col col-lg-2"><label class="form-label">Date</label></div>
-                      <div class="col"><input type="date" name="datePhoto" value="" class="form-control"></div>
-                    </div> -->
+                      <div class="col"><input type="date" name="date_Photo" value="<%=x.datePhoto%>" class="form-control"></div>
+                    </div>
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">Gallery Images</label></div>
-                       <%- inputFieldHTML %>
-                       <!-- <div class="col"><input type="file" name="sliderPhoto" value="" class="form-control" multiple></div> -->
+                       <div class="col"><input type="file" name="slider_Photo"  class="form-control" multiple></div>
                      </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>

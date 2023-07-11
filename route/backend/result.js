@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-result/:id', (req,res) => {
-    resultModel.findOne({ course: req.params.id })
+    resultModel.findOne({ title: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-result-file', {x})
     })
@@ -50,13 +50,14 @@ router.get('/edit-result/:id', (req,res) => {
 
 router.put('/edit-result/:id', upload.single('resultpdf'), (req,res) => {
     if(req.file){
-        resultModel.updateOne({ course: req.params.id }, {$set:{
-            course: req.body.course,
+        resultModel.updateOne({ title: req.params.id }, {$set:{
+            title: req.body.title,
                     semester: req.body.semester,
                     rc: req.body.rc,
                     date: req.body.date,
                     resultpdf: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    reval: req.body.reval,
+                    department: req.body.department
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -65,13 +66,14 @@ router.put('/edit-result/:id', upload.single('resultpdf'), (req,res) => {
 
     }else {
 
-        resultModel.updateOne({ course: req.params.id }, {$set:{
-            course: req.body.course,
+        resultModel.updateOne({ title: req.params.id }, {$set:{
+            title: req.body.title,
                     semester: req.body.semester,
                     rc: req.body.rc,
                     date: req.body.date,
                     // resultpdf: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    reval: req.body.reval,
+                    department: req.body.department
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -82,7 +84,7 @@ router.put('/edit-result/:id', upload.single('resultpdf'), (req,res) => {
 })
 
 router.delete('/delete-result/:id',(req,res) => {
-    resultModel.deleteOne({course:req.params.id})
+    resultModel.deleteOne({title:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/result')

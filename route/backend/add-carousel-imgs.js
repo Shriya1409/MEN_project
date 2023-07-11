@@ -25,20 +25,21 @@ let upload = multer({
     }
 })
 router.get('/', (req,res) => {
-    res.render('../views/backend/add-carousel-imgs')
+    res.render('../views/backend/add-carousel-imgs-file')
 })
 
 
    
-router.post('/', upload.array('sliderPhoto', 7), (req,res) => {
-carouselImgModel.find({datePhoto: req.body.datePhoto})
+router.post('/', upload.array('slider_Photo', 7), (req,res) => {
+carouselImgModel.find({photoId: req.body.photoId})
 .then((x) => {
 
  
         if(!(req.files&& (req.files.length > 0))) {
 
             carouselImgModel.create({
-                datePhoto:req.body.datePhoto,
+                photoId: req.body.photo_Id,
+                datePhoto:req.body.date_Photo,
             //    sliderPhoto:req.body.filename,
             //    noticename:req.body.noticename,
             //    noticeinfo:req.body.filename,
@@ -51,11 +52,12 @@ carouselImgModel.find({datePhoto: req.body.datePhoto})
             })
     
         } else {
-            const sliderPhotos=req.files.filter(file=>file.fieldname==='sliderPhoto').map(file=>file.filename);
+            const sliderPhotos=req.files.map(file => file.filename);
          
 
             carouselImgModel.create({
-                datePhoto:req.body.datePhoto,
+                photoId: req.body.photo_Id,
+                datePhoto:req.body.date_Photo,
                 sliderPhoto:sliderPhotos,
             
             })

@@ -2,16 +2,12 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
  <!-- Bootstrap CSS -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="/backend/slick/slick.css"/>
  <link rel="stylesheet" type="text/css" href="/backend/common/NavBar.css"/>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!--  Add the new slick-theme.css if you want the default styling -->
 <link rel="stylesheet" type="text/css" href="/backend/slick/slick-theme.css"/>
 <link href="/backend/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/backend/css/bootstrap-icons.css">
-<link rel="stylesheet" href="/backend/css/admin-style.css">
-
+<link rel="stylesheet" href="/backend/css/result.css">
 
    <title>Result - Pages</title>
    </head>
@@ -141,25 +137,23 @@
                
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                     <tr>
-                        <th>Course</th>
+                        <th>Title</th>
                         <th>Semester</th>
                         <th>Rc</th>
                         <th>Date</th>
-                        <th>Result Pdf</th>
-                     </tr>
+                        <th>Department</th>
+                        <th>Results</th>
                   </thead>
                   <tbody>
                      <%resultdata.forEach((t)=>{%>
                         <tr>
                          
-                           <td><%= t.course%></td>
+                           <td><%= t.title%></td>
                            <td><%=t.semester%></td>
                            <td><%=t.rc%></td>
                            <td> <%=t.date%></td>
-                           
-                           <td>
-                              <% if(t.resultpdf){ %>
+                           <td><%=t.department%></td>
+                           <td><% if(t.resultpdf){ %>
                                   <a href="/backend/results/<%= t.resultpdf%>" style="text-decoration: none; color:rgb(69, 202, 196);">Open</a>
                               <% } else { %>
                                  <a href="/backend/results/move.pdf>" >idk</a>

@@ -32,24 +32,34 @@
                   <thead>
                      <tr>
                         <th>Slider Images</th>
+                        <th>Photo ID</th>
+                        <th>Date</th>
                       
                      </tr>
                   </thead>
                   <tbody>
-                
-                        <% for (let index = 0; index < 7; index++) { %>
-                        <tr>
-                        <% if (sliderPhoto[index]) { %>
-                           <td> <img src="/backend/carousel-imgs/<%= sliderPhoto[index] %>"></td>
-                        <% } %>
+                     <%x.forEach((y)=>{%>
+                     <tr>
+                        <td>
+                          <% if(y.sliderPhoto){ %>
+                              <img src="/backend/carousel-imgs/<%= y.sliderPhoto%>" width="100">
+                          <% } else { %>
+                              <img src="/backend/images/no_image.jpg" width="100">
+                          <% } %>
+                          </td>
+                        <td><%= y.photoId%></td>
+                        <td><%= y.datePhoto%></td>
+                       
+                        
+                        <td>  <a class="btn btn-primary" href="/carousel-imgs/edit-carousel-imgs/<%= y.photoId%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/carousel-imgs/delete-carousel-imgs/<%= y.photoId%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                           </form>
+                        </td>
                      </tr>
-                      <% }%>
-                 
-<!--                        
-                       <td>  <a class="btn btn-primary" href="/carousel-imgs/edit-carousel-imgs/">Edit</a>    </td>                  
-                       <td>  <form style="display: inline;" action="/carousel-imgs/delete-carousel-imgs/?_method=DELETE" method="POST">
-                             <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button> -->
-                 </tbody>
+                     <%x})%>
+                    
+                  </tbody>
               </table>
             
 
