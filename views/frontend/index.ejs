@@ -8,8 +8,6 @@
                     <title>GCE - Goa College of Engineering</title>
                   
                     <link rel="stylesheet" href="/backend/css/carousel-styles.css"> 
-                    <script src="../backend/js/carousel-script.js" defer></script> 
-                    <!-- <script src="../backend/js/button-scroll.js" defer></script>  -->
                   </head>
                   <body>
                     
@@ -46,7 +44,7 @@
                         </div>
                         <div>
                           <div class="usefulinfo" >
-                            <button id="usefulinfo" onclick="scrollToTop()">
+                            <button id="usefulinfo" >
                               <img src="../backend/icons/info.png">
                             <div> Useful Links</div>
                             </button>
@@ -55,8 +53,7 @@
                         <div>
                           <div>
                             <div class="otherinfo" >
-                              <button id="otherinfo" >
-                                <img src="../backend/icons/news.png">
+                                <img href= "javascript:scrolltoId();" src="../backend/icons/news.png">
                               <div> Other Info</div>
                               </button>
                             </div>
@@ -177,8 +174,8 @@
                             </ul>
                           </div>
                         </div>
-                      <section aria-label="Link Carousel" >
-                        <div class="carousel"  id="linkcarousel" data-carousel>
+                      <section id="linkcarousel">
+                        <div class="carousel" data-carousel>
                           <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
                           <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
                           <ul data-slides>
@@ -197,6 +194,8 @@
                           </ul>
                         </div>
                       </section>
+                      <script src="../backend/js/carousel-script.js" defer></script> 
+                    <script src="../backend/js/button-scroll.js" defer></script> 
                     <%- include('common/footer.ejs')-%>
             
                   </body>
