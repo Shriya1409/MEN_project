@@ -21,12 +21,16 @@
     
                    <form method="post" action="/add-carousel-imgs" enctype="multipart/form-data">
                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Photo ID</label></div>
+                      <div class="col"><input type="text" name="photo_Id" class="form-control"></div>
+                    </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
                       <div class="col col-lg-2"><label class="form-label">Date</label></div>
-                      <div class="col"><input type="date" name="datePhoto" class="form-control"></div>
+                      <div class="col"><input type="date" name="date_Photo" class="form-control"></div>
                     </div>
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">Slider Images</label></div>
-                       <div class="col"><input type="file" name="sliderPhoto" class="form-control" multiple></div>
+                       <div class="col"><input type="file" name="slider_Photo" class="form-control" multiple></div>
                      </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>

@@ -10,7 +10,7 @@ body{
 }
 /*----photo carousel----*/
  .carousel-p {
-    width: 1100px;
+    width: 70%;
     height: 480px;
     position: absolute;
     background-color: rgb(4, 26, 47);
@@ -20,6 +20,7 @@ body{
     border-radius:12px;
     margin-top:50px;
     padding:0px 0px;
+    margin-left:20px;
     left:13.82%;
     text-align: center;
     align-items: center;
@@ -36,8 +37,8 @@ body{
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: 200ms opacity ease-in-out;
-    transition-delay: 200ms;
+    /* transition: 200ms opacity ease-in-out; */
+    /* transition-delay: 200ms; */
   }
   
   .slide-p .img-p{
@@ -172,7 +173,7 @@ padding: 10px 30px;
 .section{
 
   display:block;
-  width: 80%;
+  width: 70%;
   padding-top:50px;
   margin-right:auto;
   margin-left:auto;
