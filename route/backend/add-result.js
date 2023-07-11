@@ -30,7 +30,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('resultpdf') , (req,res) => {
-    resultModel.findOne({course: req.body.course})
+    resultModel.findOne({title: req.body.title})
     .then((a) => {
         if(a) {
             req.flash('err', 'Url already exists, Please try with another url!!')
@@ -41,12 +41,13 @@ router.post('/', upload.single('resultpdf') , (req,res) => {
             if(!req.file) {
 
                 resultModel.create({
-                    course: req.body.course,
+                    title: req.body.title,
                     semester: req.body.semester,
                     rc: req.body.rc,
                     date: req.body.date,
                     // resultpdf: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    reval: req.body.reval,
+                    department: req.body.department
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -56,12 +57,13 @@ router.post('/', upload.single('resultpdf') , (req,res) => {
             } else {
         
                 resultModel.create({
-                    course: req.body.course,
+                    title: req.body.title,
                     semester: req.body.semester,
                     rc: req.body.rc,
                     date: req.body.date,
                     resultpdf: req.file.filename,
-                    pageDetails: req.body.page_Details
+                    reval: req.body.reval,
+                    department: req.body.department
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')

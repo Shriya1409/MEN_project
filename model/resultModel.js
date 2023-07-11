@@ -1,7 +1,7 @@
 let mongoose = require("mongoose")
 
 let resultModelSchema = mongoose.Schema({
-    course :{
+    title :{
         type:String,
         required:true
     },
@@ -17,12 +17,15 @@ let resultModelSchema = mongoose.Schema({
         type:String,
         required:false
     },
-    
+    reval : {
+        type:String,
+        
+    },
     resultpdf : {
         type:String,
         
     },
-    pageDetails : {
+   department: {
         type:String,
         required: false
     },
