@@ -16,3 +16,25 @@ buttons.forEach(button => {
     delete activeSlide.dataset.active
   })
 })
+
+
+
+const element = document.getElementById("notif");
+
+function scrollToTop() {
+  element.scrollIntoView(true);
+}
+
+
+// $('#notices').click(function(){
+
+//   $(html, body).animate({
+
+// scrollTop:$("#notif").offset().top
+
+//   }, 2000);
+
+
+// })
+
+

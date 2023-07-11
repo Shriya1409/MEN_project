@@ -73,6 +73,12 @@ let pageroute = require('./route/backend/page')
 let deptroute = require('./route/backend/dept')
 let itdeptroute = require('./route/backend/itdept')
 
+let addcarouselroute=require('./route/backend/add-carousel-imgs')
+let carouselroute=require('./route/backend/carousel-imgs')
+
+let addnotifications=require('./route/backend/add-notifications')
+let notificationsroute=require('./route/backend/notifications')
+
 let facultyroute = require('./route/backend/faculty')
 let addfacultyroute=require('./route/backend/add-faculty')
 
@@ -121,6 +127,11 @@ app.use('/add-student', addstudrecroute)
 app.use('/faculty', facultyroute)
 app.use('/add-faculty', addfacultyroute)
 app.use('/dept-temp', adddepttemproute)
+
+app.use('/add-carousel-imgs', addcarouselroute)
+app.use('/carousel-imgs', carouselroute)
+app.use('/add-notifications', addnotifications)
+app.use('/notifications', notificationsroute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)
@@ -281,5 +292,6 @@ app.get('/logout', (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
+  
     console.log(process.env.PORT, 'port working')
 })

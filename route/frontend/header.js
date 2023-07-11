@@ -10,6 +10,8 @@ let facultyModel=require('../../model/facultyModel')
 
 let resultModel=require('../../model/resultModel')
 let syllabusModel=require('../../model/syllabusModel')
+let notificationModel=require('../../model/notificationModel')
+let carouselImgModel=require('../../model/carouselImgModel')
 
 let router = express()
 
@@ -82,7 +84,45 @@ router.use((req, res, next) => {
     next()
 })
 
+carouselImgModel.find({})
+    .then((x)=> {
+        router.locals.carouseldata = x;
+    })
+    .catch((y) => {
+        console.log(y)
+    })
 
+router.use((req, res, next) => {
+   carouselImgModel.find({})
+        .then((x) => {
+            res.locals.carouseldata = x; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((y) => {
+            console.log(y)
+        })
+    next()
+})
+
+notificationModel.find({})
+    .then((e)=> {
+        router.locals.notifdata = e;
+    })
+    .catch((f) => {
+        console.log(f)
+    })
+
+router.use((req, res, next) => {
+    notificationModel.find({})
+        .then((e) => {
+            res.locals.notifdata = e; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((f) => {
+            console.log(f)
+        })
+    next()
+})
 router.use((req, res, next) => {
     plcmtModel.find({})
         .then((x) => {
@@ -195,7 +235,7 @@ router.use((req, res, next) => {
 
 
 router.get('/', (req,res) => {
-    pageModel.find({})
+    carouselImgModel.find({})
     .then((x) => {
         res.render('../views/frontend/index',{x})
     })
@@ -218,6 +258,9 @@ router.get('/', (req,res) => {
           } 
         else if(extractValue === 'register') {
             res.render('../views/frontend/register',{x})
+        } 
+        else if(extractValue === 'about.ejs') {
+            res.render('../views/frontend/about-us.ejs',{x})
         } 
         else {
           res.render('../views/frontend/dynamic-page',{x})

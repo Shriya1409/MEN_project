@@ -1,0 +1,69 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Homepage Data</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your content -->
+
+               <h1>Carousel Images</h1>
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Slider Images</th>
+                      
+                     </tr>
+                  </thead>
+                  <tbody>
+                
+                        <% for (let index = 0; index < 7; index++) { %>
+                        <tr>
+                        <% if (sliderPhoto[index]) { %>
+                           <td> <img src="/backend/carousel-imgs/<%= sliderPhoto[index] %>"></td>
+                        <% } %>
+                     </tr>
+                      <% }%>
+                 
+<!--                        
+                       <td>  <a class="btn btn-primary" href="/carousel-imgs/edit-carousel-imgs/">Edit</a>    </td>                  
+                       <td>  <form style="display: inline;" action="/carousel-imgs/delete-carousel-imgs/?_method=DELETE" method="POST">
+                             <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button> -->
+                 </tbody>
+              </table>
+            
+
+                <center> <br> <a class="btn btn-success btn-md" href="/add-carousel-imgs/">Add More Images</a> </center>
+      
+
+             <!-- end your content here -->
+
+
+
+
+            </div>
+
+           </div>
+        </div>
+     </div>
+<%- include('common/footer.ejs')-%>

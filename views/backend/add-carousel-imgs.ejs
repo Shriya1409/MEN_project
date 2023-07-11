@@ -1,0 +1,47 @@
+
+<%- include('common/head.ejs')-%>
+
+   <title>HomePage - Add Images and Links</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+              <div class="dashboard-content-area">
+
+                   <!-- put your contente -->
+                   <h1 class="mb-2 mt-2">Add Images and Links</h1>
+    
+                   <form method="post" action="/add-carousel-imgs" enctype="multipart/form-data">
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Date</label></div>
+                      <div class="col"><input type="date" name="datePhoto" class="form-control"></div>
+                    </div>
+                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                       <div class="col col-lg-2"><label class="form-label">Slider Images</label></div>
+                       <div class="col"><input type="file" name="sliderPhoto" class="form-control" multiple></div>
+                     </div>
+                     <div class="mb-5 mt-3 align-items-center text-center"> 
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                     </div>
+                 </form>
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
