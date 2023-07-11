@@ -1,24 +1,23 @@
 let mongoose = require("mongoose")
 
 let facultyModelSchema = mongoose.Schema({
-    faculty_name :{
+    facultyName :{
         type:String,
         required:true
     },
-   qualification : {
-        type:String,
-        required:false
-    },
-    department :{
+    facultyQualification : {
         type:String,
         required:true
     },
-    joining_year : {
+    facultyDepartment :{
         type:String,
         required:true
     },
-    
-    emailid : {
+    facultyJoiningYear : {
+        type:String,
+        required:true
+    },
+    facultyEmailId : {
         type:String,
         required:true
     },

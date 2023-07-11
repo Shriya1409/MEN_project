@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-itdept-file')
     })
 
-router.post('/', upload.single('page_Photoo') , (req,res) => {
+router.post('/', upload.single('itdept_Photo') , (req,res) => {
     ITdeptModel.findOne({itdeptUrl: req.body.itdeptUrl})
     .then((a) => {
         if(a) {

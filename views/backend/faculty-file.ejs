@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Records</title>
+   <title>Admin Panel - Faculty</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -13,7 +13,7 @@
 
             </div>
             <div class="col-lg-10">
-
+               <center> <br> <a class="btn btn-success btn-md" href="/add-faculty/">Add Faculty</a> </center>
               <div class="dashboard-content-area">
                <%if(success && success != ''){%>
                   <div class="alert alert-success" role="alert">
@@ -24,9 +24,9 @@
                         <%}%>
 
 
-                 <!-- put your content -->
+                 <!-- put your contente -->
 
-               <h1>All Records</h1>
+               <h1>IT Faculty</h1>
             
                
                
@@ -44,34 +44,38 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%i.forEach((i)=>{%>
+                     <%x.forEach((y)=>{%>
                      <tr>
-                         <td>
-                          <% if(i.facultyPhoto){ %>
-                              <img src="../backend/faculty/<%= i.facultyPhoto%>" width="100">
+                        <td>
+                          <% if(y.facultyPhoto){ %>
+                              <img src="/backend/faculty/<%= y.facultyPhoto%>" width="100">
                           <% } else { %>
-                              <img src="/backend/faculty/no_image.jpg" width="100">
+                              <img src="/backend/images/no_image.jpg" width="100">
                           <% } %>
                           </td>
-                        <td><%=i.faculty_name%> </td>
-                        <td><%=i.qualification%> </td>
-                        <td><%=i.department%> </td>
-                        <td> <%=i.joining_year%> </td>
-                        <td> <%=i.emailid%> </td>
+                        <td><%= y.facultyName%></td>
+                        <td><%=y.facultyQualification%></td>
+                        <td><%=y.facultyDepartment%></td>
+                        <td> <%=y.facultyJoiningYear%></td>
+                        <td> <%=y.facultyEmailId%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/faculty/edit-faculty/<%= i.faculty_name%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/faculty/delete-faculty/<%= i.faculty_name%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/faculty/edit-faculty/<%= y.facultyEmailId%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/faculty/delete-faculty/<%= y.facultyEmailId%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
-                        </form>
+                           </form>
                         </td>
                      </tr>
-                     <%i})%>
+                     <%x})%>
                     
                   </tbody>
-              </table>
+               </table>
+
+
+
+               
                  
 
-                 <center> <br> <a class="btn btn-success btn-md" href="/add-faculty/">Add More Faculty</a> </center>
+                
        
 
               <!-- end your content here -->

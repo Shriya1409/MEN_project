@@ -18,13 +18,52 @@ let deptModelSchema = mongoose.Schema({
         required:false
     },
     deptPhoto : {
-        type:String,
+        type:Array,
         
     },
     deptDetails : {
         type:String,
         required: false
     },
+
+    aboutDetails : {
+        type:String,
+        required: false
+    },
+    abouttDetails : {
+        type:String,
+        required: false
+    },
+    aboutttDetails : {
+        type:String,
+        required: false
+    },
+    // visionPhoto: {
+    //     type:String,
+    // },
+    visionDetails: {
+        type:String,
+        required: false
+    },
+    missionDetails: {
+        type:String,
+        required: false
+    },
+    missionnDetails: {
+        type:String,
+        required: false
+    },
+    missionnnDetails: {
+        type:String,
+        required: false
+    },
+    missionnnnDetails: {
+        type:String,
+        required: false
+    },
+    // missionPhoto: {
+    //     type:String,
+    // },
 })
 
 module.exports = deptModel = mongoose.model('deptTable',deptModelSchema);

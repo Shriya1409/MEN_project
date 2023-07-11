@@ -86,28 +86,38 @@
      
      
            
-     <ul style="list-style-type:none;">
-           <div style=" text-align: center; display: flex; margin-top: 30px; " >
-             <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
-             <% navdata.forEach((y) => { %>
-               <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
-               <% }) %> 
-               <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
-                 <div class="dropdown-menu">
-                   <% deptdata.forEach((q) => { %>
-                   <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
-                   <% }) %> 
-     
-                   <!-- <% navdata.forEach((y) => { %>
-                     <a class="dropdown-item" style=" color: black;" href="<%=y.pageUrl%>"><%=y.pageNavText%></a>
-                     <% }) %>  -->
-               </li>
-               
-     
-     
-               </div>
-             </ul>
+             <ul style="list-style-type:none;">
+              <div style=" text-align: center; display: flex; margin-top: 30px; " >
+                <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
+                <% navdata.forEach((y) => { %>
+                  <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
+                  <% }) %> 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
+                    <div class="dropdown-menu">
+                      <% deptdata.forEach((q) => { %>
+                      <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
+                      <% }) %> 
+        
+                      
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Placement</a>
+                    <div class="dropdown-menu">
+                      <% plcmtdata.forEach((q) => { %>
+                      <a class="dropdown-item" style=" color: black;" href="/placement/<%=q.plcmtUrl%>"><%=q.plcmtNavText%></a>
+                      <% }) %> 
+                     
+                        <a class="dropdown-item" style=" color: black;" href="/placementrecords/plcmtrecord">Placement Records</a>
+                     
+                      <!-- <a class="nav-item" style= "text-decoration: none"  href="/placement/placementrecords">  Placement Records  </a> -->
+                      </div>
+                  </li>
+        
+        
+                </div>
+                </ul>
    
            </div>
            </div>

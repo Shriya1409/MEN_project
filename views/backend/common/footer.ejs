@@ -11,6 +11,7 @@
    </script>
 
 <script src="/backend/ckeditor/ckeditor.js"></script>
+<!-- <script src="/backend/ckeditor-about/ckeditor.js"></script> -->
 <!-- <script src="/backend/ckeditor/ckfinder/ckfinder.js"></script> -->
 <!-- <script src="/backend/ckfinder/ckfinder.js"></script> -->
 <script src="/backend/js/dept-temp.js"></script>
@@ -32,6 +33,29 @@ CKEDITOR.replace( 'editor',
   CKEDITOR.plugins.addExternal('powrformbuilder', "https://cdn.jsdelivr.net/gh/superpowr/powr_for_ckeditor4/powrformbuilder/", 'plugin.js');
    // CKFinder.setupCKEditor( editorr );
 </script>
+
+<script type="text/javascript">
+   CKEDITOR.replace( 'editorcarousel',
+     {
+      extraPlugins : 'slideshow',
+   extraPlugins: 'powrformbuilder',
+   extraPlugins: 'powrmultislider',
+   removePlugins: 'div,exportpdf,a11yhelp,about,clipboard,smiley,colordialog,contextmenu,dialog,fakeobjects,filebrowser,filetools,floatpanel,forms,iframe,image,liststyle,magicline,menu,pagebreak,panel,pastefromgdocs,pastefromlibreoffice,pastefromword,popup,scayt,showblocks,specialchar,table,tableselection,tabletools,uploadfile,widget'
+      
+     });
+     CKEDITOR.plugins.addExternal('powrmultislider', "https://cdn.jsdelivr.net/gh/superpowr/powr_for_ckeditor4/powrmultislider/", 'plugin.js');
+  CKEDITOR.plugins.addExternal('powrformbuilder', "https://cdn.jsdelivr.net/gh/superpowr/powr_for_ckeditor4/powrformbuilder/", 'plugin.js');
+   </script>
+
+
+<script type="text/javascript">
+   CKEDITOR.replace( 'editorabout',
+     {
+         
+      removePlugins: 'div,slideshow,exportpdf,a11yhelp,about,clipboard,smiley,colordialog,contextmenu,dialog,fakeobjects,filebrowser,filetools,floatpanel,forms,iframe,image,liststyle,magicline,menu,pagebreak,panel,pastefromgdocs,pastefromlibreoffice,pastefromword,popup,powrformbuilder,scayt,showblocks,specialchar,table,tableselection,tabletools,uploadfile,widget'
+
+     });
+   </script>
 
 
 

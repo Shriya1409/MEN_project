@@ -1,0 +1,89 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Pages</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+
+            <div class="col-lg-10">
+ <center> <br> <a class="btn btn-success btn-md" href="/add-compdepartment/">Add More Pages</a> </center>
+              <div class="dashboard-content-area">
+               <%if(success && success != ''){%>
+                  <div class="alert alert-success" role="alert">
+                     <%= success %> </div>
+               <%} else if(err && err != ''){%>
+                     <div class="alert alert-danger" role="alert">
+                        <%= err %> </div>
+                        <%}%>
+
+
+                 <!-- put your contente -->
+
+               <h1>All Pages</h1>
+            
+               
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Photo</th>
+                        <th>Dept URL</th>
+                        <th>Navigation</th>
+                        <th>Title</th>
+                        <th>Dept Heading</th>
+                        <th>Dept Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%x.forEach((y)=>{%>
+                     <tr>
+                        <td>
+                          <% if(y.compdeptPhoto){ %>
+                              <img src="/backend/departments/<%= y.compdeptPhoto%>" width="100">
+                          <% } else { %>
+                              <img src="/backend/images/no_image.jpg" width="100">
+                          <% } %>
+                          </td>
+                        <td><%= y.compdeptUrl%></td>
+                        <td><%=y.compdeptNavText%></td>
+                        <td><%=y.compdeptTitle%></td>
+                        <td> <%=y.compdeptHeading%></td>
+                        <td> <%=y.compdeptDetails.slice(0, 10)%></td>
+                        
+                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.compdeptUrl%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.compdeptUrl%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                           </form>
+                        </td>
+                     </tr>
+                     <%x})%>
+                    
+                  </tbody>
+               </table>
+                 
+
+                
+       
+
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
