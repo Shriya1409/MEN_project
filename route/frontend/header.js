@@ -34,7 +34,7 @@ router.use((req, res, next) => {
     deptModel.find({})
         .then((p) => {
             res.locals.deptdata = p; //here set local variable  and then value
-            //console.log(x)
+            
         })
         .catch((q) => {
             console.log(q)
@@ -380,8 +380,11 @@ router.get('/', (req,res) => {
           else if(extractValue === 'faculty.ejs') {
             res.render('../views/backend/faculty.ejs',{x})
           } 
-        else if(extractValue === 'register') {
-            res.render('../views/frontend/register',{x})
+        else if(extractValue === 'login.ejs') {
+            res.render('../views/frontend/login.ejs',{x})
+        }
+        else if(extractValue === 'register.ejs') {
+            res.render('../views/frontend/register.ejs',{x})
         }
         else {
           res.render('../views/frontend/dynamic-page',{x})

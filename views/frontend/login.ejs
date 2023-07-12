@@ -1,12 +1,138 @@
 <!doctype html>
 <html>
 <head>
-    <%- include('common/head.ejs')-%>
+  
   <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/backend/css/css_loginregister/style.css">
+ 
+
+
+  <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+ 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!--  Add the new slick-theme.css if you want the default styling -->
+
+
+<link rel="stylesheet" href="/backend/css/bootstrap-icons.css">
+<link rel="stylesheet" href="/backend/css/admin-style.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <%- include('common/header.ejs')-%>
-  <h1>Login</h1>
+  <div class=' bg-navbar' style=" background-image: url('/backend/images/HomeImg5.png'); background-repeat: no-repeat; background-size: cover; padding-bottom: 1rem; padding-top: 0.5rem;">
+
+    <div class='flex-top' style="flex: 1; flex-direction: row; display: flex;">
+
+      <div class='pl-phone nav-links' style="color: white; margin-left: 35rem;">
+        <a>
+        
+          91-832-2336301/401/303/302
+        </a>
+      </div>
+      <div class='pl-email nav-links'  style="color: white; margin-left: 2rem;">
+        <a>
+        
+          acad@gec.ac.in
+        </a> 
+      </div>
+
+      <div class="pl-2 nav-links"><a style=" color: white; margin-left: 400px;  text-decoration: none;"  href="login.ejs">Login</a></div>
+      <div class="pl-2 nav-links"><a style=" color: white; margin-left:30px; text-decoration: none;"  href="register.ejs">Sign Up</a></div>
+
+    </div>
+
+
+
+
+    <hr
+      style=" border-color: white;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 1rem; "
+    />
+
+
+    <div class='flex justify-content-space-between   plr-10 ptb-20'>
+      <div class="GEClogo" style=" flex: 1; flex-direction: row; display: flex; ">
+        <div
+          style=" 
+          background-image: url('/backend/image/GecLogo.png');
+            background-size: cover;
+            height: 7rem;
+            width: 8rem;
+            top: 0;
+            color: #000000;
+            object-fit: contain;"
+        >
+        </div>
+
+        <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; " >
+          <p style="color: white; font-size: 1rem; margin-bottom: 0;" >
+            Government of Goa
+          </p>
+          <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px; margin-top: 10px;">Goa College of Engineering</h3>
+          <p style="color: white; font-size: 1rem; margin-bottom: 0;">
+            Farmagudi, Goa
+          </p>
+        </div>
+
+        <div
+        style=" 
+          background-image: url('/backend/image/GoaLogo.png');
+            background-size: cover;
+            height: 7rem;
+            width: 7rem;
+            top: 0;
+            color: #000000;
+            object-fit: contain;"
+          >
+        </div>
+     
+
+
+      
+<ul style="list-style-type:none;">
+      <div style=" text-align: center; display: flex; margin-top: 30px; " >
+        <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
+       
+
+
+         
+          
+
+
+          <% navdata.forEach((y) => { %>
+            <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
+            <% }) %> 
+
+        </div>
+        </ul>
+
+
+
+          
+      </div>
+      </div>
+
+
+    </div>
+  
+
+
+
+
+  <!-- <div class="container" style="width:400px; margin-bottom: 100px; margin-top: 30px;">
+    <h1>Login</h1>
   <form method="POST" action="/login">
     <div>
       <label for="email">Email</label>
@@ -18,8 +144,56 @@
     </div>
     <button type="submit">Login</button>
     <h6>Don't have an acccount?</h6>
-    <button type="submit"> <a href="/register" >Register</a></button>
+    <button type="submit"> <a href="register.ejs" >Register</a></button>
   </form>
-  <%- include('common/footer.ejs')-%>
+</div> -->
+
+  
+
+
+	<section class="ftco-section">
+		<div class="container">
+			
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+		      	<div class="icon d-flex align-items-center justify-content-center" style=" background-color: rgb(3, 3, 165);">
+		      		<span style=" background-color: rgb(3, 3, 165);" class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-4" style=" color: rgb(3, 3, 165);">Have an account?</h3>
+						<form method="POST" action="/login" class="login-form">
+		      		<div class="form-group">
+		      			<input type="text" class="form-control rounded-left" id="email" name="email" placeholder="Email" required>
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input type="password" class="form-control rounded-left" id="password" name="password" placeholder="Password" required>
+	            </div>
+	            <div class="form-group d-md-flex">
+								<div class="w-100 text-md-right" style="display: flex; color: rgb(3, 3, 165);">
+                  <a >Not registered?</a>
+									<a style="margin-left: 10px;  text-decoration: none; color: rgb(3, 3, 165);" href="register.ejs">Register</a>
+								</div>
+	            </div>
+	            <div class="form-group" >
+	            	<button type="submit" style=" background-color: rgb(3, 3, 165); color:white;"  class=" rounded submit p-3 px-5">Login</button>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	<%- include('common/footer.ejs')-%>
 </body>
 </html>
+
+
+
+
+

@@ -239,6 +239,7 @@ app.post('/login', (req, res) => {
 });
 
 
+
 //register
 app.post('/register', (req, res) => {
   const { email, password, role } = req.body;
