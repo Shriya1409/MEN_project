@@ -373,10 +373,7 @@ router.get('/', (req,res) => {
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
           res.render('../views/backend/result.ejs',{x})
-        } 
-        else if(extractValue === 'syllabus.ejs') {
-            res.render('../views/frontend/syllabus.ejs',{x})
-          } 
+        }  
           else if(extractValue === 'faculty.ejs') {
             res.render('../views/backend/faculty.ejs',{x})
           } 
@@ -481,10 +478,44 @@ router.get('/', (req,res) => {
     .catch((b) => {
         console.log(b)
     })
+    
 
  })
 
- 
+ router.get('/syllabus/syllabus', (req,res) => {
+    syllabusModel.find()
+    .then((a) => {
+       if(a){
+        res.render('../views/frontend/syllabus',{a}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+
+})
+
+router.get('/syllabus/scheme', (req,res) => {
+    syllabusModel.find()
+    .then((a) => {
+       if(a){
+        res.render('../views/frontend/scheme',{a}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+
+})
+
+
+
 //  router.get('/placement/placement-records/:plc', (req,res) => {
 //     plcmtRecords.findOne({rollno: req.params.plc})
 //     .then((p) => {
