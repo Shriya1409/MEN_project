@@ -26,123 +26,138 @@
    <body>
        
  
- <div class=' bg-navbar' style=" background-image: url('/backend/images/HomeImg5.png'); background-repeat: no-repeat; background-size: cover; padding-bottom: 1rem; padding-top: 0.5rem;">
+   
+ 
+    <div class=' bg-navbar' style=" background-image: url('/backend/images/HomeImg5.png'); background-repeat: no-repeat; background-size: cover; padding-bottom: 1rem; padding-top: 0.5rem;">
 
-    <div class='flex-top' style="flex: 1; flex-direction: row; display: flex;">
-
-      <div class='pl-phone nav-links' style="color: white; margin-left: 35rem;">
-        <a>
-        
-          91-832-2336301/401/303/302
-        </a>
-      </div>
-      <div class='pl-email nav-links'  style="color: white; margin-left: 2rem;">
-        <a>
-        
-          acad@gec.ac.in
-        </a> 
-      </div>
-
-      <div class="pl-2 nav-links"><a style=" color: white; margin-left: 400px;  text-decoration: none;"  href="login.ejs">Login</a></div>
-      <div class="pl-2 nav-links"><a style=" color: white; margin-left:30px; text-decoration: none;"  href="register.ejs">Sign Up</a></div>
-
-    </div>
-
-
-
-
-    <hr
-      style=" 
-      height: 1px;
-      width: 100%;
-      margin-bottom: 1rem; "
-    />
-
-
-    <div class='flex justify-content-space-between   plr-10 ptb-20'>
-      <div class="GEClogo" style=" flex: 1; flex-direction: row; display: flex; ">
-        <div
-          style=" 
-          background-image: url('/backend/image/GecLogo.png');
-            background-size: cover;
-            height: 7rem;
-            width: 8rem;
-            top: 0;
-            color: #000000;
-            object-fit: contain;"
-        >
-        </div>
-
-        <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; " >
-          <p style="color: white; font-size: 1rem; margin-bottom: 0;" >
-            Government of Goa
-          </p>
-          <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px; margin-top: 10px;">Goa College of Engineering</h3>
-          <p style="color: white; font-size: 1rem; margin-bottom: 0;">
-            Farmagudi, Goa
-          </p>
-        </div>
-
-        <div
-        style=" 
-          background-image: url('/backend/image/GoaLogo.png');
-            background-size: cover;
-            height: 7rem;
-            width: 7rem;
-            top: 0;
-            color: #000000;
-            object-fit: contain;"
-          >
-        </div>
-     
-
-
-      
-<ul style="list-style-type:none;">
-      <div style=" text-align: center; display: flex; margin-top: 30px; " >
-        <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
-       
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
-            <div class="dropdown-menu">
-              <% deptdata.forEach((q) => { %>
-              <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
-              <% }) %> 
-
-              
-              </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Placement</a>
-            <div class="dropdown-menu">
-              <% plcmtdata.forEach((q) => { %>
-              <a class="dropdown-item" style=" color: black;" href="/placement/<%=q.plcmtUrl%>"><%=q.plcmtNavText%></a>
-              <% }) %> 
-             
-                <a class="dropdown-item" style=" color: black;" href="/placementrecords/plcmtrecord">Placement Records</a>
-             
-              <!-- <a class="nav-item" style= "text-decoration: none"  href="/placement/placementrecords">  Placement Records  </a> -->
-              </div>
-          </li>
-
-
-          <% navdata.forEach((y) => { %>
-            <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
-            <% }) %> 
-
-        </div>
-        </ul>
-
-
-
+      <div class='flex-top' style="flex: 1; flex-direction: row; display: flex;">
+  
+        <div class='pl-phone nav-links' style="color: white; margin-left: 35rem;">
+          <a>
           
+            91-832-2336301/401/303/302
+          </a>
+        </div>
+        <div class='pl-email nav-links'  style="color: white; margin-left: 2rem;">
+          <a>
+          
+            acad@gec.ac.in
+          </a> 
+        </div>
+  
+        <div class="pl-2 nav-links"><a style=" color: white; margin-left: 400px;  text-decoration: none;"  href="login.ejs">Login</a></div>
+        <div class="pl-2 nav-links"><a style=" color: white; margin-left:30px; text-decoration: none;"  href="register.ejs">Sign Up</a></div>
+  
       </div>
+  
+  
+  
+  
+      <hr
+        style=" 
+        height: 1px;
+        width: 100%;
+        margin-bottom: 1rem; "
+      />
+  
+  
+      <div class='flex justify-content-space-between   plr-10 ptb-20'>
+        <div class="GEClogo" style=" flex: 1; flex-direction: row; display: flex; ">
+          <div
+            style=" 
+            background-image: url('/backend/image/GecLogo.png');
+              background-size: cover;
+              height: 7rem;
+              width: 8rem;
+              top: 0;
+              color: #000000;
+              object-fit: contain;"
+          >
+          </div>
+  
+          <div style="padding-left: 1rem; padding-right: 1rem; text-align: center; " >
+            <p style="color: white; font-size: 1rem; margin-bottom: 0;" >
+              Government of Goa
+            </p>
+            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px; margin-top: 10px;">Goa College of Engineering</h3>
+            <p style="color: white; font-size: 1rem; margin-bottom: 0;">
+              Farmagudi, Goa
+            </p>
+          </div>
+  
+          <div
+          style=" 
+            background-image: url('/backend/image/GoaLogo.png');
+              background-size: cover;
+              height: 7rem;
+              width: 7rem;
+              top: 0;
+              color: #000000;
+              object-fit: contain;"
+            >
+          </div>
+       
+  
+  
+        
+  <ul style="list-style-type:none;">
+        <div style=" text-align: center; display: flex; margin-top: 30px; " >
+          <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="/">Home</a></li>
+         
+  
+  
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
+              <div class="dropdown-menu">
+                <% deptdata.forEach((q) => { %>
+                <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
+                <% }) %> 
+  
+                
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Placement</a>
+              <div class="dropdown-menu">
+                <% plcmtdata.forEach((q) => { %>
+                <a class="dropdown-item" style=" color: black;" href="/placement/<%=q.plcmtUrl%>"><%=q.plcmtNavText%></a>
+                <% }) %> 
+               
+                  <a class="dropdown-item" style=" color: black;" href="/placementrecords/plcmtrecord">Placement Records</a>
+               
+                <!-- <a class="nav-item" style= "text-decoration: none"  href="/placement/placementrecords">  Placement Records  </a> -->
+                </div>
+            </li>
+  
+  
+           
+  
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Syllabus</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" style=" color: black;" href="/syllabus/scheme">Scheme Instruction</a>
+                <a class="dropdown-item" style=" color: black;" href="/syllabus/syllabus">Department Syllabus</a>
+              </div>
+            </li>
+  
+            <% navdata.forEach((y) => { %>
+              <li class="pl-2 nav-links"><a style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" class="nav-link" href="<%=y.pageUrl%>"><%=y.pageNavText%></a></li>
+              <% }) %> 
+  
+          </div>
+          </ul>
+  
+  
+  
+            
+        </div>
+        </div>
+  
+  
       </div>
-
-
-    </div>
+    
+  
+    
   
        
      
