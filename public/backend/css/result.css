@@ -4,9 +4,9 @@ table {
     border-radius: 10px;
     overflow: hidden;
   }
+  
   thead {
     background-color:  #0a1e5f;
-    color: #FFFFFF;
   }
   thead, td {
     padding: 10px;
