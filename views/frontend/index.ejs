@@ -14,21 +14,22 @@
                   <body>
                     
                     <%- include('common/header.ejs')-%>
-            
+                    <%carouseldata.forEach((q)=>{%>
                       <section aria-label="Newest Photos">
                         <div class="carousel-p" data-carousel>
                           <button class="carousel-button prev-p" data-carousel-button="prev">&#8656;</button>
                           <button class="carousel-button next-p" data-carousel-button="next">&#8658;</button>
                           <ul data-slides>
-                            <li class="slide-p">
-                              <img class="img-p" src="../backend/homepage-slider/home_nss.jpg" >
+                            <% for (let index = 0; index < 7; index++) { %>
+                            <li class="slide-p data-active">
+                              <img class="img-p" src="/backend/carousel-imgs/<%= q.sliderPhoto[index] %>" >
                             </li>
-                            <li class="slide-p">
-                              <img class="img-p" src="../backend/homepage-slider/home_fssai.jpg" >
-                            </li>
+                            <% }%>
+                            
                           </ul>
                         </div>
                       </section>
+                      <%carouseldata})%>
                       <div class="icon-button">
                         <div class="notices">
                           <button id="notices" onclick="scrollToTop()">

@@ -1,0 +1,71 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Add Infrastructure Details</title>
+   <script></script>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+              <div class="dashboard-content-area">
+
+                   <!-- put your contente -->
+                   <h1 class="mb-2 mt-2">Add Infrastructure Details</h1>
+
+
+                   <!-- <div>
+                    <!-- <div class="col col-lg-2"><select name="department" id="department" class="form-label">Select your department</select></div> -->
+                   <!-- <option value= "it" id="it">IT</option>
+                   <option value="comp" id="comp">Comp</option>
+                   <option id="etc">ETC</option>
+                   <option id="mech">Mech</option>
+                   <option id="civil">Civil</option>
+                   <option id="ene">ENE</option>
+                   <option id="vlsi">VLSI</option>
+                   <option id="ai-cs">AI-CS</option> -->
+                    <!-- </div> --> -->
+                   <form method="post" action="/add-infra" enctype="multipart/form-data">
+               
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">Infrastructure Page URL</label></div>
+                      <div class="col"><input type="text" name ="infradepturl" class="form-control" placeholder="infra dept url" required></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                       <div class="col"><input type="text" name ="infradeptnavtext" class="form-control" placeholder=" infra Navigation Display Text" required></div>
+                     </div>
+
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                       <div class="col"><input type="text" name ="infradepttitle" class="form-control" placeholder="Your Page Title" required></div>
+                     </div>
+              
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                      <div class="col col-lg-2"><label class="form-label">Infrastructure Photos</label></div>
+                      <div class="col"><input type="file" name="infradeptphoto" class="form-control" multiple></div>
+                    </div>
+                    <div class="mb-5 mt-3 align-items-center text-center"> 
+                         <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                
+              <!-- end your content here -->
+
+
+
+
+             </div>
+
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
