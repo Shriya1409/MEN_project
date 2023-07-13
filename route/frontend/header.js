@@ -35,7 +35,7 @@ router.use((req, res, next) => {
     deptModel.find({})
         .then((p) => {
             res.locals.deptdata = p; //here set local variable  and then value
-            //console.log(x)
+            
         })
         .catch((q) => {
             console.log(q)
@@ -393,15 +393,15 @@ router.get('/', (req,res) => {
         const extractValue = x.pageUrl;
         if(extractValue === 'result.ejs') {
           res.render('../views/backend/result.ejs',{x})
-        } 
-        else if(extractValue === 'syllabus.ejs') {
-            res.render('../views/frontend/syllabus.ejs',{x})
-          } 
+        }  
           else if(extractValue === 'faculty.ejs') {
             res.render('../views/backend/faculty.ejs',{x})
           } 
-        else if(extractValue === 'register') {
-            res.render('../views/frontend/register',{x})
+        else if(extractValue === 'login.ejs') {
+            res.render('../views/frontend/login.ejs',{x})
+        }
+        else if(extractValue === 'register.ejs') {
+            res.render('../views/frontend/register.ejs',{x})
         }
         else {
           res.render('../views/frontend/dynamic-page',{x})
@@ -489,7 +489,24 @@ router.get('/', (req,res) => {
         // } else {
         //   res.render('../views/frontend/register',{p})
         // }
-        res.render('../views/frontend/plcmtrecord',{a}) 
+        res.render('../views/backend/plcmtrecord',{a}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+    
+
+ })
+
+ router.get('/syllabus/syllabus', (req,res) => {
+    syllabusModel.find()
+    .then((a) => {
+       if(a){
+        res.render('../views/frontend/syllabus',{a}) 
        }
        else {
         res.redirect('/')
@@ -499,9 +516,26 @@ router.get('/', (req,res) => {
         console.log(b)
     })
 
- })
+})
 
- 
+router.get('/syllabus/scheme', (req,res) => {
+    syllabusModel.find()
+    .then((a) => {
+       if(a){
+        res.render('../views/frontend/scheme',{a}) 
+       }
+       else {
+        res.redirect('/')
+       }
+    })
+    .catch((b) => {
+        console.log(b)
+    })
+
+})
+
+
+
 //  router.get('/placement/placement-records/:plc', (req,res) => {
 //     plcmtRecords.findOne({rollno: req.params.plc})
 //     .then((p) => {
