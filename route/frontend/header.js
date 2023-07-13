@@ -469,7 +469,7 @@ router.get('/', (req,res) => {
         // } else {
         //   res.render('../views/frontend/register',{p})
         // }
-        res.render('../views/frontend/plcmtrecord',{a}) 
+        res.render('../views/backend/plcmtrecord',{a}) 
        }
        else {
         res.redirect('/')

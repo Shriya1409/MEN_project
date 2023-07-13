@@ -167,7 +167,6 @@
                       <th>Title</th>
                       <th>Semester</th>
                       <th>Rc</th>
-                      <th>Date</th>
                       <th>Department</th>
                       <th>Results</th>
                      </tr>
@@ -179,7 +178,6 @@
                           <td><%= t.title%></td>
                           <td><%=t.semester%></td>
                           <td><%=t.rc%></td>
-                          <td> <%=t.date%></td>
                           <td><%=t.department%></td>
                           <td><% if(t.resultpdf){ %>
                                  <a href="/backend/results/<%= t.resultpdf%>" style="text-decoration: none; color:rgb(69, 202, 196);">Open</a>
