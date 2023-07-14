@@ -38,7 +38,7 @@ header{
         }
 
         .small-box>.small-box-footer {
-          background-color: rgba(0,0,0,.1);
+          background-color: #05393B;
           color: rgba(255,255,255,.8);
           display: block;
           padding: 3px 0;
@@ -64,7 +64,7 @@ header{
       position: relative;
   }
     .bg-info {
-      background-color: #17a2b8!important;
+      background-color:#087175!important;
      }
       
       .small-box p {
