@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+
+    <title><%=p.pageTitle%></title>
+    <meta name="description" content="<%=p.pageMetaDescription%>" />
+    <meta name="keywords" content="<%=p.pageMetaKeyword%>" />
+  </head>
+  <body>
+    
+    <%- include('common/header.ejs')-%>
+<div class="container" style="width: 70%; margin-right:auto; margin-left:auto;">
+    <%-p.deptDetails%>
+    <div class="container" style="padding-top: 50px; margin-bottom: 200px; width:1100px;">
+        <!-- <h4 style="padding-bottom: 50px; text-align: center;">Information Technology Department Faculty</h4> -->
+        <div class="row" >
+          <%facultydata.forEach((j)=>{%>
+            <div class="col-md-4">
+              <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
+                <img src="/backend/faculty/<%= j.facultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+                <div class="card-body" >
+                  <h6 class="card-title"><%= j.facultyName %></h6>
+                  <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyQualification %></p>
+                  <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyDepartment %></p>
+                  <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyJoiningYear %></p>
+                  <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyEmailId %></p>
+                </div>
+              </div>
+            </div>
+            <%facultydata})%>
+        </div>
+
+
+
+</div>
+    <%- include('common/footer.ejs')-%>
+
+  </body>
+</html>

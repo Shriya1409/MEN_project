@@ -25,7 +25,17 @@ function scrollToTop() {
   element.scrollIntoView(true);
 }
 
+function scrolltoId(){
+  var access = document.getElementById("linkcarousel");
+  window.scrollTo({
+  top: access.scrollTop,
+  left: access.scrollLeft});
+  }
+// const ele = document.getElementById("linkcarousel");
 
+// function scrollToId() {
+//   ele.scrollIntoView(true);
+// }
 // $('#notices').click(function(){
 
 //   $(html, body).animate({
