@@ -222,3 +222,21 @@
                               <img class="img-p" src="../backend/homepage-slider/home_welcome2.jpg">
                             </li> -->
             
+                          
+                              <script>
+                                // Get the carousel element
+                                const carousel = document.querySelector('[data-carousel]');
+                                
+                                // Set the autoplay interval in milliseconds (e.g., 3000ms = 3 seconds)
+                                const autoplayInterval = 3000;
+                                
+                                // Function to simulate a button click on the next button
+                                function goToNextSlide() {
+                                  const nextButton = carousel.querySelector('.next-p');
+                                  nextButton.click();
+                                }
+                                
+                                // Start the autoplay
+                                setInterval(goToNextSlide, autoplayInterval);
+                              </script>
+                              </script>
