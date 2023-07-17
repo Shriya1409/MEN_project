@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('common/head.ejs')-%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <title><%=p.eventdepttitle%></title>
+    
+  </head>
+  <body>
+    
+    <%- include('common/header.ejs')-%>
+
+ 
+  
+      <div class="container" style="width:1100px;">
+        <%-p.eventnav%>
+  <!-- navbar -->
+        <div class="event-page" style="color:green;">
+
+  <%eventdata.forEach((p)=>{%>
+   
+        <div class="event-card" style="display:flex; color: white;">
+                <div class="event-img" style="float:left; position: relative; left: 10px;">
+                    <img style="size:100px;" src="/backend/events/<%=p.eventphoto%>">
+                </div>
+                <div class="event-details" style="float:right; position: relative; right: 80px;">  
+                    <label>Event Name: <%=p.eventname %> </label>  
+                    <label> Event Date <%=p.eventdate %></label>
+                    <label>Event ResourcePerson <%=p.eventperson %></label>
+                    <label> Event Desc:  <%=p.eventdesc %> </label>   
+                </div>
+
+        </div>
+
+        <%eventdata})%>
+    </div>
+
+ 
+</div>
+<%- include('common/footer.ejs')-%>
+    </body>
+</html>

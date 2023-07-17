@@ -37,6 +37,7 @@
                         <th>Infra Dept Url</th>
                         <th>Infra Nav Text</th>
                         <th>Infra Dept Title</th>
+                        <th>Infra Dept About</th>
                   
                         <th>Edit</th>
                         <th>Delete</th>
@@ -55,6 +56,7 @@
                         <td><%= y.infradepturl%></td>
                         <td><%=y.infranavtext%></td>
                         <td><%=y.infradepttitle%></td>
+                        <td><%=y.infradeptabout%></td>
                         <td>  <a class="btn btn-primary" href="/infra/edit-infra/<%= y.infradepturl%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/infra/delete-infra/<%= y.infradepturl%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>

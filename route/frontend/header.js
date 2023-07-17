@@ -44,21 +44,21 @@ router.use((req, res, next) => {
 })
 
 eventsModel.find({})
-    .then((x)=> {
-        router.locals.eventdata = x;
+    .then((p)=> {
+        router.locals.eventdata = p;
     })
-    .catch((y) => {
-        console.log(y)
+    .catch((q) => {
+        console.log(q)
     })
 
 router.use((req, res, next) => {
     eventsModel.find({})
-        .then((x) => {
-            res.locals.eventdata = x; //here set local variable  and then value
+        .then((p) => {
+            res.locals.eventdata = p; //here set local variable  and then value
             //console.log(x)
         })
-        .catch((y) => {
-            console.log(y)
+        .catch((q) => {
+            console.log(q)
         })
     next()
 })
@@ -575,11 +575,14 @@ router.get('/syllabus/scheme', (req,res) => {
             {
                 res.render('../views/frontend/dynamic-itfaculty', {p})
             }
-        // if(extractValue === 'result.ejs') {
-        //   res.render('../views/frontend/dynamic-page',{p})
-        // } else if(extractValue === 'register') {
-        //     res.render('../views/frontend/register',{p})
-        // } else {
+        else if(extractValue === 'ITevents.ejs') 
+         {
+           res.render('../views/frontend/dept-events',{p})
+         }
+         else if(extractValue === 'InfraITdept.ejs') {
+            res.render('../views/frontend/dept-infra',{p})
+         } 
+        // else {
         //   res.render('../views/frontend/register',{p})
          }
         // res.render('../views/frontend/dynamic-itdept',{p}) 

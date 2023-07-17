@@ -49,21 +49,20 @@ router.get('/edit-event/:id', (req,res) => {
     })
 })
 
-router.put('/edit-event/:id', upload.array('eventslider',7),(req,res) => {
-    if(req.files && req.files.length > 0){
+router.put('/edit-event/:id', upload.single('eventphoto'),(req,res) => {
+    if(!req.file){
 
-        const eventsliders = req.files.map(file => file.filename);
 
         eventsModel.updateOne({ eventdepturl: req.params.id }, {$set:{
                     eventdepturl: req.body.eventdepturl,
                     eventdeptnavtext: req.body.eventdeptnavtext,
                     eventdepttitle: req.body.eventdepttitle,
-                    eventslider:eventsliders,
+                    eventnav:req.body.eventnav,
                     eventname:req.body.eventname,
                     eventdate:req.body.eventdate,
                     eventperson: req.body.eventperson,
                     eventdesc:req.body.eventdesc,
-                   
+                    eventphoto:req.file.filename,
                 
 
         }
@@ -80,6 +79,7 @@ router.put('/edit-event/:id', upload.array('eventslider',7),(req,res) => {
             eventdepturl: req.body.eventdepturl,
             eventdeptnavtext: req.body.eventdeptnavtext,
             eventdepttitle: req.body.eventdepttitle,
+            eventnav:req.body.eventnav,
             eventname:req.body.eventname,
             eventdate:req.body.eventdate,
             eventperson: req.body.eventperson,
