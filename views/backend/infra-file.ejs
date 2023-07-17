@@ -33,7 +33,7 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Infra Dept Photos</th>
+                     
                         <th>Infra Dept Url</th>
                         <th>Infra Nav Text</th>
                         <th>Infra Dept Title</th>
@@ -46,13 +46,7 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <td>
-                          <% if(y.infradeptphoto){ %>
-                              <img src="/backend/infra/<%= y.infradeptphoto%>" width="100">
-                          <% } else { %>
-                              <img src="/backend/images/no_image.jpg" width="100">
-                          <% } %>
-                          </td>
+                        
                         <td><%= y.infradepturl%></td>
                         <td><%=y.infranavtext%></td>
                         <td><%=y.infradepttitle%></td>
