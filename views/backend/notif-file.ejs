@@ -36,6 +36,8 @@
                         <th>Date</th>
                         <th>Notice Name</th>
                         <th>Notice File</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                      </tr>
                   </thead>
                   <tbody>
@@ -44,7 +46,7 @@
                       
                         <td><%= y.date%></td>
                         <td><%=y.noticename%></td>
-                        <td><%=y.noticeinfo%></td>  
+                        <td><a href="<%=y.noticeinfo%>">View PDF</a></td> 
                         
                         <td>  <a class="btn btn-primary" href="/notifications/edit-notifications/<%= y.date%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/notifications/delete-notifications/<%= y.date%>?_method=DELETE" method="POST">
@@ -64,6 +66,8 @@
                       <th>Date</th>
                       <th>Useful InfoName</th>
                       <th>Useful InfoFile</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
                    </tr>
                 </thead>
                 <tbody>
@@ -72,10 +76,10 @@
                     
                       <td><%= y.date%></td>
                       <td><%=y.usefulinfoname%></td>
-                      <td><%=y.usefulinfo%></td>  
+                      <td><a href="<%=y.usefulinfo%>">View PDF</a></td>  
                       
                       <td>  <a class="btn btn-primary" href="/notifications/edit-notifications/<%= y.date%>">Edit</a>    </td>                  
-                      <td>  <form style="display: inline;" action="/notifications/delete-notifications/<%= y.date%>?_method=DELETE" method="POST">
+                      <td>  <form style="display: inline;" action="/notifications/delete-notifications/<%= y.date%>/?_method=DELETE" method="POST">
                             <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                          </form>
                       </td>
