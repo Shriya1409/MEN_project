@@ -13,6 +13,7 @@ const multipartMiddleware = multipart();
 const fs = require('fs');
 const connectDB = require('./config/db');
 
+
 // Load env variables
 dotenv.config();
 
@@ -24,6 +25,13 @@ app.use(cors())
 app.use(cors({ origin: true, credentials: true }));
 connectDB();
 
+//middleware
+app.use(session({
+  secret: 'First-web',
+  resave: false,
+  saveUninitialized: true
+}))
+
 
 app.set('view engine', 'ejs')
 //app.set("views", "./views"); 
@@ -31,12 +39,6 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname+'/public'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
-//middleware
-app.use(session({
-    secret: 'First-web',
-    resave: false,
-    saveUninitialized: true
-}))
 
 app.use(flash())
 
@@ -53,6 +55,94 @@ app.use((req, res, next) => {
 
     next()
 })
+
+
+
+
+
+
+//middleware
+const requireAuth = (req, res, next) => {
+  console.log('Checking login status...');
+  if(req.session && req.session.user) {
+    next(); // User is authenticated, proceed to the next middleware or route handler
+  } else {
+    console.log('User not logged in. Redirecting to login page.');
+    req.session.destroy();
+    res.redirect('/login'); // User is not authenticated, redirect to the login page
+  }
+};
+
+
+// Helper function to get default permissions based on the role
+function getPermissionsForRole(role) {
+  switch (role) {
+    case 'admin':
+      return ['admin-file', 'page-file', 'add-page-file'];
+    case 'faculty':
+      return ['admin-file', 'faculty-file', 'add-faculty-file'];
+    case 'placement':
+      return ['admin-file', 'placement-file'];
+    default:
+      return []; // Return an empty array or handle unknown roles as per your requirements
+  }
+}
+
+
+const requirePermission = (permission) => (req, res, next) => {
+  console.log('Checking permission status...');
+  console.log('User permissions:', req.session.user.permissions);
+  if(req.session.user.permissions.includes(permission)) {
+    next(); // User has the required permission, proceed to the next middleware or route handler
+  } else {
+    console.log('User doesnt have permission. Redirecting to login page.');
+    res.redirect('/admin'); // User does not have the required permission, redirect to the dashboard
+  }
+};
+
+
+
+
+
+
+
+//admin routes
+app.get('/admin', requireAuth , (req, res) => {
+  res.render('../views/backend/admin-file', { user: req.session.user });
+});
+
+ // Example route that requires admin permission
+// app.get('/page', requireAuth, requirePermission('page-file'), (req, res) => {
+//   res.render('../views/backend/page-file', { user: req.session.user });
+// });
+app.get('/page', requireAuth, requirePermission('page-file'), (req, res) => {
+  pageModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/page-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-page', requireAuth, requirePermission('add-page-file'), (req, res) => {
+  res.render('../views/backend/add-page-file', { user: req.session.user });
+});
+
+
+
+
+//   // Example route that requires placement permission
+// app.get('/admin/placement', requireAuth, requirePermission('placement'), (req, res) => {
+//   res.render('placement-file', { user: req.session.user });
+// });
+
+
+
+
+
+
 
 
 
@@ -187,6 +277,9 @@ app.use('/', headerroute)
 
 let User = require('./model/userModel')
 
+
+
+
 //image
 app.post('/upload',multipartMiddleware,(req,res)=>{
   try {
@@ -227,7 +320,13 @@ app.post('/upload',multipartMiddleware,(req,res)=>{
 
 // //login
 
-
+//logout
+// app.get('/logout', (req, res) => {
+//   if (req.session) {
+//     req.session.destroy(); // Destroy the session if it exists
+//   }
+//   res.redirect('/login'); // Redirect to the login page
+// });
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
@@ -235,7 +334,17 @@ app.post('/login', (req, res) => {
   User.findOne({ email })
     .then((user) => {
       if (user && bcrypt.compareSync(password, user.password)) {
-        req.session.user = user; // Store the authenticated user in the session
+        const permissions = getPermissionsForRole(user.role);
+        // req.session.user = user; // Store the authenticated user in the session
+        // Store the authenticated user in the session
+        req.session.user = {
+          _id: user._id,
+          email: user.email,
+          role: user.role,
+          permissions, // Store the user's permissions in the session
+        };
+
+        console.log('User logged in:', req.session.user);
         res.redirect('/admin');
       } else {
         res.redirect('/login');
@@ -261,12 +370,13 @@ app.post('/register', (req, res) => {
     email,
     password: hashedPassword,
     role,
-    permissions: ['admin-file'] // Default permission for all registered users
+    permissions: getPermissionsForRole(role) // Default permission for all registered users
   });
 
   newUser.save()
     .then(() => {
       req.session.user = newUser; // Store the registered user in the session
+      console.log('User registered:', req.session.user);
       res.redirect('/login');
     })
     .catch((error) => {
@@ -276,52 +386,24 @@ app.post('/register', (req, res) => {
 });
 
 
-//middleware
-const requireAuth = (req, res, next) => {
-  if (req.session.user) {
-    next(); // User is authenticated, proceed to the next middleware or route handler
-  } else {
-    res.redirect('/login'); // User is not authenticated, redirect to the login page
-  }
-};
-
-const requirePermission = (permission) => (req, res, next) => {
-  if (req.session.user.permissions.includes(permission)) {
-    next(); // User has the required permission, proceed to the next middleware or route handler
-  } else {
-    res.redirect('/admin'); // User does not have the required permission, redirect to the dashboard
-  }
-};
-
-
-
-//admin routes
-// app.get('/admin', requireAuth , (req, res) => {
-//   res.render('admin-file', { user: req.session.user });
-// });
-
-// // Example route that requires admin permission
-// app.get('/page/:id', requireAuth, requirePermission('admin'), (req, res) => {
-//   res.render('page-file', { user: req.session.user });
-// });
-
-// app.get('/add-page/:id', requireAuth, requirePermission('admin'), (req, res) => {
-//   res.render('add-page-file', { user: req.session.user });
-// });
-
-
-
-
-//   // Example route that requires placement permission
-// app.get('/admin/placement', requireAuth, requirePermission('placement'), (req, res) => {
-//   res.render('placement-file', { user: req.session.user });
-// });
-
 //logout
-app.get('/logout', (req, res) => {
-  req.session.destroy(); // Destroy the session upon logout
-  res.redirect('/login');
+app.post('/logout', (req, res) => {
+  // Check if the session exists before destroying it
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Error destroying session:', err);
+      } else {
+        console.log('User logged out. Session destroyed.');
+      }
+      res.redirect('/login'); // Redirect to the login page after session destruction
+    });
+  } else {
+    // If the session doesn't exist, simply redirect to the login page
+    res.redirect('/login');
+  }
 });
+
 
 
 
@@ -331,3 +413,5 @@ app.listen(process.env.PORT, () => {
   
     console.log(process.env.PORT, 'port working')
 })
+
+

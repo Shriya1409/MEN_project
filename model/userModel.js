@@ -11,15 +11,15 @@ const userSchema = new mongoose.Schema({
     },
 
     permissions: {
-      type: [String],
+      type: [String], // Change this to an array of strings
       required: true,
       validate: {
         validator: function (permissions) {
           // Validate permissions based on the role
           if (this.role === 'admin') {
-            return permissions.every(permission => [].includes(permission));
+            return permissions.every(permission => ['admin-file', 'page-file', 'add-page-file'].includes(permission));
           } else if (this.role === 'faculty') {
-            return permissions.every(permission => ['admin-file','faculty-file', 'add-faculty-file'].includes(permission));
+            return permissions.every(permission => ['admin-file', 'faculty-file', 'add-faculty-file'].includes(permission));
           } else if (this.role === 'placement') {
             return permissions.every(permission => ['admin-file', 'placement-file'].includes(permission));
           }

@@ -5,10 +5,14 @@
           <div class="mr-5">
              <ul class="navbar-nav mr-auto mr-0">
                 <li class="nav-item">
-                   <a class="nav-link text-white" href="/logout">LogOut</a>
+                   <!-- <a class="nav-link text-white" action="/logout" target="_self">LogOut</a> -->
+                   <form  action="/logout" method="POST" id="logout-form" class="nav-link text-white">
+                     <button type="submit">Logout</button>
+                   </form>
                 </li>
              </ul>
           </div>
        </div>
     </div>
  </header>
+ 
