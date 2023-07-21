@@ -24,27 +24,14 @@ const element = document.getElementById("notif");
 function scrollToTop() {
   element.scrollIntoView(true);
 }
+const some = document.getElementById("linkcarousel");
 
-function scrolltoId(){
-  var access = document.getElementById("linkcarousel");
-  window.scrollTo({
-  top: access.scrollTop,
-  left: access.scrollLeft});
-  }
-// const ele = document.getElementById("linkcarousel");
-
-// function scrollToId() {
-//   ele.scrollIntoView(true);
-// }
-// $('#notices').click(function(){
-
-//   $(html, body).animate({
-
-// scrollTop:$("#notif").offset().top
-
-//   }, 2000);
+function scrolling() {
+  some.scrollIntoView(true);
+}
 
 
-// })
+
+
 
 

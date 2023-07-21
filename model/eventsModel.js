@@ -14,6 +14,9 @@ let eventsModelSchema = mongoose.Schema({
         type:String,
         required:true,
     },
+    eventnav:{
+        type:String,
+    },
     eventname:{
         type:String,
     }, 
@@ -26,8 +29,8 @@ let eventsModelSchema = mongoose.Schema({
     eventdesc:{
         type:String,
     },
-    eventslider : {
-        type:Array,
+    eventphoto : {
+        type:String,
         
     },
     

@@ -17,7 +17,10 @@ let infrastructureModelSchema = mongoose.Schema({
         type:Array,
         
     },
-   
+    infradeptabout : {
+        type:String,
+        required: false
+    },
     
 })
 

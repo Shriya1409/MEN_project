@@ -54,6 +54,7 @@ router.post('/', upload.array('infradeptphoto', 15) , (req,res) => {
                     infradepturl: req.body.infradepturl,
                     infradeptnavtext: req.body.infradeptnavtext,
                     infradepttitle: req.body.infradepttitle,
+                    infradeptabout: req.body.infradeptabout,
                     
                 })
                 .then((x) => {
@@ -68,8 +69,8 @@ router.post('/', upload.array('infradeptphoto', 15) , (req,res) => {
                     infradepturl: req.body.infradepturl,
                     infradeptnavtext: req.body.infradeptnavtext,
                     infradepttitle: req.body.infradepttitle,
-                  
                     infradeptphoto: infradeptphotos,
+                    infradeptabout: req.body.infradeptabout,
                   
                 })
                 .then((x) => {

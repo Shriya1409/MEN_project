@@ -40,7 +40,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-infra/:id', (req,res) => {
-    infrastructureModel.findOne({ infradepturl: req.params.infradepturl })
+    infrastructureModel.findOne({ infradepturl: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-infra', {x})
     })
@@ -57,8 +57,8 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
-            
             infradeptphoto: infradeptphotos,
+            infradeptabout: req.body.infradeptabout,
             
     
     })
@@ -73,7 +73,7 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
-          
+            infradeptabout: req.body.infradeptabout,
           
         })
        .then((x) => {
@@ -85,7 +85,7 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
 })
 
 router.delete('/delete-infra/:id',(req,res) => {
-    infrastructureModel.deleteOne({infradepturl:req.params.infradepturl})
+    infrastructureModel.deleteOne({infradepturl:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/infra')

@@ -40,7 +40,7 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-events')
     })
 
-router.post('/', upload.array('eventslider',7) ,  (req,res) => {
+router.post('/', upload.single('eventphoto') ,  (req,res) => {
     eventsModel.findOne({eventdepturl: req.body.eventdepturl})
     .then((a) => {
         if(a) {
@@ -49,12 +49,13 @@ router.post('/', upload.array('eventslider',7) ,  (req,res) => {
             // console.log('Url already exists, Please try with another url!!')
         } else {
 
-            if (!req.files || req.files.length< 0) {
+            if (!req.file) {
 
                 eventsModel.create({
                     eventdepturl: req.body.eventdepturl,
                     eventdeptnavtext: req.body.eventdeptnavtext,
                     eventdepttitle: req.body.eventdepttitle,
+                    eventnav:req.body.eventnav,
                     eventname:req.body.eventname,
                     eventdate:req.body.eventdate,
                     eventperson: req.body.eventperson,
@@ -68,17 +69,18 @@ router.post('/', upload.array('eventslider',7) ,  (req,res) => {
                 })
             }
         else{
-                const eventsliders = req.files.map(file => file.filename);
+                
                 
                 eventsModel.create({
                     eventdepturl: req.body.eventdepturl,
                     eventdeptnavtext: req.body.eventdeptnavtext,
                     eventdepttitle: req.body.eventdepttitle,
-                    eventslider:eventsliders,
                     eventname:req.body.eventname,
+                    eventnav:req.body.eventnav,
                     eventdate:req.body.eventdate,
                     eventperson: req.body.eventperson,
                     eventdesc:req.body.eventdesc,
+                    eventphoto:req.file.filename,
                   
                     
 
