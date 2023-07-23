@@ -47,7 +47,10 @@
                        <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
                        <div class="col"><input type="text" name ="infradepttitle" class="form-control" value="<%=x.infradepttitle %>" placeholder="Your Page Title" required></div>
                      </div>
-              
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                      <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
+                      <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="infranav" placeholder="Infra Nav"><%=x.infranav %></textarea></div>
+                    </div>
                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
                       <div class="col col-lg-2"><label class="form-label">Infrastructure Photos</label></div>
                       <div class="col"><input type="file" name="infradeptphoto" class="form-control" value="<%=x.infradeptphoto %>" multiple></div>

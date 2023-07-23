@@ -53,6 +53,7 @@ router.post('/', upload.array('infradeptphoto', 15) , (req,res) => {
                 infrastructureModel.create({
                     infradepturl: req.body.infradepturl,
                     infradeptnavtext: req.body.infradeptnavtext,
+                    infranav:req.body.infranav,
                     infradepttitle: req.body.infradepttitle,
                     infradeptabout: req.body.infradeptabout,
                     
@@ -69,6 +70,7 @@ router.post('/', upload.array('infradeptphoto', 15) , (req,res) => {
                     infradepturl: req.body.infradepturl,
                     infradeptnavtext: req.body.infradeptnavtext,
                     infradepttitle: req.body.infradepttitle,
+                    infranav:req.body.infranav,
                     infradeptphoto: infradeptphotos,
                     infradeptabout: req.body.infradeptabout,
                   

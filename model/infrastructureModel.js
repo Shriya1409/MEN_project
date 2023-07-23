@@ -13,6 +13,9 @@ let infrastructureModelSchema = mongoose.Schema({
         type:String,
         required:true,
     },
+    infranav:{
+        type: String,
+    },
     infradeptphoto : {
         type:Array,
         

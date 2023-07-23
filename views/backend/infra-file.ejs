@@ -3,6 +3,7 @@
    <title>Admin Panel - Infrastructure Pages</title>
    </head>
    <body>
+
     <%- include('common/header.ejs')-%>
 
       <div class="container-fluid bg-side-nav">
@@ -37,6 +38,7 @@
                         <th>Infra Dept Url</th>
                         <th>Infra Nav Text</th>
                         <th>Infra Dept Title</th>
+                        <th>Infra Navbar</th>
                         <th>Infra Dept About</th>
                   
                         <th>Edit</th>
@@ -50,6 +52,7 @@
                         <td><%= y.infradepturl%></td>
                         <td><%=y.infranavtext%></td>
                         <td><%=y.infradepttitle%></td>
+                        <td> <%=y.infranav%></td>
                         <td><%=y.infradeptabout%></td>
                         <td>  <a class="btn btn-primary" href="/infra/edit-infra/<%= y.infradepturl%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/infra/delete-infra/<%= y.infradepturl%>?_method=DELETE" method="POST">
