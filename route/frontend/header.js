@@ -17,7 +17,7 @@ let civilfacultyModel=require('../../model/civilfacultyModel')
 
 let resultModel=require('../../model/resultModel')
 let syllabusModel=require('../../model/syllabusModel')
-let notificationModel=require('../../model/notificationModel')
+let noticesModel=require('../../model/noticesModel')
 let carouselImgModel=require('../../model/carouselImgModel')
 let eventsModel = require('../../model/eventsModel')
 let infrastructureModel = require('../../model/infrastructureModel')
@@ -152,18 +152,18 @@ router.use((req, res, next) => {
     next()
 })
 
-notificationModel.find({})
+noticesModel.find({})
     .then((e)=> {
-        router.locals.notifdata = e;
+        router.locals.noticesdata = e;
     })
     .catch((f) => {
         console.log(f)
     })
 
 router.use((req, res, next) => {
-    notificationModel.find({})
+    noticesModel.find({})
         .then((e) => {
-            res.locals.notifdata = e; //here set local variable  and then value
+            res.locals.noticesdata = e; //here set local variable  and then value
             //console.log(x)
         })
         .catch((f) => {

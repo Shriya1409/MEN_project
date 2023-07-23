@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Edit Notifications</title>
+   <title>Admin Panel - Edit Notices</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -16,13 +16,13 @@
               <div class="dashboard-content-area">
 
                    <!-- put your contente -->
-                <h1 class="mb-2 mt-2">Edit Notifications</h1>
+                <h1 class="mb-2 mt-2">Edit Notices</h1>
     
-                   <form method="post" action="/notifications/edit-notifications/<%=x.date%>" enctype="multipart/form-data">
+                   <form method="post" action="/notices/edit-notices/<%=x.noticename%>" enctype="multipart/form-data">
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                        <div class="col col-lg-2"><label class="form-label">Date</label></div>
-                       <div class="col"><input type="date" name ="date" class="form-control" value="<%=x.date %>" placeholder="date" required></div>
+                       <div class="col"><input type="date" name ="date" class="form-control" value="<%=x.noticedate %>" placeholder="date" required></div>
                      </div>
 
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
@@ -31,16 +31,7 @@
                       </div>                  
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">Notice File</label></div>
-                       <div class="col"><input type="file" name="noticeinfo" value="<%=x.noticeinfo %>"  class="form-control" ></div>
-                     </div>
-                     
-                     <div class="mb-3 mt-3 row g-9 align-items-center">  
-                        <div class="col col-lg-2"><label class="form-label">Other File Name</label></div>
-                        <div class="col"><input type="text" name ="usefulinfoname" value="<%=x.usefulinfoname %>" class="form-control" placeholder="useful file name"></div>
-                      </div>                  
-                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
-                       <div class="col col-lg-2"><label class="form-label">Other File</label></div>
-                       <div class="col"><input type="file" name="usefulinfo" value="<%=x.usefulinfo %>" class="form-control" ></div>
+                       <div class="col"><input type="file" name="noticeinfo" value="<%=x.noticeinfo %>" class="form-control" ></div>
                      </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>
