@@ -1,7 +1,7 @@
 let mongoose = require("mongoose")
 
 let usefullinkSchema = mongoose.Schema({
-
+    
     usefulinfoname:{
         type:String,
     },

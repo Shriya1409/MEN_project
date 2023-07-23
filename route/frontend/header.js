@@ -18,6 +18,7 @@ let civilfacultyModel=require('../../model/civilfacultyModel')
 let resultModel=require('../../model/resultModel')
 let syllabusModel=require('../../model/syllabusModel')
 let noticesModel=require('../../model/noticesModel')
+let usefullinkModel=require('../../model/usefullinkModel')
 let carouselImgModel=require('../../model/carouselImgModel')
 let eventsModel = require('../../model/eventsModel')
 let infrastructureModel = require('../../model/infrastructureModel')
@@ -171,6 +172,27 @@ router.use((req, res, next) => {
         })
     next()
 })
+usefullinkModel.find({})
+    .then((m)=> {
+        router.locals.usefuldata = m;
+    })
+    .catch((n) => {
+        console.log(n)
+    })
+
+router.use((req, res, next) => {
+    usefullinkModel.find({})
+        .then((m) => {
+            res.locals.usefuldata = m; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((n) => {
+            console.log(n)
+        })
+    next()
+})
+
+
 router.use((req, res, next) => {
     plcmtModel.find({})
         .then((x) => {

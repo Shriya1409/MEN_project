@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Notices</title>
+   <title>Admin Panel - Useful Links</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -26,16 +26,15 @@
 
                  <!-- put your contente -->
 
-               <h1>All Notices</h1>
+               <h1>All Useful Links</h1>
             
                
                
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Date</th>
-                        <th>Notice Name</th>
-                        <th>Notice File</th>
+                        <th>Useful Info Name</th>
+                        <th>Useful Info File</th>
                         <th>Edit</th>
                         <th>Delete</th>
                      </tr>
@@ -43,13 +42,11 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                      
-                        <td><%= y.noticedate%></td>
-                        <td><%=y.noticename%></td>
-                        <td><a href="<%=y.noticeinfo%>">View PDF</a></td> 
+                        <td><%=y.usefulinfoname%></td>
+                        <td><a href="<%=y.usefulinfo%>">View PDF</a></td> 
                         
-                        <td>  <a class="btn btn-primary" href="/notices/edit-notices/<%= y.noticename%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/notices/delete-notices/<%= y.noticename%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/usefullink/edit-usefullink/<%= y.usefulinfoname%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/usefullink/delete-usefullink/<%= y.usefulinfo%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>
@@ -58,7 +55,7 @@
                     
                   </tbody>
                </table>
-                 <center> <br> <a class="btn btn-success btn-md" href="/add-notices/">Add More Notices</a> </center>
+                 <center> <br> <a class="btn btn-success btn-md" href="/add-usefullink/">Add More Useful Links</a> </center>
        
 
               <!-- end your content here -->

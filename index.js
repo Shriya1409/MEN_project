@@ -449,6 +449,8 @@ let carouselroute=require('./route/backend/carousel-imgs')
 
 let addnotices=require('./route/backend/add-notices')
 let noticesroute=require('./route/backend/notices')
+let adduseful=require('./route/backend/add-usefullink')
+let usefullinkroute=require('./route/backend/usefullink')
 
 let facultyroute = require('./route/backend/faculty')
 let addfacultyroute=require('./route/backend/add-faculty')
@@ -531,8 +533,11 @@ app.use('/add-civilfaculty', addcivilfacultyroute)
 
 app.use('/add-carousel-imgs', addcarouselroute)
 app.use('/carousel-imgs', carouselroute)
+
 app.use('/add-notices', addnotices)
 app.use('/notices', noticesroute)
+app.use('/add-usefullink', adduseful)
+app.use('/usefullink', usefullinkroute)
 app.use('/add-infra', addinfraroute)
 app.use('/infra', infraroute)
 app.use('/add-events', addeventsroute)

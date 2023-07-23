@@ -90,13 +90,12 @@
                           <div class="scroll-bar-2">
                             <ul class="events-2">
                             <!-- loop for links -->
-                            <% noticesdata.forEach((e)=>{%>
+                            <% usefuldata.forEach((m)=>{%>
                               <li style="border-bottom: solid 1px black; padding-bottom:5px; padding-top:5px;">
-                                <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.usefulinfo%>"><%=e.usefulinfoname%></a> -->
-                                <a href="/backend/notifications/<%e.usefulinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.usefulinfoname%></a>
+                                <a href="/backend/usefullink/<%m.usefulinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= m.usefulinfoname%></a>
                               </li>
 
-                           <%noticesdata}) %>
+                           <%usefuldata}) %>
                             </ul>
                            </div>
                           </div>
