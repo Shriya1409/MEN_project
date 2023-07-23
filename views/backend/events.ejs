@@ -34,11 +34,11 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Event Image</th>
+                        <!-- <th>Event Image</th> -->
                         <th>Dept URL</th>
                         <th>Navigation</th>
                         <th>Title</th>
-                        <th>Event Navbar</th>
+                        <!-- <th>Event Navbar</th> -->
                         <th>Event Name</th>
                         <th>Event Date</th>
                         <th>Event Resource Person</th>
@@ -51,17 +51,17 @@
                   <tbody>
                      <%navdata.forEach((y)=>{%>
                      <tr>
-                        <td>
+                        <!-- <td>
                           <% if(y.eventphoto){ %>
                               <img src="/backend/events/<%= y.eventphoto%>" width="100">
                           <% } else { %>
                               <img src="/backend/images/no_image.jpg" width="100">
                           <% } %>
-                          </td>
+                          </td> -->
                         <td><%= y.eventdepturl%></td>
-                        <td><%=y.eventnavtext%></td>
+                        <td><%=y.eventdeptnavtext%></td>
                         <td><%=y.eventdepttitle%></td>
-                        <td> <%=y.eventnav%></td>
+                        <!-- <td> <%=y.eventnav%></td> -->
                         <td><%= y.eventname%></td>
                         <td><%=y.eventdate%></td>
                         <td><%=y.eventperson%></td>

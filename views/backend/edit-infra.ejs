@@ -21,7 +21,7 @@
 
 
                    <!-- <div>
-                    <!-- <div class="col col-lg-2"><select name="department" id="department" class="form-label">Select your department</select></div> -->
+                     <div class="col col-lg-2"><select name="department" id="department" class="form-label">Select your department</select></div> -->
                    <!-- <option value= "it" id="it">IT</option>
                    <option value="comp" id="comp">Comp</option>
                    <option id="etc">ETC</option>
@@ -31,8 +31,8 @@
                    <option id="vlsi">VLSI</option>
                    <option id="ai-cs">AI-CS</option> -->
                     <!-- </div> --> 
-                   <form method="post" action="/infra/edit-infra/<%=x.infradepturl %>" enctype="multipart/form-data">
-               
+                   <form method="post" action="/infra/edit-infra/<%=x.infradepturl%>?_method=put" enctype="multipart/form-data">
+                    
                     <div class="mb-3 mt-3 row g-9 align-items-center">  
                       <div class="col col-lg-2"><label class="form-label">Infrastructure Page URL</label></div>
                       <div class="col"><input type="text" name ="infradepturl" class="form-control" value="<%=x.infradepturl %>" placeholder="infra dept url" required></div>

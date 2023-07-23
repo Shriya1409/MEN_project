@@ -37,8 +37,6 @@ router.get('/', (req,res) => {
 })
 
 
-
-
 router.get('/edit-infra/:id', (req,res) => {
     infrastructureModel.findOne({ infradepturl: req.params.id })
     .then((x) => {
@@ -49,18 +47,20 @@ router.get('/edit-infra/:id', (req,res) => {
     })
 })
 
+
 router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
-    if(req.files){
-        const infradeptphotos = req.files.map(file => file.filename);
-        
-        infrastructureModel.create({
+    if(!req.files){
+
+
+        infrastructureModel.updateOne({ infradepturl: req.params.id }, {$set:{
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
             infranav: req.body.infranav,
-            infradeptphoto: infradeptphotos,
             infradeptabout: req.body.infradeptabout,
-            
+                
+
+        }
     
     })
        .then((x) => {
@@ -69,15 +69,16 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
        })
 
     }else {
-
-        infrastructureModel.create({
+        const infradeptphotos = req.files.map(file => file.filename);
+        infrastructureModel.updateOne({ infradepturl: req.params.id }, {$set:{
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
             infranav: req.body.infranav,
+            infradeptphoto: infradeptphotos,
             infradeptabout: req.body.infradeptabout,
-          
-        })
+        
+        }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
         res.redirect('/infra')
@@ -85,6 +86,46 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
 
     }
 })
+
+
+
+
+// router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
+//     if(req.files){
+//         const infradeptphotos = req.files.map(file => file.filename);
+        
+//         infrastructureModel.create({
+//             infradepturl: req.body.infradepturl,
+//             infradeptnavtext: req.body.infradeptnavtext,
+//             infradepttitle: req.body.infradepttitle,
+//             infranav: req.body.infranav,
+//             infradeptphoto: infradeptphotos,
+//             infradeptabout: req.body.infradeptabout,
+            
+    
+//     })
+//        .then((x) => {
+//         req.flash('success', 'Your data has been updated successfully')
+//         res.redirect('/infra')
+//        })
+
+//     }else {
+
+//         infrastructureModel.create({
+//             infradepturl: req.body.infradepturl,
+//             infradeptnavtext: req.body.infradeptnavtext,
+//             infradepttitle: req.body.infradepttitle,
+//             infranav: req.body.infranav,
+//             infradeptabout: req.body.infradeptabout,
+          
+//         })
+//        .then((x) => {
+//         req.flash('success', 'Your data has been updated successfully')
+//         res.redirect('/infra')
+//        })
+
+//     }
+// })
 
 router.delete('/delete-infra/:id',(req,res) => {
     infrastructureModel.deleteOne({infradepturl:req.params.id})

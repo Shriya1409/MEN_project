@@ -18,14 +18,14 @@
       <div class="container" style="width:1100px;">
     
   <!-- navbar -->
-        <%=p.infranav %>
+        <%-p.infranav %>
 <!-- Image Slider -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
 
       <div class="carousel-inner" style="height:400px;">
         <% for (let index = 0; index < 4; index++) { %>
             <div class="carousel-item <% if (index === 0) { %>active<% } %>">
-              <img src="/backend/departments/<%= p.deptPhoto[index] %>" class="d-block w-100" alt="Carousel Image" style="height:400px;">
+              <img src="/backend/infrastructure/<%= p.infradeptphoto[index] %>" class="d-block w-100" alt="Carousel Image" style="height:400px;">
             </div>
             <% }%>
       </div>
@@ -41,7 +41,7 @@
       </div>
    <div>
     <h>About</h>
-    <div><%=p.infradeptabout></div>
+    <div><%=p.infradeptabout%></div>
    </div>
   </div>
 

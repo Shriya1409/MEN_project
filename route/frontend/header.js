@@ -20,6 +20,7 @@ let syllabusModel=require('../../model/syllabusModel')
 let notificationModel=require('../../model/notificationModel')
 let carouselImgModel=require('../../model/carouselImgModel')
 let eventsModel = require('../../model/eventsModel')
+let infrastructureModel = require('../../model/infrastructureModel')
 
 let router = express()
 
@@ -55,6 +56,26 @@ router.use((req, res, next) => {
     eventsModel.find({})
         .then((p) => {
             res.locals.eventdata = p; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((q) => {
+            console.log(q)
+        })
+    next()
+})
+
+infrastructureModel.find({})
+    .then((p)=> {
+        router.locals.infradata = p;
+    })
+    .catch((q) => {
+        console.log(q)
+    })
+
+router.use((req, res, next) => {
+    infrastructureModel.find({})
+        .then((p) => {
+            res.locals.infradata = p; //here set local variable  and then value
             //console.log(x)
         })
         .catch((q) => {
@@ -565,28 +586,12 @@ router.get('/syllabus/scheme', (req,res) => {
 
 
 
- router.get('/department/it/:itdept', (req,res) => {
-    ITdeptModel.findOne({itdeptUrl: req.params.itdept})
+ router.get('/department/events/:events', (req,res) => {
+    eventsModel.findOne({eventdepturl: req.params.events})
     .then((p) => {
        if(p){
 
-          const extractValue = p.itdeptUrl;
-          if(extractValue) {
-            if (extractValue==='ITfaculty.ejs')
-            {
-                res.render('../views/frontend/dynamic-itfaculty', {p})
-            }
-        else if(extractValue === 'ITevents.ejs') 
-         {
-           res.render('../views/frontend/dept-events',{p})
-         }
-         else if(extractValue === 'InfraITdept.ejs') {
-            res.render('../views/frontend/dept-infra',{p})
-         } 
-        // else {
-        //   res.render('../views/frontend/register',{p})
-         }
-        // res.render('../views/frontend/dynamic-itdept',{p}) 
+        res.render('../views/frontend/dept-events',{p}) 
        }
        else {
         res.redirect('/')
@@ -598,13 +603,12 @@ router.get('/syllabus/scheme', (req,res) => {
 
  })
 
-
-
- router.get('/department/comp/:compdept', (req,res) => {
-    CompdeptModel.findOne({compdeptUrl: req.params.compdept})
+ router.get('/department/infrastructure/:infra', (req,res) => {
+    infrastructureModel.findOne({infradepturl: req.params.infra})
     .then((p) => {
        if(p){
-        res.render('../views/frontend/dynamic-compdept',{p}) 
+
+        res.render('../views/frontend/dept-infra',{p}) 
        }
        else {
         res.redirect('/')
@@ -615,6 +619,22 @@ router.get('/syllabus/scheme', (req,res) => {
     })
 
  })
+
+//  router.get('/department/comp/:compdept', (req,res) => {
+//     CompdeptModel.findOne({compdeptUrl: req.params.compdept})
+//     .then((p) => {
+//        if(p){
+//         res.render('../views/frontend/dynamic-compdept',{p}) 
+//        }
+//        else {
+//         res.redirect('/')
+//        }
+//     })
+//     .catch((q) => {
+//         console.log(q)
+//     })
+
+//  })
 
 
 

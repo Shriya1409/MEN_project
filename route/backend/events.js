@@ -62,7 +62,7 @@ router.put('/edit-event/:id', upload.single('eventphoto'),(req,res) => {
                     eventdate:req.body.eventdate,
                     eventperson: req.body.eventperson,
                     eventdesc:req.body.eventdesc,
-                    eventphoto:req.file.filename,
+                    // eventphoto:req.file.filename,
                 
 
         }
@@ -84,6 +84,7 @@ router.put('/edit-event/:id', upload.single('eventphoto'),(req,res) => {
             eventdate:req.body.eventdate,
             eventperson: req.body.eventperson,
             eventdesc:req.body.eventdesc,
+            eventphoto:req.file.filename,
             // eventslider:eventsliders,
         
 

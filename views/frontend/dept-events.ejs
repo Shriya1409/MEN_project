@@ -17,7 +17,7 @@
  
   
       <div class="container" style="width:1100px;">
-        <%=p.eventnav%>
+        <%-p.eventnav%>
   <!-- navbar -->
         <div class="event-page" style="color:green;">
 
@@ -25,9 +25,9 @@
    
         <div class="event-card" style="display:flex; color: white;">
                 <div class="event-img" style="float:left; position: relative; left: 10px;">
-                    <img style="size:100px;" src="/backend/events/<%=p.eventphoto%>">
+                    <img style="size:100px; height: 200px; width:300px;" src="/backend/events/<%=p.eventphoto%>">
                 </div>
-                <div class="event-details" style="float:right; position: relative; right: 80px;">  
+                <div class="event-details" style="float:right; position: relative; right: 80px; color:black;">  
                     <label>Event Name: <%=p.eventname %> </label>  
                     <label> Event Date <%=p.eventdate %></label>
                     <label>Event ResourcePerson <%=p.eventperson %></label>
