@@ -3,6 +3,7 @@
    <title>Admin Panel - Event Pages</title>
    </head>
    <body>
+
     <%- include('common/header.ejs')-%>
 
       <div class="container-fluid bg-side-nav">
@@ -37,6 +38,7 @@
                         <th>Dept URL</th>
                         <th>Navigation</th>
                         <th>Title</th>
+                        <th>Event Navbar</th>
                         <th>Event Name</th>
                         <th>Event Date</th>
                         <th>Event Resource Person</th>
@@ -59,6 +61,7 @@
                         <td><%= y.eventdepturl%></td>
                         <td><%=y.eventnavtext%></td>
                         <td><%=y.eventdepttitle%></td>
+                        <td> <%=y.eventnav%></td>
                         <td><%= y.eventname%></td>
                         <td><%=y.eventdate%></td>
                         <td><%=y.eventperson%></td>

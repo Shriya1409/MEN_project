@@ -50,13 +50,14 @@ router.get('/edit-infra/:id', (req,res) => {
 })
 
 router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
-    if(req.files && req.files.length > 0){
+    if(req.files){
         const infradeptphotos = req.files.map(file => file.filename);
         
         infrastructureModel.create({
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
+            infranav: req.body.infranav,
             infradeptphoto: infradeptphotos,
             infradeptabout: req.body.infradeptabout,
             
@@ -73,6 +74,7 @@ router.put('/edit-infra/:id', upload.array('infradeptphoto',15),(req,res) => {
             infradepturl: req.body.infradepturl,
             infradeptnavtext: req.body.infradeptnavtext,
             infradepttitle: req.body.infradepttitle,
+            infranav: req.body.infranav,
             infradeptabout: req.body.infradeptabout,
           
         })
