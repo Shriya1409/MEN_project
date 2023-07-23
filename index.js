@@ -43,6 +43,22 @@ app.use(methodOverride('_method'))
 app.use(flash())
 
 let pageModel = require('./model/pageModel')
+let carouselImgModel=require('./model/carouselImgModel')
+let notificationModel=require('./model/notificationModel')
+let deptModel = require('./model/deptModel')
+let infrastructureModel = require('./model/infrastructureModel')
+let eventsModel = require('./model/eventsModel')
+let resultModel=require('./model/resultModel')
+let syllabusModel=require('./model/syllabusModel')
+let studRecords=require('./model/studRecords')
+let facultyModel=require('./model/facultyModel')
+let compfacultyModel=require('./model/compfacultyModel')
+let etcfacultyModel=require('./model/etcfacultyModel')
+let enefacultyModel=require('./model/enefacultyModel')
+let mechfacultyModel=require('./model/mechfacultyModel')
+let civilfacultyModel=require('./model/civilfacultyModel')
+let plcmtModel=require('./model/plcmtModel')
+let plcmtRecords=require('./model/plcmtRecords')
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success')
@@ -78,11 +94,14 @@ const requireAuth = (req, res, next) => {
 function getPermissionsForRole(role) {
   switch (role) {
     case 'admin':
-      return ['admin-file', 'page-file', 'add-page-file'];
+      return ['admin-file', 'page-file', 'add-page-file', 'carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','events','add-events','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
+    case 'adminn':
+      return ['admin-file','page-file', 'add-page-file','carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','events','add-events','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
     case 'faculty':
-      return ['admin-file', 'faculty-file', 'add-faculty-file'];
+      return ['admin-file'];
     case 'placement':
-      return ['admin-file', 'placement-file'];
+      return ['admin-file' ,'placement-file','add-plcmt-file','plcmt-records','add-plcmt-records'];
+      
     default:
       return []; // Return an empty array or handle unknown roles as per your requirements
   }
@@ -111,10 +130,8 @@ app.get('/admin', requireAuth , (req, res) => {
   res.render('../views/backend/admin-file', { user: req.session.user });
 });
 
- // Example route that requires admin permission
-// app.get('/page', requireAuth, requirePermission('page-file'), (req, res) => {
-//   res.render('../views/backend/page-file', { user: req.session.user });
-// });
+
+//PAGE
 app.get('/page', requireAuth, requirePermission('page-file'), (req, res) => {
   pageModel.find({})
     .then((navdata) => {
@@ -126,17 +143,280 @@ app.get('/page', requireAuth, requirePermission('page-file'), (req, res) => {
     });
 });
 
+// app.get('/page/edit-page/:id', requireAuth, requirePermission('edit-page-file'), (req, res) => {
+//   pageModel.find({})
+//     .then((navdata) => {
+//       res.render('../views/backend/edit-page-file', { user: req.session.user, navdata: navdata });
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+//     });
+// });
+
 app.get('/add-page', requireAuth, requirePermission('add-page-file'), (req, res) => {
   res.render('../views/backend/add-page-file', { user: req.session.user });
 });
 
+//HOME - CAROUSEL
+app.get('/carousel-imgs', requireAuth, requirePermission('carousel-imgs-file'), (req, res) => {
+  carouselImgModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/carousel-imgs-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-carousel-imgs', requireAuth, requirePermission('add-carousel-imgs-file'), (req, res) => {
+  res.render('../views/backend/add-carousel-imgs-file', { user: req.session.user });
+});
+
+//HOME - LINKS
+app.get('/notifications', requireAuth, requirePermission('notif-file'), (req, res) => {
+  notificationModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/notif-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-notifications', requireAuth, requirePermission('add-notif'), (req, res) => {
+  res.render('../views/backend/add-notif', { user: req.session.user });
+});
+
+//DEPARTMENTS - EACH DEPT
+app.get('/department', requireAuth, requirePermission('dept-file'), (req, res) => {
+  deptModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/dept-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-department', requireAuth, requirePermission('add-dept-file'), (req, res) => {
+  res.render('../views/backend/add-dept-file', { user: req.session.user });
+});
+
+//DEPARTMENTS - Infrstructure
+app.get('/infra', requireAuth, requirePermission('infra-file'), (req, res) => {
+  infrastructureModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/infra-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-infra', requireAuth, requirePermission('add-infra-file'), (req, res) => {
+  res.render('../views/backend/add-infra-file', { user: req.session.user });
+});
+
+//DEPARTMENTS - Events
+app.get('/events', requireAuth, requirePermission('events'), (req, res) => {
+  eventsModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/events', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-events', requireAuth, requirePermission('add-events'), (req, res) => {
+  res.render('../views/backend/add-events', { user: req.session.user });
+});
+
+//RESULT
+app.get('/result', requireAuth, requirePermission('result-file'), (req, res) => {
+  resultModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/result-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-result', requireAuth, requirePermission('add-result-file'), (req, res) => {
+  res.render('../views/backend/add-result-file', { user: req.session.user });
+});
+
+//SYLLABUS
+app.get('/syllabus', requireAuth, requirePermission('syllabus-file'), (req, res) => {
+  syllabusModel.find({})
+    .then((syllabusdata) => {
+      res.render('../views/backend/syllabus-file', { user: req.session.user, syllabusdata: syllabusdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-syllabus', requireAuth, requirePermission('add-syllabus-file'), (req, res) => {
+  res.render('../views/backend/add-syllabus-file', { user: req.session.user });
+});
+
+//STUDENT
+app.get('/student', requireAuth, requirePermission('student-record'), (req, res) => {
+  studRecords.find({})
+    .then((studrec) => {
+      res.render('../views/backend/student-record', { user: req.session.user, studrec: studrec });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-student', requireAuth, requirePermission('add-student-records'), (req, res) => {
+  res.render('../views/backend/add-student-records', { user: req.session.user });
+});
+
+//FACULTY - IT
+app.get('/faculty', requireAuth, requirePermission('faculty-file'), (req, res) => {
+  facultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/faculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-faculty', requireAuth, requirePermission('add-faculty-file'), (req, res) => {
+  res.render('../views/backend/add-faculty-file', { user: req.session.user });
+});
+
+//FACULTY - COMP
+app.get('/compfaculty', requireAuth, requirePermission('compfaculty-file'), (req, res) => {
+  compfacultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/compfaculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-compfaculty', requireAuth, requirePermission('add-compfaculty-file'), (req, res) => {
+  res.render('../views/backend/add-compfaculty-file', { user: req.session.user });
+});
+
+//FACULTY - ETC
+app.get('/etcfaculty', requireAuth, requirePermission('etcfaculty-file'), (req, res) => {
+  etcfacultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/etcfaculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-etcfaculty', requireAuth, requirePermission('add-etcfaculty-file'), (req, res) => {
+  res.render('../views/backend/add-etcfaculty-file', { user: req.session.user });
+});
+
+//FACULTY - ENE
+app.get('/enefaculty', requireAuth, requirePermission('enefaculty-file'), (req, res) => {
+  enefacultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/enefaculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-enefaculty', requireAuth, requirePermission('add-enefaculty-file'), (req, res) => {
+  res.render('../views/backend/add-enefaculty-file', { user: req.session.user });
+});
+
+//FACULTY - MECH
+app.get('/mechfaculty', requireAuth, requirePermission('mechfaculty-file'), (req, res) => {
+  mechfacultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/mechfaculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-mechfaculty', requireAuth, requirePermission('add-mechfaculty-file'), (req, res) => {
+  res.render('../views/backend/add-mechfaculty-file', { user: req.session.user });
+});
+
+//FACULTY - CIVIL
+app.get('/civilfaculty', requireAuth, requirePermission('civilfaculty-file'), (req, res) => {
+  civilfacultyModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/civilfaculty-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-civilfaculty', requireAuth, requirePermission('add-civilfaculty-file'), (req, res) => {
+  res.render('../views/backend/add-civilfaculty-file', { user: req.session.user });
+});
 
 
 
-//   // Example route that requires placement permission
-// app.get('/admin/placement', requireAuth, requirePermission('placement'), (req, res) => {
-//   res.render('placement-file', { user: req.session.user });
-// });
+//PLACEMENT ADMIN PAGES
+app.get('/placement', requireAuth, requirePermission('placement-file'), (req, res) => {
+  plcmtModel.find({})
+    .then((navdata) => {
+      res.render('../views/backend/placement-file', { user: req.session.user, navdata: navdata });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-placement', requireAuth, requirePermission('add-plcmt-file'), (req, res) => {
+  res.render('../views/backend/add-plcmt-file', { user: req.session.user });
+});
+
+//PLACEMENT ADMIN - records
+app.get('/placement-records', requireAuth, requirePermission('plcmt-records'), (req, res) => {
+  plcmtRecords.find({})
+    .then((plcrec) => {
+      res.render('../views/backend/plcmt-records', { user: req.session.user, plcrec: plcrec });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+    });
+});
+
+app.get('/add-placement-records', requireAuth, requirePermission('add-plcmt-records'), (req, res) => {
+  res.render('../views/backend/add-plcmt-records', { user: req.session.user });
+});
+
+
 
 
 

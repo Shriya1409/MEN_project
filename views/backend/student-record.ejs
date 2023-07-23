@@ -47,13 +47,13 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%o.forEach((u)=>{%>
+                     <%studrec.forEach((u)=>{%>
                      <tr>
                          <td>
                           <% if(u.recPhoto){ %>
                               <img src="/backend/studentR/<%= u.recPhoto%>" width="100">
                           <% } else { %>
-                              <img src="/backend/studentR/no_image.jpg" width="100">
+                              <img src="/backend/images/no_image.jpg" width="100">
                           <% } %>
                           </td>
                         <td><%=u.stud_name%> </td>
@@ -71,7 +71,7 @@
                         </form>
                         </td>
                      </tr>
-                     <%o})%>
+                     <%studrec})%>
                     
                   </tbody>
               </table>

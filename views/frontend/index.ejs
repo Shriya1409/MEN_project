@@ -75,9 +75,12 @@
                         <!-- loop for links -->
                         <%notifdata.forEach((e)=>{%>
                         <li style="border-bottom: solid 1px black;padding-bottom:5px; padding-top:5px;">
-                          <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.noticeinfo%>"><%= e.noticename%></a>
+                          <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.noticeinfo%>"><%= e.noticename%></a> -->
+                          <a href="/backend/notifications/<%=e.noticeinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.noticename%></a>
                         </li>
                        <%notifdata}) %>
+
+                       
                         
                       </ul>
                           </div>
@@ -89,7 +92,8 @@
                             <!-- loop for links -->
                             <% notifdata.forEach((e)=>{%>
                               <li style="border-bottom: solid 1px black; padding-bottom:5px; padding-top:5px;">
-                                <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.usefulinfo%>"><%=e.usefulinfoname%></a>
+                                <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.usefulinfo%>"><%=e.usefulinfoname%></a> -->
+                                <a href="/backend/notifications/<%e.usefulinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.usefulinfoname%></a>
                               </li>
 
                            <%notifdata}) %>

@@ -46,7 +46,7 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%x.forEach((y)=>{%>
+                     <%navdata.forEach((y)=>{%>
                      <tr>
                         <td>
                           <% if(y.plcmtPhoto){ %>
@@ -61,7 +61,7 @@
                         <td> <%=y.plcmtMetaDescription%></td>
                         <td> <%=y.plcmtMetaKeyword%></td>
                         <td> <%=y.plcmtHeading%></td>
-                        <td> <%=y.plcmtDetails%></td>
+                        <td> <%=y.plcmtDetails.slice(0,20)%></td>
                         
                         <td>  <a class="btn btn-primary" href="/placement/edit-placement/<%= y.plcmtUrl%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/placement/delete-placement/<%= y.plcmtUrl%>?_method=DELETE" method="POST">
@@ -69,7 +69,7 @@
                         </form>
                         </td>
                      </tr>
-                     <%x})%>
+                     <%navdata})%>
                     
                   </tbody>
                </table>
