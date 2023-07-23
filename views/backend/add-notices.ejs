@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Add Notifications</title>
+   <title>Admin Panel - Add Notices</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -16,13 +16,13 @@
               <div class="dashboard-content-area">
 
                    <!-- put your contente -->
-                <h1 class="mb-2 mt-2">Add Notifications</h1>
+                <h1 class="mb-2 mt-2">Add Notices</h1>
     
-                   <form method="post" action="/add-notifications" enctype="multipart/form-data">
+                   <form method="post" action="/add-notices" enctype="multipart/form-data">
                
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
                        <div class="col col-lg-2"><label class="form-label">Date</label></div>
-                       <div class="col"><input type="date" name ="date" class="form-control" placeholder="date" required></div>
+                       <div class="col"><input type="date" name ="noticedate" class="form-control" placeholder="Notice Date" required></div>
                      </div>
 
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
@@ -32,15 +32,6 @@
                      <div class="mb-3 mt-3 row g-9 align-items-center"> 
                        <div class="col col-lg-2"><label class="form-label">Notice File</label></div>
                        <div class="col"><input type="file" name="noticeinfo" class="form-control" ></div>
-                     </div>
-                     
-                     <div class="mb-3 mt-3 row g-9 align-items-center">  
-                        <div class="col col-lg-2"><label class="form-label">Other File Name</label></div>
-                        <div class="col"><input type="text" name ="usefulinfoname" class="form-control" placeholder="useful file name"></div>
-                      </div>                  
-                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
-                       <div class="col col-lg-2"><label class="form-label">Other File</label></div>
-                       <div class="col"><input type="file" name="usefulinfo" class="form-control" ></div>
                      </div>
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>

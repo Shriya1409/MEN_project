@@ -73,12 +73,12 @@
                         <div class="scroll-bar-1">
                       <ul class="notice-1">
                         <!-- loop for links -->
-                        <%notifdata.forEach((e)=>{%>
+                        <%noticesdata.forEach((e)=>{%>
                         <li style="border-bottom: solid 1px black;padding-bottom:5px; padding-top:5px;">
                           <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.noticeinfo%>"><%= e.noticename%></a> -->
-                          <a href="/backend/notifications/<%=e.noticeinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.noticename%></a>
+                          <a href="/backend/notices/<%=e.noticeinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.noticename%></a>
                         </li>
-                       <%notifdata}) %>
+                       <%noticesdata}) %>
 
                        
                         
@@ -90,13 +90,13 @@
                           <div class="scroll-bar-2">
                             <ul class="events-2">
                             <!-- loop for links -->
-                            <% notifdata.forEach((e)=>{%>
+                            <% noticesdata.forEach((e)=>{%>
                               <li style="border-bottom: solid 1px black; padding-bottom:5px; padding-top:5px;">
                                 <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.usefulinfo%>"><%=e.usefulinfoname%></a> -->
                                 <a href="/backend/notifications/<%e.usefulinfo%>" style="text-decoration: none; color:rgb(69, 202, 196);"><%= e.usefulinfoname%></a>
                               </li>
 
-                           <%notifdata}) %>
+                           <%noticesdata}) %>
                             </ul>
                            </div>
                           </div>

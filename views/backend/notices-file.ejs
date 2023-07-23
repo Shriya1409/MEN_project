@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Notifications</title>
+   <title>Admin Panel - Notices</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -26,7 +26,7 @@
 
                  <!-- put your contente -->
 
-               <h1>All Notifications</h1>
+               <h1>All Notices</h1>
             
                
                
@@ -41,26 +41,26 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%navdata.forEach((y)=>{%>
+                     <%x.forEach((y)=>{%>
                      <tr>
                       
-                        <td><%= y.date%></td>
+                        <td><%= y.noticedate%></td>
                         <td><%=y.noticename%></td>
                         <td><a href="<%=y.noticeinfo%>">View PDF</a></td> 
                         
-                        <td>  <a class="btn btn-primary" href="/notifications/edit-notifications/<%= y.date%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/notifications/delete-notifications/<%= y.date%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/notices/edit-notices/<%= y.noticename%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/notices/delete-notices/<%= y.noticename%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>
                      </tr>
-                     <%navdata})%>
+                     <%x})%>
                     
                   </tbody>
                </table>
                      
                
-               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <!-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                    <tr>
                       <th>Date</th>
@@ -84,7 +84,7 @@
                          </form>
                       </td>
                    </tr>
-                   <%navdata})%>
+                   <%navdata})%> -->
                   
                 </tbody>
              </table>

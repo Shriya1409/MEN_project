@@ -1,11 +1,11 @@
 let express = require('express');
 let multer = require('multer')
-let notificationModel = require('../../model/notificationModel')
+let noticesModel = require('../../model/noticesModel')
 let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/notifications/',
+    destination:'public/backend/notices/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -26,9 +26,9 @@ let upload = multer({
 })
 
 router.get('/', (req,res) => {
-    notificationModel.find({})
+    noticesModel.find({})
     .then((x) => {
-        res.render('../views/backend/notif-file', {x})
+        res.render('../views/backend/notices-file', {x})
         // console.log(x)
     })
     .catch((y) => {
@@ -38,31 +38,26 @@ router.get('/', (req,res) => {
 
 
 
-router.get('/edit-notifications/:id', (req,res) => {
-    notificationModel.findOne({ date: req.params.id })
+router.get('/edit-notices/:id', (req,res) => {
+    noticesModel.findOne({ noticename: req.params.id })
     .then((x) => {
-        res.render('../views/backend/edit-notif', {x})
+        res.render('../views/backend/edit-notices', {x})
     })
     .catch((y) => {
         console.log(y)
     })
 })
 
-router.put('/edit-notifications/:id', upload.fields([
-    { name: 'noticeinfo', maxCount: 1 },
-    { name: 'usefulinfo', maxCount: 1 }
-  ]), (req,res) => {
-    if(req.files){
-        notificationModel.update({ date: req.params.id }, {$set:{
-            date: req.body.date,
+router.put('/edit-notices/:id', upload.single('noticeinfo'), (req,res) => {
+    if(req.file){
+        noticesModel.update({ noticename: req.params.id }, {$set:{
+            noticedate: req.body.noticedate,
             noticename:req.body.noticename,
             noticeinfo:req.file.filename,
-            usefulinfoname: req.body.usefulinfoname,
-            usefulinfo: req.file.filename,
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
-        res.redirect('/notifications')
+        res.redirect('/notices')
        })
 
     }
@@ -70,11 +65,11 @@ router.put('/edit-notifications/:id', upload.fields([
     }
 )
 
-router.delete('/delete-notifications/:id',(req,res) => {
-    notificationModel.deleteOne({date:req.params.id})
+router.delete('/delete-notices/:id',(req,res) => {
+    noticesModel.deleteOne({noticename:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
-        res.redirect('/notifications')
+        res.redirect('/notices')
     })
 })
 
