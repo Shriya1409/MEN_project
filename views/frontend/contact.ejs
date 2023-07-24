@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <%- include('common/head.ejs')-%>
+        <title>Contact Form-GCE</title>
+      
+      
+        <link rel="stylesheet" href="/backend/css/contactstyle.css"> 
+        <!-- <script src="../backend/js/carousel-script.js" defer></script>  -->
+      
+    </head>
+<body>
+    <%- include('common/header.ejs')-%>
+    
+    <form method="post" action="/add-contact">
+        <div style="text-align: center; font-weight: bold;">CONTACT FORM</div>
+        <label for="cname">Name:</label>
+        <input type="text" id="cname" name="cname" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="cemail" name="cemail" ><br><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="csubject" name="csubject" ><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="cmessage" rows="4" cols="50" ></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <%- include('common/footer.ejs')-%>
+</body>
+</html>

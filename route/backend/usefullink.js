@@ -52,7 +52,7 @@ router.put('/edit-usefullink/:id', upload.single('usefulinfo'), (req,res) => {
     if(req.file){
         usefullinkModel.update({ usefulinfoname: req.params.id }, {$set:{
             usefulinfoname:req.body.usefulinfoname,
-            usefulinfo:req.file.filename,
+            usefulinfo:req.file.filename
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')

@@ -1,4 +1,5 @@
 let express =  require('express')
+let multer=require('multer')
 let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
@@ -6,6 +7,8 @@ let CompdeptModel = require('../../model/compdeptModel')
 let plcmtModel=require('../../model/plcmtModel')
 
 let plcmtRecords=require('../../model/plcmtRecords')
+
+let contactModel = require('../../model/contactModel');
 let studRecords=require('../../model/studRecords')
 
 let facultyModel=require('../../model/facultyModel')
@@ -447,6 +450,9 @@ router.get('/', (req,res) => {
         else if(extractValue === 'register.ejs') {
             res.render('../views/frontend/register.ejs',{x})
         }
+        else if(extractValue==='contact.ejs'){
+            res.render('../views/frontend/contact.ejs', {x})
+        }
         else {
           res.render('../views/frontend/dynamic-page',{x})
         }
@@ -461,7 +467,7 @@ router.get('/', (req,res) => {
 
  })
 
-
+ 
  router.get('/placement/:plcmt', (req,res) => {
     plcmtModel.findOne({plcmtUrl: req.params.plcmt})
     .then((x) => {
@@ -481,7 +487,131 @@ router.get('/', (req,res) => {
     })
     
  })
-
+//faculty models
+ router.get('/department/faculty/:civilfaculty', (req,res) => {
+    civilfacultyModel.findOne({civilfacultyName: req.params.civilfaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-civilfaculty',{i})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ router.get('/department/faculty/:mechfaculty', (req,res) => {
+    mechfacultyModel.findOne({mechfacultyName: req.params.mechfaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-mechfaculty',{i})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ router.get('/department/faculty/:enefaculty', (req,res) => {
+    enefacultyModel.findOne({enefacultyName: req.params.enefaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-enefaculty',{i})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ router.get('/department/faculty/:etcfaculty', (req,res) => {
+    etcfacultyModel.findOne({etcfacultyName: req.params.etcfaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-etcfaculty',{i})
+        } 
+        
+   
+        else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ router.get('/department/faculty/:compfaculty', (req,res) => {
+    compfacultyModel.findOne({compfacultyName: req.params.compfaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-compfaculty',{i})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ router.get('/department/faculty/:itfaculty', (req,res) => {
+    facultyModel.findOne({facultyName: req.params.itfaculty})
+    .then((i) => {
+       if(i){
+          res.render('../views/frontend/dynamic-itfaculty',{i})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+    
+ })
+ 
+ //faculty model ends
+ router.get('/placement/:plcmt', (req,res) => {
+    plcmtModel.findOne({plcmtUrl: req.params.plcmt})
+    .then((x) => {
+       if(x){
+      
+       
+          res.render('../views/frontend/dynamic-plcmt',{x})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+    
+ })
 
 //  router.get('/placementrecords', (req,res) => {
 //     plcmtRecords.find({})
@@ -657,8 +787,56 @@ router.get('/syllabus/scheme', (req,res) => {
 //     })
 
 //  })
+contactModel.find({})
+    .then((x)=> {
+        router.locals.contactdata = x;
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+
+router.use((req, res, next) => {
+    contactModel.find({})
+        .then((x) => {
+            res.locals.contactdata = x; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((y) => {
+            console.log(y)
+        })
+    next()
+})
+
+// router.get('/add-contact', (req,res) => {
+//     res.render('../views/frontend/contact')
+// })
+
+// router.post('/',  (req,res) => {
+// contactModel.findOne({cemail: req.body.cemail})
+// .then((y) => {
+//     if(y) {
+//         req.flash('err', 'Urll already exists, Please try with another url!!')
+//         res.redirect('/contact/')
+//         // console.log('Url already exists, Please try with another url!!')
+//     } else {
+//             contactModel.create({
+//                 cname:req.body.cname,
+//                 cemail:req.body.cemail,
+//                 csubject:req.body.csubject,
+//                 cmessage:req.body.cmessage,
+//             })
+//             .then((z) => {
+//                 req.flash('success', 'Your data has been added successfully')
+//                  res.redirect('/contact/')
+//             })
+    
+        
+
+//     }
+// })
 
 
 
+// })
 
 module.exports = router
