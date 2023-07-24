@@ -488,109 +488,41 @@ router.get('/', (req,res) => {
     
  })
 //faculty models
- router.get('/department/faculty/:civilfaculty', (req,res) => {
-    civilfacultyModel.findOne({civilfacultyName: req.params.civilfaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-civilfaculty',{i})
-        } 
+
+//  router.get('/department/faculty/:compfaculty', (req,res) => {
+//     compfacultyModel.findOne({compfacultyName: req.params.compfaculty})
+//     .then((i) => {
+//        if(i){
+//           res.render('../views/frontend/dynamic-compfaculty',{i})
+//         } 
         
-       else {
-        res.redirect('/')
-       }
+//        else {
+//         res.redirect('/')
+//        }
     
-    })
-    .catch((j) => {
-        console.log(j)
-    })
+//     })
+//     .catch((j) => {
+//         console.log(j)
+//     })
     
- })
- router.get('/department/faculty/:mechfaculty', (req,res) => {
-    mechfacultyModel.findOne({mechfacultyName: req.params.mechfaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-mechfaculty',{i})
-        } 
+//  })
+//  router.get('/department/faculty/:itfaculty', (req,res) => {
+//     facultyModel.findOne({facultyName: req.params.itfaculty})
+//     .then((i) => {
+//        if(i){
+//           res.render('../views/frontend/dynamic-itfaculty',{i})
+//         } 
         
-       else {
-        res.redirect('/')
-       }
+//        else {
+//         res.redirect('/')
+//        }
     
-    })
-    .catch((j) => {
-        console.log(j)
-    })
+//     })
+//     .catch((j) => {
+//         console.log(j)
+//     })
     
- })
- router.get('/department/faculty/:enefaculty', (req,res) => {
-    enefacultyModel.findOne({enefacultyName: req.params.enefaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-enefaculty',{i})
-        } 
-        
-       else {
-        res.redirect('/')
-       }
-    
-    })
-    .catch((j) => {
-        console.log(j)
-    })
-    
- })
- router.get('/department/faculty/:etcfaculty', (req,res) => {
-    etcfacultyModel.findOne({etcfacultyName: req.params.etcfaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-etcfaculty',{i})
-        } 
-        
-   
-        else {
-        res.redirect('/')
-       }
-    
-    })
-    .catch((j) => {
-        console.log(j)
-    })
-    
- })
- router.get('/department/faculty/:compfaculty', (req,res) => {
-    compfacultyModel.findOne({compfacultyName: req.params.compfaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-compfaculty',{i})
-        } 
-        
-       else {
-        res.redirect('/')
-       }
-    
-    })
-    .catch((j) => {
-        console.log(j)
-    })
-    
- })
- router.get('/department/faculty/:itfaculty', (req,res) => {
-    facultyModel.findOne({facultyName: req.params.itfaculty})
-    .then((i) => {
-       if(i){
-          res.render('../views/frontend/dynamic-itfaculty',{i})
-        } 
-        
-       else {
-        res.redirect('/')
-       }
-    
-    })
-    .catch((j) => {
-        console.log(j)
-    })
-    
- })
+//  })
  
  //faculty model ends
  router.get('/placement/:plcmt', (req,res) => {
@@ -629,17 +561,30 @@ router.get('/', (req,res) => {
     .then((p) => {
        if(p){
 
-        //  const extractValue = p.deptUrl;
-        //  if(extractValue) {
-        // if(extractValue === 'result.ejs') {
-        //   res.render('../views/frontend/dynamic-page',{p})
-        // } else if(extractValue === 'register') {
-        //     res.render('../views/frontend/register',{p})
-        // } else {
-        //   res.render('../views/frontend/register',{p})
-        // }
+         const extractValue = p.deptUrl;
+         if(extractValue) {
+        if(extractValue === 'ITFaculty.ejs') {
+          res.render('../views/frontend/dynamic-itfaculty',{p})
+        } 
+        else if(extractValue === 'CompFaculty.ejs') {
+            res.render('../views/frontend/dynamic-compfaculty',{p})
+        } 
+        else if(extractValue === 'ETCFaculty.ejs') {
+            res.render('../views/frontend/dynamic-etcfaculty',{p})
+        } 
+        else if(extractValue === 'ENEFaculty.ejs') {
+            res.render('../views/frontend/dynamic-enefaculty',{p})
+        } 
+        else if(extractValue === 'CivilFaculty.ejs') {
+            res.render('../views/frontend/dynamic-civilfaculty',{p})
+        } 
+        else if(extractValue === 'MechFaculty.ejs') {
+            res.render('../views/frontend/dynamic-mechfaculty',{p})
+        } 
+        else{
         res.render('../views/frontend/dynamic-dept',{p}) 
-       }
+        }
+       }}
        else {
         res.redirect('/')
        }
