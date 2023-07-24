@@ -34,12 +34,13 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Photo</th>
                         <th>Dept URL</th>
                         <th>Navigation</th>
                         <th>Title</th>
-                        <th>Dept Heading</th>
-                        <th>Dept Details</th>
+                        <th>Event Name</th>
+                        <th>Event Date</th>
+                        <th>Event Resource Person</th>
+                        <th>Event Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
                      </tr>
@@ -47,21 +48,16 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <td>
-                          <% if(y.compdeptPhoto){ %>
-                              <img src="/backend/departments/<%= y.compdeptPhoto%>" width="100">
-                          <% } else { %>
-                              <img src="/backend/images/no_image.jpg" width="100">
-                          <% } %>
-                          </td>
-                        <td><%= y.compdeptUrl%></td>
-                        <td><%=y.compdeptNavText%></td>
-                        <td><%=y.compdeptTitle%></td>
-                        <td> <%=y.compdeptHeading%></td>
-                        <td> <%=y.compdeptDetails.slice(0, 10)%></td>
+                        <td><%= y.eventcompdepturl%></td>
+                        <td><%=y.eventcompdeptnavtext%></td>
+                        <td><%=y.eventcompdepttitle%></td>
+                        <td><%= y.eventcompname%></td>
+                        <td><%=y.eventcompdate%></td>
+                        <td><%=y.eventcompperson%></td>
+                        <td><%= y.eventcompdesc%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.compdeptUrl%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.compdeptUrl%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.eventcompdepturl%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.eventcompdepturl%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>

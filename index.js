@@ -85,6 +85,7 @@ const requireAuth = (req, res, next) => {
   } else {
     console.log('User not logged in. Redirecting to login page.');
     req.session.destroy();
+    req.flash('err', 'User is not authenticated!! Try again...');
     res.redirect('/login'); // User is not authenticated, redirect to the login page
   }
 };
@@ -115,6 +116,7 @@ const requirePermission = (permission) => (req, res, next) => {
     next(); // User has the required permission, proceed to the next middleware or route handler
   } else {
     console.log('User doesnt have permission. Redirecting to login page.');
+    req.flash('err', 'User doesnt have permission.!! Try again...');
     res.redirect('/admin'); // User does not have the required permission, redirect to the dashboard
   }
 };
@@ -643,6 +645,7 @@ app.post('/login', (req, res) => {
     })
     .catch((error) => {
       console.log(error);
+      req.flash('err', 'Invalid Details. Please try again!!');
       res.redirect('/login');
     });
 });
@@ -668,10 +671,12 @@ app.post('/register', (req, res) => {
     .then(() => {
       req.session.user = newUser; // Store the registered user in the session
       console.log('User registered:', req.session.user);
+      req.flash('success', 'User registered successfully! You can now log in.');
       res.redirect('/login');
     })
     .catch((error) => {
       console.log(error);
+      req.flash('err', 'Failed to register user. Please try again.');
       res.redirect('/register');
     });
 });

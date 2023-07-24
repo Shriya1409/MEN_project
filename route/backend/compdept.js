@@ -5,7 +5,7 @@ let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/departments/',
+    destination:'public/backend/compdepartmentevents/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-compdepartment/:id', (req,res) => {
-    CompdeptModel.findOne({ compdeptUrl: req.params.id })
+    CompdeptModel.findOne({ eventcompdepturl: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-compdept-file', {x})
     })
@@ -50,13 +50,16 @@ router.get('/edit-compdepartment/:id', (req,res) => {
 
 router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res) => {
     if(req.file){
-        CompdeptModel.updateOne({ compdeptUrl: req.params.id }, {$set:{
-            compdeptUrl: req.body.compdept_Url,
-            compdeptNavText: req.body.compdept_Nav_Text,
-            compdeptTitle: req.body.compdept_Title,
-            compdeptHeading: req.body.compdept_Heading,
-            compdeptPhoto: req.file.filename,
-            compdeptDetails: req.body.compdept_Details
+        CompdeptModel.updateOne({ eventcompdepturl: req.params.id }, {$set:{
+            eventcompdepturl: req.body.eventcompdepturl,
+            eventcompdeptnavtext: req.body.eventcompdeptnavtext,
+            eventcompdepttitle: req.body.eventcompdepttitle,
+            eventcompnav:req.body.eventcompnav,
+            eventcompname:req.body.eventcompname,
+            eventcompdate:req.body.eventcompdate,
+            eventcompperson: req.body.eventcompperson,
+            eventcompdesc:req.body.eventcompdesc,
+            eventcompphoto:req.file.filename,
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -65,13 +68,15 @@ router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res
 
     }else {
 
-        CompdeptModel.updateOne({ compdeptUrl: req.params.id }, {$set:{
-            compdeptUrl: req.body.compdept_Url,
-            compdeptNavText: req.body.compdept_Nav_Text,
-            compdeptTitle: req.body.compdept_Title,
-            compdeptHeading: req.body.compdept_Heading,
-            // compdeptPhoto: req.file.filename,
-            compdeptDetails: req.body.compdept_Details
+        CompdeptModel.updateOne({ eventcompdepturl: req.params.id }, {$set:{
+            eventcompdepturl: req.body.eventcompdepturl,
+            eventcompdeptnavtext: req.body.eventcompdeptnavtext,
+            eventcompdepttitle: req.body.eventcompdepttitle,
+            eventcompnav:req.body.eventcompnav,
+            eventcompname:req.body.eventcompname,
+            eventcompdate:req.body.eventcompdate,
+            eventcompperson: req.body.eventcompperson,
+            eventcompdesc:req.body.eventcompdesc,
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -82,7 +87,7 @@ router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res
 })
 
 router.delete('/delete-compdepartment/:id',(req,res) => {
-    CompdeptModel.deleteOne({compdeptUrl:req.params.id})
+    CompdeptModel.deleteOne({eventcompdepturl:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/compdepartment')

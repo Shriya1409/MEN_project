@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Edit Page</title>
+   <title>Admin Panel - Edit Event</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -19,39 +19,50 @@
 
 
                  <!-- put your contente -->
-                 <h1 class="mb-2 mt-2">Edit Page</h1>
+                 <h1 class="mb-2 mt-2">Edit Event</h1>
     
-                 <form method="post" action="/itdepartment/edit-itdepartment/<%=x.itdeptUrl%>?_method=put" enctype="multipart/form-data">
+                 <form method="post" action="/itdepartment/edit-itdepartment/<%=x.eventitdepturl%>?_method=put" enctype="multipart/form-data">
              
-                   <div class="mb-3 mt-3 row g-9 align-items-center">  
-                     <div class="col col-lg-2"><label class="form-label">Page URL</label></div>
-                     <div class="col"><input type="text" name ="itdept_Url" class="form-control" value="<%=x.itdeptUrl%>" placeholder="Your Page Url" required></div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                    <div class="col"><input type="text" name ="eventitdepturl" class="form-control" value="<%= x.eventitdepturl %>" placeholder="Department Url" required></div>
+                  </div>
+
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                     <div class="col"><input type="text" name ="eventitdeptnavtext" class="form-control" value="<%=x.eventitdeptnavtext %>" placeholder="Navigation Display Text" required></div>
                    </div>
 
                    <div class="mb-3 mt-3 row g-9 align-items-center">  
-                      <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
-                      <div class="col"><input type="text" name ="itdept_Nav_Text" class="form-control" value="<%=x.itdeptNavText%>" placeholder="Navigation Display Text" required></div>
-                    </div>
+                     <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                     <div class="col"><input type="text" name ="eventitdepttitle" class="form-control" value="<%=x.eventitdepttitle %>" placeholder="Department Title" required></div>
+                   </div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">
+                     <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
+                     <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="eventitnav" placeholder="Event Nav"><%=x.eventitnav %></textarea></div>
+                   </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                   <div class="col col-lg-2"><label class="form-label">Event Photo</label></div>
+                   <div class="col"><input type="file" name="eventitphoto" class="form-control" value="<%=x.eventitphoto %>" placeholder="select image!" ></div>
+                 </div>
+                 <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Name</label></div>
+                     <div class="col"><input type="text" name ="eventitname" class="form-control" value="<%=x.eventitname %>" placeholder="Event Title" ></div>
+                   </div>
 
-                    <div class="mb-3 mt-3 row g-9 align-items-center">  
-                      <div class="col col-lg-2"><label class="form-label">Department Title</label></div>
-                      <div class="col"><input type="text" name ="itdept_Title" class="form-control" value="<%=x.itdeptTitle%>" placeholder="Your Page Title" required></div>
-                    </div>
-                   
-                   <div class="mb-3 mt-3 row g-9 align-items-center">
-                     <div class="col col-lg-2"><label class="form-label">h1</label></div>
-                     <div class="col"><input type="text" name ="itdept_Heading" class="form-control" value="<%=x.itdeptHeading%>" placeholder="Heading" ></div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Date</label></div>
+                     <div class="col"><input type="date" name ="eventitdate" class="form-control" value="<%=x.eventitdate %>" placeholder="Event Date" ></div>
                    </div>
-                   
-                   <div class="mb-3 mt-3 row g-9 align-items-center"> 
-                     <div class="col col-lg-2"><label class="form-label">Photo</label></div>
-                     <div class="col"><input type="file" name="itdept_Photo" class="form-control" ></div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Resource Person</label></div>
+                     <div class="col"><input type="text" name ="eventitperson" class="form-control" value="<%=x.eventitperson %>" placeholder="Event Resourse Person" ></div>
                    </div>
-                   
-                   <div class="mb-3 mt-3 row g-9 align-items-center">
-                     <div class="col col-lg-2"><label class="form-label">Department Details</label></div>
-                     <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="itdept_Details" placeholder="Page Details"><%=x.itdeptDetails%></textarea></div>
-                   </div>
+                 <div class="mb-3 mt-3 row g-9 align-items-center">
+                   <div class="col col-lg-2"><label class="form-label">Event Description</label></div>
+                   <div class="col"><textarea rows="4" class="form-control"  name="eventitdesc"value="<%=x.eventitdesc %>" placeholder="Event Details"></textarea></div>
+                 </div>
+                
              
                    <div class="mb-5 mt-3 align-items-center text-center"> 
                         <button type="submit" class="btn btn-primary">Submit</button>

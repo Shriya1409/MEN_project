@@ -1,29 +1,36 @@
 let mongoose = require("mongoose")
 
 let itdeptModelSchema = mongoose.Schema({
-    itdeptUrl :{
+    eventitdepturl :{
         type:String,
-        required:true
+       required:true,
     },
-    itdeptNavText : {
+    eventitdeptnavtext: {
         type:String,
-        required:true
+        required:true,
     },
-    itdeptTitle :{
+    eventitdepttitle :{
         type:String,
-        required:true
+        required:true,
     },
-    itdeptHeading : {
+    eventitnav:{
         type:String,
-        required:false
     },
-    itdeptPhoto : {
+    eventitname:{
+        type:String,
+    }, 
+    eventitdate:{
+        type:Date,
+    },
+    eventitperson:{
+        type: String,
+    },
+    eventitdesc:{
+        type:String,
+    },
+    eventitphoto : {
         type:String,
         
-    },
-    itdeptDetails : {
-        type:String,
-        required: false
     },
 })
 
