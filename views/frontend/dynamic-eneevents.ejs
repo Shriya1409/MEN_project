@@ -19,24 +19,25 @@
       <div class="container" style="width:1100px;">
         <%-p.eventnav%>
   <!-- navbar -->
-        <div class="event-page" style="color:green;">
+  <h2>ENE EVENTS</h2>
+        <div class="event-page" style="background-color:#fff; border:2px solid black;">
 
-  <%eventdata.forEach((p)=>{%>
+ 
    
-        <div class="event-card" style="display:flex; color: white;">
+        <div class="event-card" style="display:flex; color: white; margin-top:5px; margin-bottom:5px;">
                 <div class="event-img" style="float:left; position: relative; left: 10px;">
-                    <img style="size:100px; height: 200px; width:300px;" src="/backend/events/<%=p.eventphoto%>">
+                    <img style="size:100px; height: 200px; width:300px; padding:10px;" src="/backend/events/<%=p.eventphoto%>">
                 </div>
-                <div class="event-details" style="float:right; position: relative; right: 80px; color:black;">  
-                    <label>Event Name: <%=p.eventname %> </label>  
-                    <label> Event Date <%=p.eventdate %></label>
-                    <label>Event ResourcePerson <%=p.eventperson %></label>
-                    <label> Event Desc:  <%=p.eventdesc %> </label>   
+                <div class="event-details" style="float:right; position: relative; margin-top:auto; margin-bottom:auto;left: 100px; color: black;">  
+                    <div style="padding:5px;">Event Name: <%=p.eventname %> </div>  
+                    <div style="padding:5px;"> Event Date: <%=p.eventdate %></div>
+                    <div style="padding:5px;"> Resource Person: <%=p.eventperson %></div>
+                    <div style="padding:5px;"> About:  <%=p.eventdesc %> </div>   
                 </div>
 
         </div>
 
-        <%eventdata})%>
+     
     </div>
 
  

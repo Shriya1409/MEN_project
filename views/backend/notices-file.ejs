@@ -46,7 +46,7 @@
                       
                         <td><%= y.noticedate%></td>
                         <td><%=y.noticename%></td>
-                        <td><a href="<%=y.noticeinfo%>">View PDF</a></td> 
+                        <td><a href="/backend/notices/<%=y.noticeinfo%>">View PDF</a></td> 
                         
                         <td>  <a class="btn btn-primary" href="/notices/edit-notices/<%= y.noticename%>">Edit</a>    </td>                  
                         <td>  <form style="display: inline;" action="/notices/delete-notices/<%= y.noticename%>?_method=DELETE" method="POST">

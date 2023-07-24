@@ -1,13 +1,13 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Useful Links</title>
+   <title>Admin Panel - Contact</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
 
       <div class="container-fluid bg-side-nav">
          <div class="row">
-            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+            <div class="col-lg-2 sidebaare" style="height:1700px; background-color: black;">
 
                 <%- include('common/sidebar.ejs')-%>
 
@@ -26,27 +26,29 @@
 
                  <!-- put your contente -->
 
-               <h1>All Useful Links</h1>
+               <h1>All Contact Messages</h1>
             
                
                
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Useful Info Name</th>
-                        <th>Useful Info File</th>
-                        <th>Edit</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
                         <th>Delete</th>
                      </tr>
                   </thead>
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <td><%=y.usefulinfoname%></td>
-                        <td><a href="/backend/usefullink/<%=y.usefulinfo%>">View PDF</a></td> 
-                        
-                        <td>  <a class="btn btn-primary" href="/usefullink/edit-usefullink/<%= y.usefulinfoname%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/usefullink/delete-usefullink/<%= y.usefulinfo%>?_method=DELETE" method="POST">
+                      
+                        <td><%= y.cname%></td>
+                        <td><%=y.cemail%></td>
+                        <td><%=y.csubject%></td>
+                        <td> <%=y.cmessage%></td>                 
+                        <td>  <form style="display: inline;" action="/show-contact/delete-contact/<%= y.cname%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>
@@ -55,9 +57,7 @@
                     
                   </tbody>
                </table>
-                 <center> <br> <a class="btn btn-success btn-md" href="/add-usefullink/">Add More Useful Links</a> </center>
-       
-
+                 
               <!-- end your content here -->
 
 

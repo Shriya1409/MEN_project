@@ -30,7 +30,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('usefulinfo'), (req,res) => {
-    usefullinkModel.findOne({usefulinfoname: req.body.id})
+    usefullinkModel.findOne({usefulinfoname: req.body.usefulinfoname})
     .then((a) => {
         // const noticeinfo=req.files.map(file=>file.noticeinfo);
         // const usefulinfo=req.files.map(file=>file.usefulinfo);
@@ -46,7 +46,7 @@ router.post('/', upload.single('usefulinfo'), (req,res) => {
                 usefullinkModel.create({
                    
                     usefulinfoname:req.body.usefulinfoname,
-                    usefulinfo:req.body.filename,
+                    usefulinfo:req.file.filename,
                    
                 })
                 .then((x) => {

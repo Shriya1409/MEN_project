@@ -30,7 +30,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('noticeinfo'), (req,res) => {
-    noticesModel.findOne({noticename: req.body.id})
+    noticesModel.findOne({noticename: req.body.noticename})
     .then((a) => {
         // const noticeinfo=req.files.map(file=>file.noticeinfo);
         // const usefulinfo=req.files.map(file=>file.usefulinfo);
@@ -46,7 +46,7 @@ router.post('/', upload.single('noticeinfo'), (req,res) => {
                 noticesModel.create({
                     noticedate: req.body.noticedate,
                     noticename:req.body.noticename,
-                    noticeinfo:req.body.filename,
+                    noticeinfo:req.file.filename,
                    
                 })
                 .then((x) => {

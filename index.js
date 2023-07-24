@@ -491,6 +491,8 @@ let addinfraroute=require('./route/backend/add-infra')
 let infraroute=require('./route/backend/infra')
 let addeventsroute=require('./route/backend/add-events')
 let eventsroute=require('./route/backend/events')
+let addcontactroute=require('./route/backend/add-contact')
+let showcontactroute=require('./route/backend/show-contact')
 
 app.use('/admin', adminroute)
 app.use('/page', pageroute)
@@ -505,6 +507,7 @@ app.use('/add-compdepartment', addcompdeptroute)
 
 app.use('/result', resultroute)
 app.use('/add-result', addresultroute)
+
 
 app.use('/syllabus', syllabusroute)
 app.use('/add-syllabus', addsyllabusroute)
@@ -544,6 +547,9 @@ app.use('/add-infra', addinfraroute)
 app.use('/infra', infraroute)
 app.use('/add-events', addeventsroute)
 app.use('/events', eventsroute)
+
+app.use('/add-contact', addcontactroute)
+app.use('/show-contact', showcontactroute)
 
 let formroute = require('./route/backend/editor-form')
 app.use('/', formroute)

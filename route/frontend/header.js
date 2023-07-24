@@ -1,4 +1,5 @@
 let express =  require('express')
+let multer=require('multer')
 let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
@@ -6,6 +7,8 @@ let CompdeptModel = require('../../model/compdeptModel')
 let plcmtModel=require('../../model/plcmtModel')
 
 let plcmtRecords=require('../../model/plcmtRecords')
+
+let contactModel = require('../../model/contactModel');
 let studRecords=require('../../model/studRecords')
 
 let facultyModel=require('../../model/facultyModel')
@@ -447,6 +450,9 @@ router.get('/', (req,res) => {
         else if(extractValue === 'register.ejs') {
             res.render('../views/frontend/register.ejs',{x})
         }
+        else if(extractValue==='contact.ejs'){
+            res.render('../views/frontend/contact.ejs', {x})
+        }
         else {
           res.render('../views/frontend/dynamic-page',{x})
         }
@@ -461,7 +467,64 @@ router.get('/', (req,res) => {
 
  })
 
+ 
+ router.get('/placement/:plcmt', (req,res) => {
+    plcmtModel.findOne({plcmtUrl: req.params.plcmt})
+    .then((x) => {
+       if(x){
+      
+       
+          res.render('../views/frontend/dynamic-plcmt',{x})
+        } 
+        
+       else {
+        res.redirect('/')
+       }
+    
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+    
+ })
+//faculty models
 
+//  router.get('/department/faculty/:compfaculty', (req,res) => {
+//     compfacultyModel.findOne({compfacultyName: req.params.compfaculty})
+//     .then((i) => {
+//        if(i){
+//           res.render('../views/frontend/dynamic-compfaculty',{i})
+//         } 
+        
+//        else {
+//         res.redirect('/')
+//        }
+    
+//     })
+//     .catch((j) => {
+//         console.log(j)
+//     })
+    
+//  })
+//  router.get('/department/faculty/:itfaculty', (req,res) => {
+//     facultyModel.findOne({facultyName: req.params.itfaculty})
+//     .then((i) => {
+//        if(i){
+//           res.render('../views/frontend/dynamic-itfaculty',{i})
+//         } 
+        
+//        else {
+//         res.redirect('/')
+//        }
+    
+//     })
+//     .catch((j) => {
+//         console.log(j)
+//     })
+    
+//  })
+ 
+ //faculty model ends
  router.get('/placement/:plcmt', (req,res) => {
     plcmtModel.findOne({plcmtUrl: req.params.plcmt})
     .then((x) => {
@@ -482,7 +545,6 @@ router.get('/', (req,res) => {
     
  })
 
-
 //  router.get('/placementrecords', (req,res) => {
 //     plcmtRecords.find({})
 //     .then((x) => {
@@ -499,17 +561,48 @@ router.get('/', (req,res) => {
     .then((p) => {
        if(p){
 
-        //  const extractValue = p.deptUrl;
-        //  if(extractValue) {
-        // if(extractValue === 'result.ejs') {
-        //   res.render('../views/frontend/dynamic-page',{p})
-        // } else if(extractValue === 'register') {
-        //     res.render('../views/frontend/register',{p})
-        // } else {
-        //   res.render('../views/frontend/register',{p})
-        // }
+         const extractValue = p.deptUrl;
+         if(extractValue) {
+        if(extractValue === 'ITFaculty.ejs') {
+          res.render('../views/frontend/dynamic-itfaculty',{p})
+        } 
+        else if(extractValue === 'CompFaculty.ejs') {
+            res.render('../views/frontend/dynamic-compfaculty',{p})
+        } 
+        else if(extractValue === 'ETCFaculty.ejs') {
+            res.render('../views/frontend/dynamic-etcfaculty',{p})
+        } 
+        else if(extractValue === 'ENEFaculty.ejs') {
+            res.render('../views/frontend/dynamic-enefaculty',{p})
+        } 
+        else if(extractValue === 'CivilFaculty.ejs') {
+            res.render('../views/frontend/dynamic-civilfaculty',{p})
+        } 
+        else if(extractValue === 'MechFaculty.ejs') {
+            res.render('../views/frontend/dynamic-mechfaculty',{p})
+        } //events-section
+        if(extractValue === 'ITEvents.ejs') {
+            res.render('../views/frontend/dynamic-itevents',{p})
+          } 
+          else if(extractValue === 'CompEvents.ejs') {
+              res.render('../views/frontend/dynamic-compevents',{p})
+          } 
+          else if(extractValue === 'ETCEvents.ejs') {
+              res.render('../views/frontend/dynamic-etcevents',{p})
+          } 
+          else if(extractValue === 'ENEEvents.ejs') {
+              res.render('../views/frontend/dynamic-eneevents',{p})
+          } 
+          else if(extractValue === 'CivilEvents.ejs') {
+              res.render('../views/frontend/dynamic-civilevents',{p})
+          } 
+          else if(extractValue === 'MechEvents.ejs') {
+              res.render('../views/frontend/dynamic-mechevents',{p})
+          } 
+        else{
         res.render('../views/frontend/dynamic-dept',{p}) 
-       }
+        }
+       }}
        else {
         res.redirect('/')
        }
@@ -673,8 +766,56 @@ router.get('/syllabus/scheme', (req,res) => {
 //     })
 
 //  })
+contactModel.find({})
+    .then((x)=> {
+        router.locals.contactdata = x;
+    })
+    .catch((y) => {
+        console.log(y)
+    })
+
+router.use((req, res, next) => {
+    contactModel.find({})
+        .then((x) => {
+            res.locals.contactdata = x; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((y) => {
+            console.log(y)
+        })
+    next()
+})
+
+// router.get('/add-contact', (req,res) => {
+//     res.render('../views/frontend/contact')
+// })
+
+// router.post('/',  (req,res) => {
+// contactModel.findOne({cemail: req.body.cemail})
+// .then((y) => {
+//     if(y) {
+//         req.flash('err', 'Urll already exists, Please try with another url!!')
+//         res.redirect('/contact/')
+//         // console.log('Url already exists, Please try with another url!!')
+//     } else {
+//             contactModel.create({
+//                 cname:req.body.cname,
+//                 cemail:req.body.cemail,
+//                 csubject:req.body.csubject,
+//                 cmessage:req.body.cmessage,
+//             })
+//             .then((z) => {
+//                 req.flash('success', 'Your data has been added successfully')
+//                  res.redirect('/contact/')
+//             })
+    
+        
+
+//     }
+// })
 
 
 
+// })
 
 module.exports = router

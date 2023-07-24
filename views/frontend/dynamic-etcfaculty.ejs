@@ -156,36 +156,44 @@
   
   
       </div>
-
-      
+    
 <!-- faculty Cards -->
-
 <div class="container" style="padding-top: 50px; margin-bottom: 200px; width:1100px;">
+
+<div id="etcnavbar" style="background:#0047ab; border:1px solid #cccccc; display:flex; margin-top:40px; padding-top:20px; text-align:center" title="ETCnavbar">
+  <p style="text-align:center"><a href="etcDept.ejs" style="color:white; font-size:18px; text-decoration:none; padding-left:350px; padding-right:50px;" target="_self">Home</a></p>
   
-  <h4 style="padding-bottom: 50px; text-align: center;">Information Technology Department Faculty</h4>
+  <p style="text-align:center"><a href="ETCFaculty.ejs" style="color:white; font-size:18px; text-decoration:none; padding-left:20px; padding-right:50px;" target="_self">Faculty</a></p>
+  
+  <p style="text-align:center"><a href="events/ETCevents.ejs" style="color:white; font-size:18px; text-decoration:none; padding-left:20px; padding-right:20px;" target="_self">Events</a></p>
+  </div>
+  
+
+  <h4 style="padding-bottom: 50px; padding-top: 50px; text-align: center;">ETC Department Faculty</h4>
   <div class="row" style="width:900px; margin-right:auto; margin-left:auto; ">
-    <%facultydata.forEach((j)=>{%>
+    <%etcfacultydata.forEach((j)=>{%>
       <div class="col-md-4">
         <div class="card mb-3" style="height:330px; width:250px; text-align: center;">
-          <img src="/backend/faculty/<%= j.facultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
+          <img src="/backend/etcfaculty/<%= j.etcfacultyPhoto%>" class="card-img-top" alt="Profile Avatar" style="width:250px; height:150px;">
           <div class="card-body" >
-            <h6 class="card-title"><%= j.facultyName %></h6>
-            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyQualification %></p>
-            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyDepartment %></p>
-            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyJoiningYear %></p>
-            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.facultyEmailId %></p>
+            <h6 class="card-title"><%= j.etcfacultyName %></h6>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyQualification %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyDepartment %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyJoiningYear %></p>
+            <p style="font-size: 14px; margin-bottom: 5px;" class="card-text"><%= j.etcfacultyEmailId %></p>
           </div>
         </div>
       </div>
-      <%facultydata})%>
+      <%etcfacultydata})%>
   </div>
+
 </div>
+ 
 
               <!-- end your content here -->
-            
               <%- include('common/footer.ejs')-%>
-          </body>
-        </html>     
+        </body>
+        </html>          
              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
              
