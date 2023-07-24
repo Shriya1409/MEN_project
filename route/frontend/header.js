@@ -580,7 +580,25 @@ router.get('/', (req,res) => {
         } 
         else if(extractValue === 'MechFaculty.ejs') {
             res.render('../views/frontend/dynamic-mechfaculty',{p})
-        } 
+        } //events-section
+        if(extractValue === 'ITEvents.ejs') {
+            res.render('../views/frontend/dynamic-itevents',{p})
+          } 
+          else if(extractValue === 'CompEvents.ejs') {
+              res.render('../views/frontend/dynamic-compevents',{p})
+          } 
+          else if(extractValue === 'ETCEvents.ejs') {
+              res.render('../views/frontend/dynamic-etcevents',{p})
+          } 
+          else if(extractValue === 'ENEEvents.ejs') {
+              res.render('../views/frontend/dynamic-eneevents',{p})
+          } 
+          else if(extractValue === 'CivilEvents.ejs') {
+              res.render('../views/frontend/dynamic-civilevents',{p})
+          } 
+          else if(extractValue === 'MechEvents.ejs') {
+              res.render('../views/frontend/dynamic-mechevents',{p})
+          } 
         else{
         res.render('../views/frontend/dynamic-dept',{p}) 
         }
