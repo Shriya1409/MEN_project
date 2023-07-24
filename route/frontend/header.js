@@ -608,45 +608,61 @@ router.get('/syllabus/scheme', (req,res) => {
 
 
 
- router.get('/department/events/:events', (req,res) => {
-    eventsModel.findOne({eventdepturl: req.params.events})
-    .then((p) => {
-       if(p){
-
-        res.render('../views/frontend/dept-events',{p}) 
-       }
-       else {
-        res.redirect('/')
-       }
-    })
-    .catch((q) => {
-        console.log(q)
-    })
-
- })
-
- router.get('/department/infrastructure/:infra', (req,res) => {
-    infrastructureModel.findOne({infradepturl: req.params.infra})
-    .then((p) => {
-       if(p){
-
-        res.render('../views/frontend/dept-infra',{p}) 
-       }
-       else {
-        res.redirect('/')
-       }
-    })
-    .catch((q) => {
-        console.log(q)
-    })
-
- })
-
-//  router.get('/department/comp/:compdept', (req,res) => {
-//     CompdeptModel.findOne({compdeptUrl: req.params.compdept})
+//  router.get('/department/events/:events', (req,res) => {
+//     eventsModel.findOne({eventdepturl: req.params.events})
 //     .then((p) => {
 //        if(p){
-//         res.render('../views/frontend/dynamic-compdept',{p}) 
+
+//         res.render('../views/frontend/dept-events',{p}) 
+//        }
+//        else {
+//         res.redirect('/')
+//        }
+//     })
+//     .catch((q) => {
+//         console.log(q)
+//     })
+
+//  })
+
+//  router.get('/department/infrastructure/:infra', (req,res) => {
+//     infrastructureModel.findOne({infradepturl: req.params.infra})
+//     .then((p) => {
+//        if(p){
+
+//         res.render('../views/frontend/dept-infra',{p}) 
+//        }
+//        else {
+//         res.redirect('/')
+//        }
+//     })
+//     .catch((q) => {
+//         console.log(q)
+//     })
+
+//  })
+
+// router.get('/department/it/:itdept', (req,res) => {
+//     ITdeptModel.findOne({eventitdepturl: req.params.itdept})
+//     .then((p) => {
+//        if(p){
+//         res.render('../views/frontend/itdept-events',{p}) 
+//        }
+//        else {
+//         res.redirect('/')
+//        }
+//     })
+//     .catch((q) => {
+//         console.log(q)
+//     })
+
+//  })
+
+//  router.get('/department/comp/:compdept', (req,res) => {
+//     CompdeptModel.findOne({eventcompdepturl: req.params.compdept})
+//     .then((p) => {
+//        if(p){
+//         res.render('../views/frontend/compdept-events',{p}) 
 //        }
 //        else {
 //         res.redirect('/')
