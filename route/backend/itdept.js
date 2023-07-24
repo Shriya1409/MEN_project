@@ -5,7 +5,7 @@ let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/departments/',
+    destination:'public/backend/itdepartmentevents',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-itdepartment/:id', (req,res) => {
-    ITdeptModel.findOne({ itdeptUrl: req.params.id })
+    ITdeptModel.findOne({ eventitdepturl: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-itdept-file', {x})
     })
@@ -48,15 +48,18 @@ router.get('/edit-itdepartment/:id', (req,res) => {
     })
 })
 
-router.put('/edit-itdepartment/:id', upload.single('itdept_Photo'), (req,res) => {
+router.put('/edit-itdepartment/:id', upload.single('eventitphoto'), (req,res) => {
     if(req.file){
-        ITdeptModel.updateOne({ itdeptUrl: req.params.id }, {$set:{
-            itdeptUrl: req.body.itdept_Url,
-            itdeptNavText: req.body.itdept_Nav_Text,
-            itdeptTitle: req.body.itdept_Title,
-            itdeptHeading: req.body.itdept_Heading,
-            itdeptPhoto: req.file.filename,
-            itdeptDetails: req.body.itdept_Details
+        ITdeptModel.updateOne({ eventitdepturl: req.params.id }, {$set:{
+            eventitdepturl: req.body.eventitdepturl,
+            eventitdeptnavtext: req.body.eventitdeptnavtext,
+            eventitdepttitle: req.body.eventitdepttitle,
+            eventitnav:req.body.eventitnav,
+            eventitname:req.body.eventitname,
+            eventitdate:req.body.eventitdate,
+            eventitperson: req.body.eventitperson,
+            eventitdesc:req.body.eventitdesc,
+            eventitphoto:req.file.filename,
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -65,13 +68,15 @@ router.put('/edit-itdepartment/:id', upload.single('itdept_Photo'), (req,res) =>
 
     }else {
 
-        ITdeptModel.updateOne({ itdeptUrl: req.params.id }, {$set:{
-            itdeptUrl: req.body.itdept_Url,
-            itdeptNavText: req.body.itdept_Nav_Text,
-            itdeptTitle: req.body.itdept_Title,
-            itdeptHeading: req.body.itdept_Heading,
-            // itdeptPhoto: req.file.filename,
-            itdeptDetails: req.body.itdept_Details
+        ITdeptModel.updateOne({ eventitdepturl: req.params.id }, {$set:{
+            eventitdepturl: req.body.eventitdepturl,
+            eventitdeptnavtext: req.body.eventitdeptnavtext,
+            eventitdepttitle: req.body.eventitdepttitle,
+            eventitnav:req.body.eventitnav,
+            eventitname:req.body.eventitname,
+            eventitdate:req.body.eventitdate,
+            eventitperson: req.body.eventitperson,
+            eventitdesc:req.body.eventitdesc,
         }})
        .then((x) => {
         req.flash('success', 'Your data has been updated successfully')
@@ -82,7 +87,7 @@ router.put('/edit-itdepartment/:id', upload.single('itdept_Photo'), (req,res) =>
 })
 
 router.delete('/delete-itdepartment/:id',(req,res) => {
-    ITdeptModel.deleteOne({itdeptUrl:req.params.id})
+    ITdeptModel.deleteOne({eventitdepturl:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/itdepartment')

@@ -5,7 +5,7 @@ let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/departments/',
+    destination:'public/backend/compdepartmentevents/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -31,8 +31,8 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-compdept-file')
     })
 
-router.post('/', upload.single('compdept_Photo') , (req,res) => {
-    CompdeptModel.findOne({compdeptUrl: req.body.compdeptUrl})
+router.post('/', upload.single('eventcompphoto') , (req,res) => {
+    CompdeptModel.findOne({eventcompdepturl: req.body.eventcompdepturl})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
@@ -43,12 +43,14 @@ router.post('/', upload.single('compdept_Photo') , (req,res) => {
             if(!req.file) {
 
                 CompdeptModel.create({
-                    compdeptUrl: req.body.compdept_Url,
-                    compdeptNavText: req.body.compdept_Nav_Text,
-                    compdeptTitle: req.body.compdept_Title,
-                    compdeptHeading: req.body.compdept_Heading,
-                    //  compdeptPhoto: req.file.filename,
-                    compdeptDetails: req.body.compdept_Details
+                    eventcompdepturl: req.body.eventcompdepturl,
+                    eventcompdeptnavtext: req.body.eventcompdeptnavtext,
+                    eventcompdepttitle: req.body.eventcompdepttitle,
+                    eventcompnav:req.body.eventcompnav,
+                    eventcompname:req.body.eventcompname,
+                    eventcompdate:req.body.eventcompdate,
+                    eventcompperson: req.body.eventcompperson,
+                    eventcompdesc:req.body.eventcompdesc,
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -58,12 +60,15 @@ router.post('/', upload.single('compdept_Photo') , (req,res) => {
             } else {
         
                 CompdeptModel.create({
-                    compdeptUrl: req.body.compdept_Url,
-                    compdeptNavText: req.body.compdept_Nav_Text,
-                    compdeptTitle: req.body.compdept_Title,
-                    compdeptHeading: req.body.compdept_Heading,
-                    compdeptPhoto: req.file.filename,
-                    compdeptDetails: req.body.compdept_Details
+                    eventcompdepturl: req.body.eventcompdepturl,
+                    eventcompdeptnavtext: req.body.eventcompdeptnavtext,
+                    eventcompdepttitle: req.body.eventcompdepttitle,
+                    eventcompname:req.body.eventcompname,
+                    eventcompnav:req.body.eventcompnav,
+                    eventcompdate:req.body.eventcompdate,
+                    eventcompperson: req.body.eventcompperson,
+                    eventcompdesc:req.body.eventcompdesc,
+                    eventcompphoto:req.file.filename,
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')

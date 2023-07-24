@@ -5,7 +5,7 @@ let router = express();
 
 // storage & file name setting
 let storage = multer.diskStorage({
-    destination:'public/backend/departments/',
+    destination:'public/backend/itdepartmentevents/',
     filename: (req, file, cb) => {
         // cb(null, Date.now(+file+originalname))
         cb(null, file.originalname)
@@ -39,8 +39,8 @@ router.get('/', (req,res) => {
         res.render('../views/backend/add-itdept-file')
     })
 
-router.post('/', upload.single('itdept_Photo') , (req,res) => {
-    ITdeptModel.findOne({itdeptUrl: req.body.itdeptUrl})
+router.post('/', upload.single('eventitphoto') , (req,res) => {
+    ITdeptModel.findOne({eventitdepturl: req.body.eventitdepturl})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
@@ -51,12 +51,14 @@ router.post('/', upload.single('itdept_Photo') , (req,res) => {
             if(!req.file) {
 
                 ITdeptModel.create({
-                    itdeptUrl: req.body.itdept_Url,
-                    itdeptNavText: req.body.itdept_Nav_Text,
-                    itdeptTitle: req.body.itdept_Title,
-                    itdeptHeading: req.body.itdept_Heading,
-                    //  itdeptPhoto: req.file.filename,
-                    itdeptDetails: req.body.itdept_Details
+                    eventitdepturl: req.body.eventitdepturl,
+                    eventitdeptnavtext: req.body.eventitdeptnavtext,
+                    eventitdepttitle: req.body.eventitdepttitle,
+                    eventitnav:req.body.eventitnav,
+                    eventitname:req.body.eventitname,
+                    eventitdate:req.body.eventitdate,
+                    eventitperson: req.body.eventitperson,
+                    eventitdesc:req.body.eventitdesc,
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')
@@ -66,12 +68,16 @@ router.post('/', upload.single('itdept_Photo') , (req,res) => {
             } else {
         
                 ITdeptModel.create({
-                    itdeptUrl: req.body.itdept_Url,
-                    itdeptNavText: req.body.itdept_Nav_Text,
-                    itdeptTitle: req.body.itdept_Title,
-                    itdeptHeading: req.body.itdept_Heading,
-                    itdeptPhoto: req.file.filename,
-                    itdeptDetails: req.body.itdept_Details
+                    eventitdepturl: req.body.eventitdepturl,
+                    eventitdeptnavtext: req.body.eventitdeptnavtext,
+                    eventitdepttitle: req.body.eventitdepttitle,
+                    eventitname:req.body.eventitname,
+                    eventitnav:req.body.eventitnav,
+                    eventitdate:req.body.eventitdate,
+                    eventitperson: req.body.eventitperson,
+                    eventitdesc:req.body.eventitdesc,
+                    eventitphoto:req.file.filename,
+                  
                 })
                 .then((x) => {
                     req.flash('success', 'Your data has been added successfully')

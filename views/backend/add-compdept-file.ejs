@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Add Page</title>
+   <title>Admin Panel - Add Comp Events</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -16,39 +16,49 @@
               <div class="dashboard-content-area">
 
                    <!-- put your contente -->
-                   <h1 class="mb-2 mt-2">Add Page</h1>
+                   <h1 class="mb-2 mt-2">Add Computer Department Events</h1>
     
                    <form method="post" action="/add-compdepartment" enctype="multipart/form-data">
                
-                     <div class="mb-3 mt-3 row g-9 align-items-center">  
-                       <div class="col col-lg-2"><label class="form-label">Page URL</label></div>
-                       <div class="col"><input type="text" name ="compdept_Url" class="form-control" placeholder="Comp page Url" required></div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                      <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                      <div class="col"><input type="text" name ="eventcompdepturl" class="form-control" placeholder="Department Url" required></div>
+                    </div>
+
+                    <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                       <div class="col"><input type="text" name ="eventcompdeptnavtext" class="form-control" placeholder="Navigation Display Text" required></div>
                      </div>
 
                      <div class="mb-3 mt-3 row g-9 align-items-center">  
-                        <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
-                        <div class="col"><input type="text" name ="compdept_Nav_Text" class="form-control" placeholder="Navigation Display Text" required></div>
-                      </div>
+                       <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                       <div class="col"><input type="text" name ="eventcompdepttitle" class="form-control" placeholder="Department Title" required></div>
+                     </div>
+                     <div class="mb-3 mt-3 row g-9 align-items-center">
+                       <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
+                       <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="eventcompnav" placeholder="Event Nav"></textarea></div>
+                     </div>
+                    <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                     <div class="col col-lg-2"><label class="form-label">Event Photo</label></div>
+                     <div class="col"><input type="file" name="eventcompphoto" class="form-control" placeholder="select image!!" ></div>
+                   </div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Event Name</label></div>
+                       <div class="col"><input type="text" name ="eventcompname" class="form-control" placeholder="Event Title" ></div>
+                     </div>
 
-                      <div class="mb-3 mt-3 row g-9 align-items-center">  
-                        <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
-                        <div class="col"><input type="text" name ="compdept_Title" class="form-control" placeholder="Your Page Title" required></div>
-                      </div>
-               
-                     <div class="mb-3 mt-3 row g-9 align-items-center">
-                       <div class="col col-lg-2"><label class="form-label">h1</label></div>
-                       <div class="col"><input type="text" name ="compdept_Heading" class="form-control" placeholder="Heading" ></div>
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Event Date</label></div>
+                       <div class="col"><input type="date" name ="eventcompdate" class="form-control" placeholder="Event Date" ></div>
                      </div>
-                     
-                     <div class="mb-3 mt-3 row g-9 align-items-center"> 
-                       <div class="col col-lg-2"><label class="form-label">Photo</label></div>
-                       <div class="col"><input type="file" name="compdept_Photo" class="form-control" ></div>
+                     <div class="mb-3 mt-3 row g-9 align-items-center">  
+                       <div class="col col-lg-2"><label class="form-label">Event Resource Person</label></div>
+                       <div class="col"><input type="text" name ="eventcompperson" class="form-control" placeholder="Event Resource Person" ></div>
                      </div>
-                     
-                     <div class="mb-3 mt-3 row g-9 align-items-center">
-                       <div class="col col-lg-2"><label class="form-label">Page Details</label></div>
-                       <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="compdept_Details" placeholder="Page Details"></textarea></div>
-                     </div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">
+                     <div class="col col-lg-2"><label class="form-label">Event Description</label></div>
+                     <div class="col"><textarea rows="4" class="form-control"  name="eventcompdesc" placeholder="Enter Description"></textarea></div>
+                   </div>
                
                      <div class="mb-5 mt-3 align-items-center text-center"> 
                           <button type="submit" class="btn btn-primary">Submit</button>
