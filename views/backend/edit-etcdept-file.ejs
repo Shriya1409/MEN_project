@@ -1,0 +1,68 @@
+<%- include('common/head.ejs')-%>
+
+   <title>Admin Panel - Edit ETC Event</title>
+   </head>
+   <body>
+    <%- include('common/header.ejs')-%>
+
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare" style="height:1700px; background-color: black;">
+
+                <%- include('common/sidebar.ejs')-%>
+
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+
+
+
+                 <!-- put your contente -->
+                 <h1 class="mb-2 mt-2">Edit ETC Event</h1>
+    
+                 <form method="post" action="/etcdepartment/edit-etcdepartment/<%=x.eventetcname%>?_method=put" enctype="multipart/form-data">
+             
+                   <div class="mb-3 mt-3 row g-9 align-items-center">
+                     <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
+                     <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="eventetcnav" placeholder="Event Nav"><%=x.eventetcnav %></textarea></div>
+                   </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                   <div class="col col-lg-2"><label class="form-label">Event Photo</label></div>
+                   <div class="col"><input type="file" name="eventetcphoto" class="form-control" value="<%=x.eventetcphoto %>" placeholder="select image!" ></div>
+                 </div>
+                 <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Name</label></div>
+                     <div class="col"><input type="text" name ="eventetcname" class="form-control" value="<%=x.eventetcname %>" placeholder="Event Title" ></div>
+                   </div>
+
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Date</label></div>
+                     <div class="col"><input type="date" name ="eventetcdate" class="form-control" value="<%=x.eventetcdate %>" placeholder="Event Date" ></div>
+                   </div>
+                   <div class="mb-3 mt-3 row g-9 align-items-center">  
+                     <div class="col col-lg-2"><label class="form-label">Event Resource Person</label></div>
+                     <div class="col"><input type="text" name ="eventetcperson" class="form-control" value="<%=x.eventetcperson %>" placeholder="Event Resourse Person" ></div>
+                   </div>
+                 <div class="mb-3 mt-3 row g-9 align-items-center">
+                   <div class="col col-lg-2"><label class="form-label">Event Description</label></div>
+                   <div class="col"><textarea rows="4" class="form-control"  name="eventetcdesc"value="<%=x.eventetcdesc %>" placeholder="Event Details"></textarea></div>
+                 </div>
+                
+             
+                   <div class="mb-5 mt-3 align-items-center text-center"> 
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                   </div>
+               </form>
+
+            <!-- end your content here -->
+
+
+
+
+             </div>
+            </div>
+         </div>
+      </div>
+<%- include('common/footer.ejs')-%>
+      
