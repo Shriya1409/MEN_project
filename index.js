@@ -85,7 +85,7 @@ const requireAuth = (req, res, next) => {
   } else {
     console.log('User not logged in. Redirecting to login page.');
     req.session.destroy();
-    req.flash('err', 'User is not authenticated!! Try again...');
+    // req.flash('err', 'User is not authenticated!! Try again...');
     res.redirect('/login'); // User is not authenticated, redirect to the login page
   }
 };
@@ -95,9 +95,9 @@ const requireAuth = (req, res, next) => {
 function getPermissionsForRole(role) {
   switch (role) {
     case 'admin':
-      return ['admin-file', 'page-file', 'add-page-file', 'carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','events','add-events','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
+      return ['admin-file', 'page-file', 'add-page-file', 'carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
     case 'adminn':
-      return ['admin-file','page-file', 'add-page-file','carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','events','add-events','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
+      return ['admin-file','page-file', 'add-page-file','carousel-imgs-file','add-carousel-imgs-file','notif-file','add-notif', 'dept-file','add-dept-file','infra-file','add-infra-file','result-file','add-result-file','syllabus-file','add-syllabus-file','student-record','add-student-records','faculty-file','add-faculty-file','compfaculty-file','add-compfaculty-file','etcfaculty-file','add-etcfaculty-file','enefaculty-file','add-enefaculty-file','mechfaculty-file','add-mechfaculty-file','civilfaculty-file','add-civilfaculty-file','placement-file','add-plcmt-file'];
     case 'faculty':
       return ['admin-file'];
     case 'placement':
@@ -116,7 +116,7 @@ const requirePermission = (permission) => (req, res, next) => {
     next(); // User has the required permission, proceed to the next middleware or route handler
   } else {
     console.log('User doesnt have permission. Redirecting to login page.');
-    req.flash('err', 'User doesnt have permission.!! Try again...');
+    // req.flash('err', 'User doesnt have permission.!! Try again...');
     res.redirect('/admin'); // User does not have the required permission, redirect to the dashboard
   }
 };
@@ -225,20 +225,20 @@ app.get('/add-infra', requireAuth, requirePermission('add-infra-file'), (req, re
 });
 
 //DEPARTMENTS - Events
-app.get('/events', requireAuth, requirePermission('events'), (req, res) => {
-  eventsModel.find({})
-    .then((navdata) => {
-      res.render('../views/backend/events', { user: req.session.user, navdata: navdata });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.redirect('/admin'); // Handle the error and redirect to the appropriate page
-    });
-});
+// app.get('/events', requireAuth, requirePermission('events'), (req, res) => {
+//   eventsModel.find({})
+//     .then((navdata) => {
+//       res.render('../views/backend/events', { user: req.session.user, navdata: navdata });
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.redirect('/admin'); // Handle the error and redirect to the appropriate page
+//     });
+// });
 
-app.get('/add-events', requireAuth, requirePermission('add-events'), (req, res) => {
-  res.render('../views/backend/add-events', { user: req.session.user });
-});
+// app.get('/add-events', requireAuth, requirePermission('add-events'), (req, res) => {
+//   res.render('../views/backend/add-events', { user: req.session.user });
+// });
 
 //RESULT
 app.get('/result', requireAuth, requirePermission('result-file'), (req, res) => {
@@ -497,6 +497,11 @@ let adddepttemproute=require('./route/backend/dept-temp')
 
 let addinfraroute=require('./route/backend/add-infra')
 let infraroute=require('./route/backend/infra')
+<<<<<<< HEAD
+=======
+// let addeventsroute=require('./route/backend/add-events')
+// let eventsroute=require('./route/backend/events')
+>>>>>>> ee4ee0e8f4b4b4a1334ada124c5040b06eff842a
 let addcontactroute=require('./route/backend/add-contact')
 let showcontactroute=require('./route/backend/show-contact')
 
@@ -559,7 +564,12 @@ app.use('/add-usefullink', adduseful)
 app.use('/usefullink', usefullinkroute)
 app.use('/add-infra', addinfraroute)
 app.use('/infra', infraroute)
+<<<<<<< HEAD
 
+=======
+// app.use('/add-events', addeventsroute)
+// app.use('/events', eventsroute)
+>>>>>>> ee4ee0e8f4b4b4a1334ada124c5040b06eff842a
 
 app.use('/add-contact', addcontactroute)
 app.use('/show-contact', showcontactroute)

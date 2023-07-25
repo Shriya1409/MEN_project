@@ -696,16 +696,6 @@ router.get('/', (req,res) => {
     plcmtRecords.find()
     .then((a) => {
        if(a){
-
-        //  const extractValue = p.deptUrl;
-        //  if(extractValue) {
-        // if(extractValue === 'result.ejs') {
-        //   res.render('../views/frontend/dynamic-page',{p})
-        // } else if(extractValue === 'register') {
-        //     res.render('../views/frontend/register',{p})
-        // } else {
-        //   res.render('../views/frontend/register',{p})
-        // }
         res.render('../views/backend/plcmtrecord',{a}) 
        }
        else {
