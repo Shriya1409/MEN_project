@@ -48,7 +48,7 @@ router.get('/edit-compdepartment/:id', (req,res) => {
     })
 })
 
-router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res) => {
+router.put('/edit-compdepartment/:id', upload.single('eventcompphoto'), (req,res) => {
     if(req.file){
         CompdeptModel.updateOne({ eventcompname: req.params.id }, {$set:{
             eventcompnav:req.body.eventcompnav,
