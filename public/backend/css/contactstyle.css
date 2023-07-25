@@ -1,11 +1,11 @@
 form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 50px 60px 50px 60px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #4c66ab;
+    background-color: #0a1e5f;
     color:#fff;
 }
 
@@ -27,6 +27,7 @@ textarea {
 
 textarea {
     resize: vertical;
+    
 }
 
 input[type="submit"] {

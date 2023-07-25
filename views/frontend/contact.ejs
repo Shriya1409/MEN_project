@@ -13,7 +13,7 @@
 <body>
     <%- include('common/header.ejs')-%>
     
-    <form method="post" action="/add-contact">
+    <form method="post" action="/add-contact" >
         <div style="text-align: center; font-weight: bold;">CONTACT FORM</div>
         <label for="cname">Name:</label>
         <input type="text" id="cname" name="cname" required><br><br>
@@ -25,7 +25,7 @@
         <input type="text" id="csubject" name="csubject" ><br><br>
 
         <label for="message">Message:</label><br>
-        <textarea id="message" name="cmessage" rows="4" cols="50" ></textarea><br><br>
+        <textarea id="message" name="cmessage" rows="2" cols="50" ></textarea><br><br>
 
         <input type="submit" value="Submit">
     </form>
