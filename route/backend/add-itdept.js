@@ -40,7 +40,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('eventitphoto') , (req,res) => {
-    ITdeptModel.findOne({eventitdepturl: req.body.eventitdepturl})
+    ITdeptModel.findOne({eventitname: req.body.eventitname})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
@@ -51,9 +51,6 @@ router.post('/', upload.single('eventitphoto') , (req,res) => {
             if(!req.file) {
 
                 ITdeptModel.create({
-                    eventitdepturl: req.body.eventitdepturl,
-                    eventitdeptnavtext: req.body.eventitdeptnavtext,
-                    eventitdepttitle: req.body.eventitdepttitle,
                     eventitnav:req.body.eventitnav,
                     eventitname:req.body.eventitname,
                     eventitdate:req.body.eventitdate,
@@ -68,9 +65,6 @@ router.post('/', upload.single('eventitphoto') , (req,res) => {
             } else {
         
                 ITdeptModel.create({
-                    eventitdepturl: req.body.eventitdepturl,
-                    eventitdeptnavtext: req.body.eventitdeptnavtext,
-                    eventitdepttitle: req.body.eventitdepttitle,
                     eventitname:req.body.eventitname,
                     eventitnav:req.body.eventitnav,
                     eventitdate:req.body.eventitdate,

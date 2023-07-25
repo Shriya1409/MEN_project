@@ -21,22 +21,7 @@
                  <!-- put your contente -->
                  <h1 class="mb-2 mt-2">Edit Computer Department Events</h1>
     
-                 <form method="post" action="/compdepartment/edit-compdepartment/<%=x.eventcompdepturl%>?_method=put" enctype="multipart/form-data">
-             
-                  <div class="mb-3 mt-3 row g-9 align-items-center">  
-                    <div class="col col-lg-2"><label class="form-label">URL</label></div>
-                    <div class="col"><input type="text" name ="eventcompdepturl" class="form-control" value="<%= x.eventcompdepturl %>" placeholder="Department Url" required></div>
-                  </div>
-
-                  <div class="mb-3 mt-3 row g-9 align-items-center">  
-                     <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
-                     <div class="col"><input type="text" name ="eventcompdeptnavtext" class="form-control" value="<%=x.eventcompdeptnavtext %>" placeholder="Navigation Display Text" required></div>
-                   </div>
-
-                   <div class="mb-3 mt-3 row g-9 align-items-center">  
-                     <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
-                     <div class="col"><input type="text" name ="eventcompdepttitle" class="form-control" value="<%=x.eventcompdepttitle %>" placeholder="Department Title" required></div>
-                   </div>
+                 <form method="post" action="/compdepartment/edit-compdepartment/<%=x.eventcompname%>?_method=put" enctype="multipart/form-data">
                    <div class="mb-3 mt-3 row g-9 align-items-center">
                      <div class="col col-lg-2"><label class="form-label">Navbar</label></div>
                      <div class="col"><textarea rows="10" class="editor form-control Page_Details" id="editor" name="eventcompnav" placeholder="Event Nav"><%=x.eventnav %></textarea></div>
