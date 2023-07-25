@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-compdepartment/:id', (req,res) => {
-    CompdeptModel.findOne({ eventcompdepturl: req.params.id })
+    CompdeptModel.findOne({ eventcompname: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-compdept-file', {x})
     })
@@ -50,10 +50,7 @@ router.get('/edit-compdepartment/:id', (req,res) => {
 
 router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res) => {
     if(req.file){
-        CompdeptModel.updateOne({ eventcompdepturl: req.params.id }, {$set:{
-            eventcompdepturl: req.body.eventcompdepturl,
-            eventcompdeptnavtext: req.body.eventcompdeptnavtext,
-            eventcompdepttitle: req.body.eventcompdepttitle,
+        CompdeptModel.updateOne({ eventcompname: req.params.id }, {$set:{
             eventcompnav:req.body.eventcompnav,
             eventcompname:req.body.eventcompname,
             eventcompdate:req.body.eventcompdate,
@@ -68,10 +65,7 @@ router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res
 
     }else {
 
-        CompdeptModel.updateOne({ eventcompdepturl: req.params.id }, {$set:{
-            eventcompdepturl: req.body.eventcompdepturl,
-            eventcompdeptnavtext: req.body.eventcompdeptnavtext,
-            eventcompdepttitle: req.body.eventcompdepttitle,
+        CompdeptModel.updateOne({ eventcompname: req.params.id }, {$set:{
             eventcompnav:req.body.eventcompnav,
             eventcompname:req.body.eventcompname,
             eventcompdate:req.body.eventcompdate,
@@ -87,7 +81,7 @@ router.put('/edit-compdepartment/:id', upload.single('compdept_Photo'), (req,res
 })
 
 router.delete('/delete-compdepartment/:id',(req,res) => {
-    CompdeptModel.deleteOne({eventcompdepturl:req.params.id})
+    CompdeptModel.deleteOne({eventcompname:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/compdepartment')

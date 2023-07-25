@@ -39,7 +39,7 @@ router.get('/', (req,res) => {
 
 
 router.get('/edit-itdepartment/:id', (req,res) => {
-    ITdeptModel.findOne({ eventitdepturl: req.params.id })
+    ITdeptModel.findOne({ eventitname: req.params.id })
     .then((x) => {
         res.render('../views/backend/edit-itdept-file', {x})
     })
@@ -50,10 +50,7 @@ router.get('/edit-itdepartment/:id', (req,res) => {
 
 router.put('/edit-itdepartment/:id', upload.single('eventitphoto'), (req,res) => {
     if(req.file){
-        ITdeptModel.updateOne({ eventitdepturl: req.params.id }, {$set:{
-            eventitdepturl: req.body.eventitdepturl,
-            eventitdeptnavtext: req.body.eventitdeptnavtext,
-            eventitdepttitle: req.body.eventitdepttitle,
+        ITdeptModel.updateOne({ eventitname: req.params.id }, {$set:{
             eventitnav:req.body.eventitnav,
             eventitname:req.body.eventitname,
             eventitdate:req.body.eventitdate,
@@ -68,10 +65,7 @@ router.put('/edit-itdepartment/:id', upload.single('eventitphoto'), (req,res) =>
 
     }else {
 
-        ITdeptModel.updateOne({ eventitdepturl: req.params.id }, {$set:{
-            eventitdepturl: req.body.eventitdepturl,
-            eventitdeptnavtext: req.body.eventitdeptnavtext,
-            eventitdepttitle: req.body.eventitdepttitle,
+        ITdeptModel.updateOne({ eventitname: req.params.id }, {$set:{
             eventitnav:req.body.eventitnav,
             eventitname:req.body.eventitname,
             eventitdate:req.body.eventitdate,
@@ -87,7 +81,7 @@ router.put('/edit-itdepartment/:id', upload.single('eventitphoto'), (req,res) =>
 })
 
 router.delete('/delete-itdepartment/:id',(req,res) => {
-    ITdeptModel.deleteOne({eventitdepturl:req.params.id})
+    ITdeptModel.deleteOne({eventitname:req.params.id})
     .then((x) => {
         req.flash('success', 'Your data has been deleted successfully')
         res.redirect('/itdepartment')

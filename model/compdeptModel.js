@@ -1,18 +1,7 @@
 let mongoose = require("mongoose")
 
 let compdeptModelSchema = mongoose.Schema({
-    eventcompdepturl :{
-        type:String,
-       required:true,
-    },
-    eventcompdeptnavtext: {
-        type:String,
-        required:true,
-    },
-    eventcompdepttitle :{
-        type:String,
-        required:true,
-    },
+
     eventcompnav:{
         type:String,
     },

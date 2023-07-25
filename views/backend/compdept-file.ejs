@@ -7,7 +7,7 @@
 
       <div class="container-fluid bg-side-nav">
          <div class="row">
-            <div class="col-lg-2 sidebaare" style="height:700px; background-color: black;">
+            <div class="col-lg-2 sidebaare" style="height:1700px; background-color: black;">
 
                 <%- include('common/sidebar.ejs')-%>
 
@@ -34,9 +34,6 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                      <tr>
-                        <th>Dept URL</th>
-                        <th>Navigation</th>
-                        <th>Title</th>
                         <th>Event Name</th>
                         <th>Event Date</th>
                         <th>Event Resource Person</th>
@@ -48,16 +45,13 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <td><%= y.eventcompdepturl%></td>
-                        <td><%=y.eventcompdeptnavtext%></td>
-                        <td><%=y.eventcompdepttitle%></td>
                         <td><%= y.eventcompname%></td>
                         <td><%=y.eventcompdate%></td>
                         <td><%=y.eventcompperson%></td>
                         <td><%= y.eventcompdesc%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.eventcompdepturl%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.eventcompdepturl%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.eventcompname%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.eventcompname%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>
