@@ -81,10 +81,16 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" style=" color: white; font-size: 1.1rem; text-decoration: none; padding-left: 1rem; padding-right: 1rem;" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Department</a>
             <div class="dropdown-menu">
-              <% deptdata.forEach((q) => { %>
+              <!-- <% deptdata.forEach((q) => { %>
               <a class="dropdown-item" style=" color: black;" href="/department/<%=q.deptUrl%>"><%=q.deptNavText%></a>
-              <% }) %> 
+              <% }) %>  -->
 
+              <a class="dropdown-item" style=" color: black;" href="/department/informationTech.ejs">Information Technology</a>
+              <a class="dropdown-item" style=" color: black;" href="/department/computerDept.ejs">Computer</a>
+              <a class="dropdown-item" style=" color: black;" href="/department/etcDept.ejs">Electronics & Telecommunication</a>
+              <a class="dropdown-item" style=" color: black;" href="/department/eneDept.ejs">Electrical & Electronics</a>
+              <a class="dropdown-item" style=" color: black;" href="/department/mechanicalDept.ejs	">Mechanical</a>
+              <a class="dropdown-item" style=" color: black;" href="/department/civilDept.ejs">Civil</a>
               
               </div>
           </li>
