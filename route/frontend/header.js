@@ -661,7 +661,7 @@ router.get('/', (req,res) => {
         else if(extractValue === 'MechFaculty.ejs') {
             res.render('../views/frontend/dynamic-mechfaculty',{p})
         } //events-section
-        if(extractValue === 'ITEvents.ejs') {
+        else if(extractValue === 'ITEvents.ejs') {
             res.render('../views/frontend/dynamic-itevents',{p})
           } 
           else if(extractValue === 'CompEvents.ejs') {
