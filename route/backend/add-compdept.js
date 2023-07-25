@@ -32,7 +32,7 @@ router.get('/', (req,res) => {
     })
 
 router.post('/', upload.single('eventcompphoto') , (req,res) => {
-    CompdeptModel.findOne({eventcompdepturl: req.body.eventcompdepturl})
+    CompdeptModel.findOne({eventcompname: req.body.eventcompname})
     .then((a) => {
         if(a) {
             req.flash('err', 'Urll already exists, Please try with another url!!')
@@ -43,9 +43,6 @@ router.post('/', upload.single('eventcompphoto') , (req,res) => {
             if(!req.file) {
 
                 CompdeptModel.create({
-                    eventcompdepturl: req.body.eventcompdepturl,
-                    eventcompdeptnavtext: req.body.eventcompdeptnavtext,
-                    eventcompdepttitle: req.body.eventcompdepttitle,
                     eventcompnav:req.body.eventcompnav,
                     eventcompname:req.body.eventcompname,
                     eventcompdate:req.body.eventcompdate,
@@ -60,11 +57,8 @@ router.post('/', upload.single('eventcompphoto') , (req,res) => {
             } else {
         
                 CompdeptModel.create({
-                    eventcompdepturl: req.body.eventcompdepturl,
-                    eventcompdeptnavtext: req.body.eventcompdeptnavtext,
-                    eventcompdepttitle: req.body.eventcompdepttitle,
-                    eventcompname:req.body.eventcompname,
                     eventcompnav:req.body.eventcompnav,
+                    eventcompname:req.body.eventcompname,
                     eventcompdate:req.body.eventcompdate,
                     eventcompperson: req.body.eventcompperson,
                     eventcompdesc:req.body.eventcompdesc,
