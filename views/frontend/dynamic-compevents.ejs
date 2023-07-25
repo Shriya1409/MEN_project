@@ -22,22 +22,22 @@
 <center><h2 style="padding-top: 30px; padding-bottom: 30px;">Computer Department Events</h2></center>
         <div class="event-page" style="background-color:#fff; border:2px solid black;">
 
- 
+          <% compdeptdata.forEach((j)=>{ %>
    
         <div class="event-card" style="display:flex; color: white; margin-top:5px; margin-bottom:5px;">
                 <div class="event-img" style="float:left; position: relative; left: 10px;">
-                    <img style="size:100px; height: 200px; width:300px; padding:10px;" src="/backend/compdepartmentevents/<%=p.eventcompphoto%>">
+                    <img style="size:100px; height: 200px; width:300px; padding:10px;" src="/backend/compdepartmentevents/<%=j.eventcompphoto%>">
                 </div>
                 <div class="event-details" style="float:right; position: relative; margin-top:auto; margin-bottom:auto;left: 100px; color: black;">  
-                    <div style="padding:5px;">Event Name: <%=p.eventcompname %> </div>  
-                    <div style="padding:5px;"> Event Date: <%=p.eventcompdate %></div>
-                    <div style="padding:5px;"> Resource Person: <%=p.eventcompperson %></div>
-                    <div style="padding:5px;"> About:  <%=p.eventcompdesc %> </div>   
+                    <div style="padding:5px;">Event Name: <%=j.eventcompname %> </div>  
+                    <div style="padding:5px;"> Event Date: <%=j.eventcompdate %></div>
+                    <div style="padding:5px;"> Resource Person: <%=j.eventcompperson %></div>
+                    <div style="padding:5px;"> About:  <%=j.eventcompdesc %> </div>   
                 </div>
 
         </div>
 
-     
+        <%compdeptdata})%>
     </div>
 
  

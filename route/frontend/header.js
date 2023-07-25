@@ -4,8 +4,12 @@ let pageModel = require('../../model/pageModel')
 let deptModel = require('../../model/deptModel')
 let ITdeptModel = require('../../model/itdeptModel')
 let CompdeptModel = require('../../model/compdeptModel')
-let plcmtModel=require('../../model/plcmtModel')
+let ETCdeptModel=require('../../model/etcdeptModel')
+let ENEdeptModel=require('../../model/enedeptModel')
+let CivildeptModel=require('../../model/civildeptModel')
+let MechdeptModel=require('../../model/mechdeptModel')
 
+let plcmtModel=require('../../model/plcmtModel')
 let plcmtRecords=require('../../model/plcmtRecords')
 
 let contactModel = require('../../model/contactModel');
@@ -208,41 +212,117 @@ router.use((req, res, next) => {
     next()
 })
 ITdeptModel.find({})
-    .then((p)=> {
-        router.locals.itdeptdata = p;
+    .then((i)=> {
+        router.locals.itdeptdata = i;
     })
-    .catch((q) => {
-        console.log(q)
+    .catch((j) => {
+        console.log(j)
     })
 
 router.use((req, res, next) => {
     ITdeptModel.find({})
-        .then((p) => {
-            res.locals.itdeptdata = p; //here set local variable  and then value
+        .then((i) => {
+            res.locals.itdeptdata = i; //here set local variable  and then value
             //console.log(x)
         })
-        .catch((q) => {
-            console.log(q)
+        .catch((j) => {
+            console.log(j)
         })
     next()
 })
 
 CompdeptModel.find({})
-    .then((p)=> {
-        router.locals.compdeptdata = p;
+    .then((i)=> {
+        router.locals.compdeptdata = i;
     })
-    .catch((q) => {
-        console.log(q)
+    .catch((j) => {
+        console.log(j)
     })
 
 router.use((req, res, next) => {
     CompdeptModel.find({})
-        .then((p) => {
-            res.locals.compdeptdata = p; //here set local variable  and then value
+        .then((i) => {
+            res.locals.compdeptdata = i; //here set local variable  and then value
             //console.log(x)
         })
-        .catch((q) => {
-            console.log(q)
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+ETCdeptModel.find({})
+    .then((i)=> {
+        router.locals.etcdeptdata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    ETCdeptModel.find({})
+        .then((i) => {
+            res.locals.etcdeptdata = i; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+ENEdeptModel.find({})
+    .then((i)=> {
+        router.locals.enedeptdata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    ENEdeptModel.find({})
+        .then((i) => {
+            res.locals.enedeptdata = i; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+CivildeptModel.find({})
+    .then((i)=> {
+        router.locals.civildeptdata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    CivildeptModel.find({})
+        .then((i) => {
+            res.locals.civildeptdata = i; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((j) => {
+            console.log(j)
+        })
+    next()
+})
+MechdeptModel.find({})
+    .then((i)=> {
+        router.locals.mechdeptdata = i;
+    })
+    .catch((j) => {
+        console.log(j)
+    })
+
+router.use((req, res, next) => {
+    MechdeptModel.find({})
+        .then((i) => {
+            res.locals.mechdeptdata = i; //here set local variable  and then value
+            //console.log(x)
+        })
+        .catch((j) => {
+            console.log(j)
         })
     next()
 })

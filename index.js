@@ -497,8 +497,6 @@ let adddepttemproute=require('./route/backend/dept-temp')
 
 let addinfraroute=require('./route/backend/add-infra')
 let infraroute=require('./route/backend/infra')
-let addeventsroute=require('./route/backend/add-events')
-let eventsroute=require('./route/backend/events')
 let addcontactroute=require('./route/backend/add-contact')
 let showcontactroute=require('./route/backend/show-contact')
 
@@ -561,8 +559,7 @@ app.use('/add-usefullink', adduseful)
 app.use('/usefullink', usefullinkroute)
 app.use('/add-infra', addinfraroute)
 app.use('/infra', infraroute)
-app.use('/add-events', addeventsroute)
-app.use('/events', eventsroute)
+
 
 app.use('/add-contact', addcontactroute)
 app.use('/show-contact', showcontactroute)

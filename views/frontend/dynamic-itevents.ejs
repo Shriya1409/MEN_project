@@ -22,21 +22,20 @@
   <center><h2 style="padding-top: 30px; padding-bottom: 30px;">Information Technology Department Events</h2></center>
         <div class="event-page" style="background-color:#fff;  border:2px solid black;">
 
- 
-   
+ <% itdeptdata.forEach((j)=>{ %>
         <div class="event-card" style="display:flex; color: white; margin-top:5px; margin-bottom:5px;">
                 <div class="event-img" style="float:left; position: relative; left: 10px;">
-                    <img style="size:100px; height: 200px; width:300px; padding:10px;" src="/backend/itdepartmentevents/<%=p.eventitphoto%>">
+                    <img style="size:100px; height: 200px; width:300px; padding:10px;" src="/backend/itdepartmentevents/<%=j.eventitphoto%>">
                 </div>
                 <div class="event-details" style="float:right; position: relative; margin-top:auto; margin-bottom:auto;left: 100px; color: black;">  
-                    <div style="padding:5px;">Event Name: <%=p.eventitname %> </div>  
-                    <div style="padding:5px;"> Event Date: <%=p.eventitdate %></div>
-                    <div style="padding:5px;"> Resource Person: <%=p.eventitperson %></div>
-                    <div style="padding:5px;"> About:  <%=p.eventitdesc %> </div>   
+                    <div style="padding:5px;">Event Name: <%=j.eventitname %> </div>  
+                    <div style="padding:5px;"> Event Date: <%=j.eventitdate %></div>
+                    <div style="padding:5px;"> Resource Person: <%=j.eventitperson %></div>
+                    <div style="padding:5px;"> About:  <%=j.eventitdesc %> </div>   
                 </div>
-
+                <div></div>
         </div>
-
+        <%itdeptdata})%>
      
     </div>
 
