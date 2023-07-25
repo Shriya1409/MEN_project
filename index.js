@@ -497,11 +497,10 @@ let adddepttemproute=require('./route/backend/dept-temp')
 
 let addinfraroute=require('./route/backend/add-infra')
 let infraroute=require('./route/backend/infra')
-<<<<<<< HEAD
-=======
+
 // let addeventsroute=require('./route/backend/add-events')
 // let eventsroute=require('./route/backend/events')
->>>>>>> ee4ee0e8f4b4b4a1334ada124c5040b06eff842a
+
 let addcontactroute=require('./route/backend/add-contact')
 let showcontactroute=require('./route/backend/show-contact')
 
@@ -564,12 +563,12 @@ app.use('/add-usefullink', adduseful)
 app.use('/usefullink', usefullinkroute)
 app.use('/add-infra', addinfraroute)
 app.use('/infra', infraroute)
-<<<<<<< HEAD
 
-=======
+
+
 // app.use('/add-events', addeventsroute)
 // app.use('/events', eventsroute)
->>>>>>> ee4ee0e8f4b4b4a1334ada124c5040b06eff842a
+
 
 app.use('/add-contact', addcontactroute)
 app.use('/show-contact', showcontactroute)
@@ -722,9 +721,6 @@ app.post('/logout', (req, res) => {
     res.redirect('/login');
   }
 });
-
-
-
 
 
 
