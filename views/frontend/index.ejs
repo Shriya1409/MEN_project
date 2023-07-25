@@ -69,14 +69,14 @@
             <div class="section" id="notif">
                     <div class="notif">
                       <div class="scrollarea-1">
-                      <div class="nname1">Notices</div>
+                    <h4 style="padding-right: 100px;">Notices</h4>
                         <div class="scroll-bar-1">
-                      <ul class="notice-1">
+                      <ul class="notice-1" style="padding-right: 30px; padding-top: 10px; padding-bottom: 20px;">
                         <!-- loop for links -->
                         <%noticesdata.forEach((e)=>{%>
-                        <li style="border-bottom: solid 1px black;padding-bottom:5px; padding-top:5px;">
+                        <li style="border-bottom: solid 1px black;padding-bottom:5px; padding-top:5px; list-style-type: none;">
                           <!-- <a style="text-decoration: none; color:black;" target="_blank" href="<%=e.noticeinfo%>"><%= e.noticename%></a> -->
-                          <a href="/backend/notices/<%=e.noticeinfo%>" style="text-decoration: none; color:rgb(6, 7, 7);"><%= e.noticename%></a>
+                          <a href="/backend/notices/<%=e.noticeinfo%>" style="text-decoration: none;  color:rgb(6, 7, 7);"><%= e.noticename%></a>
                         </li>
                        <%noticesdata}) %>
 
@@ -86,12 +86,12 @@
                           </div>
                         </div>
                         <div class="scrollarea-2">
-                          <div class="nname2">Useful Links</div>
+                          <h4 style="padding-right: 100px;">Events</h4>
                           <div class="scroll-bar-2">
-                            <ul class="events-2">
+                            <ul class="events-2" style="padding-right: 30px; padding-top: 10px; padding-bottom: 20px;">
                             <!-- loop for links -->
                             <% usefuldata.forEach((m)=>{%>
-                              <li style="border-bottom: solid 1px black; padding-bottom:5px; padding-top:5px;">
+                              <li style="border-bottom: solid 1px black; padding-bottom:5px; padding-top:5px; list-style-type: none;">
                                 <a href="/backend/usefullink/<%=m.usefulinfo%>" style="text-decoration: none; color:rgb(5, 7, 7);"><%= m.usefulinfoname%></a>
                               </li>
 
