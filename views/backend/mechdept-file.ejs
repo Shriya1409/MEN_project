@@ -1,6 +1,6 @@
 <%- include('common/head.ejs')-%>
 
-   <title>Admin Panel - Pages</title>
+   <title>Admin Panel - Mech Events</title>
    </head>
    <body>
     <%- include('common/header.ejs')-%>
@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-lg-10">
- <center> <br> <a class="btn btn-success btn-md" href="/add-compdepartment/">Add More Pages</a> </center>
+ <center> <br> <a class="btn btn-success btn-md" href="/add-mechdepartment/">Add More Events</a> </center>
               <div class="dashboard-content-area">
                <%if(success && success != ''){%>
                   <div class="alert alert-success" role="alert">
@@ -27,7 +27,7 @@
 
                  <!-- put your contente -->
 
-               <h1>All Pages</h1>
+               <h1>All Events</h1>
             
                
                
@@ -45,13 +45,14 @@
                   <tbody>
                      <%x.forEach((y)=>{%>
                      <tr>
-                        <td><%= y.eventcompname%></td>
-                        <td><%=y.eventcompdate%></td>
-                        <td><%=y.eventcompperson%></td>
-                        <td><%= y.eventcompdesc%></td>
+                       
+                        <td><%= y.eventmechname%></td>
+                        <td><%=y.eventmechdate%></td>
+                        <td><%=y.eventmechperson%></td>
+                        <td><%= y.eventmechdesc%></td>
                         
-                        <td>  <a class="btn btn-primary" href="/compdepartment/edit-compdepartment/<%= y.eventcompname%>">Edit</a>    </td>                  
-                        <td>  <form style="display: inline;" action="/compdepartment/delete-compdepartment/<%= y.eventcompname%>?_method=DELETE" method="POST">
+                        <td>  <a class="btn btn-primary" href="/mechdepartment/edit-mechdepartment/<%= y.eventmechname%>">Edit</a>    </td>                  
+                        <td>  <form style="display: inline;" action="/mechdepartment/delete-mechdepartment/<%= y.eventmechname%>?_method=DELETE" method="POST">
                               <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                            </form>
                         </td>
